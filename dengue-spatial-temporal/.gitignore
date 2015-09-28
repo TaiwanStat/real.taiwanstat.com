@@ -4,5 +4,5 @@ npm-debug.log
 *.swp
 .DS_Store
 *~
-*.csv
+data/*.csv
 *.pyc
