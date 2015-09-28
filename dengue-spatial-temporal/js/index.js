@@ -150,13 +150,14 @@
       }
       if (argvs.showBig && dist800 == 'on') {
         var bigCircle = L.circle([point.Latitude, point.Longitude], 800, 
-          {fillColor: '#DE8552', color: '#CA1F18', opacity: 0.1})
+          {fillColor: '#DE8552', color: '#CA1F18', opacity: 0.1, clickable: false})
           .addTo(map);
         circles.push(bigCircle);
       }
      
       var circle = L.circle([point.Latitude, point.Longitude], argvs.size,
-        {fillColor: argvs.fillColor, color: argvs.color, opacity: argvs.opacity})
+        {fillColor: argvs.fillColor, color: argvs.color, opacity: argvs.opacity,
+          clickable: false})
         .addTo(map);
 
       if (argvs.showBig) {
