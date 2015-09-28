@@ -1,0 +1,232 @@
+html {
+    font-family: 'Noto Sans', 'sans-serif', 'Microsoft Jhenghei';
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+body {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+a {
+    color: #337ab7;
+    text-decoration: blink;
+}
+
+.fb-share-button.fb_iframe_widget {
+    display: none;
+    position: fixed;
+    right: 10px;
+    top: 20px;
+}
+
+.info-footer {
+    position: fixed;
+    bottom: 60px;
+    left: 10px;
+    z-index: 999;
+}
+.info-footer h5 {
+    font-size: 16px;
+    margin: 20px;
+}
+
+.st {
+  position: absolute;
+  right: 10px;
+  z-index: 30;
+  bottom: 60px;
+  font-weight: bold;
+}
+
+.red {
+    color:rgb(244, 0, 0);
+}
+.darkpurple {
+    color: #5C016B;
+}
+.purple {
+    color: #E062C8;
+}
+.blue {
+    color: #39AADD;
+}
+.green {
+    color: #7FB73A;
+}
+.orange {
+    color: #E39941;
+}
+.yellow {
+    color: #EFCB17;
+}
+.brown {
+    color: #5F2828;
+}
+
+#map {
+    height: 83%;
+}
+.layer {
+    fill: #ccc;
+}
+
+.point-cell {
+    fill: none;
+    pointer-events: all;
+    stroke: #000;
+    stroke-opacity: .2;
+}
+i.fa.fa-compass.fa-2x {
+    cursor: pointer;
+    position: absolute;
+    right: 25px;
+    top: 25rem;
+    z-index: 20;
+    background: white;
+    border-radius: 30px;
+    color: #474747;
+    padding: 10px;
+
+    width: 38px;
+    height: 38px;
+    text-align: center;
+    font-size: 20px;
+}
+i.fa.fa-info.fa-2x {
+    cursor: pointer;
+    position: absolute;
+    right: 25px;
+    top: 18rem;
+    z-index: 20;
+    background: white;
+    border-radius: 30px;
+    color: #474747;
+    padding: 10px;
+    width: 38px;
+    height: 38px;
+    text-align: center;
+    font-size: 20px;
+}
+
+i.fa.fa-refresh {
+    cursor: pointer;
+    position: absolute;
+    right: 25px;
+    top: 21.5rem;
+    z-index: 20;
+    background: white;
+    border-radius: 30px;
+    padding: 7px;
+    color: #474747;
+    width: 38px;
+    height: 38px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.info.legend.leaflet-control {
+    width: 80px;
+    margin-bottom: 60px;
+}
+
+.leaflet-top.leaflet-left{
+    margin-top: 80px;
+}
+
+.info.leaflet-control {
+    margin-top: 80px;
+}
+
+.main-info {
+    margin-top: ;
+    display: none;
+}
+table td {
+    text-align: left;
+    padding-left: 5px;
+    padding: 5px;
+}
+table .color {
+}
+
+.points path {
+  fill: none;
+  pointer-events: all;
+  stroke: #000;
+  stroke-opacity: .2;
+}
+
+.point circle {
+    fill: steelblue;
+    stroke: #fff;
+    pointer-events: none;
+}
+.points path:hover, .points path.selected {
+    fill: rgba(134, 134, 134, 0.69);
+    stroke: #000;
+    stroke-opacity: .6;
+    stroke-width: 2px;
+}
+
+.points path.selected {
+    stroke-opacity: 1;
+    stroke-width: 3px;
+}
+.legend {
+    line-height: 18px;
+    color: #555;
+}
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+
+
+@media only screen and (max-width: 700px) {
+
+    span#stat-title {
+        font-size: 18px;
+}
+.fb-like-box.fb_iframe_widget {
+    display: none;
+}
+
+.btn-sites .fb-like {
+    display: none;
+}
+.fb-share-button.fb_iframe_widget {
+    display: inline-block;
+
+}
+
+.info.leaflet-control {
+    width: 140px;
+}
+.rpi-q > .rpi-info {
+    display: block
+}
+
+.rpi-info {
+    left: 20%;
+    top: 35%;
+}
+
+i.fa.fa-compass.fa-2x {
+
+}
+i.fa.fa-link.fa-2x {
+
+}
+.btn-sites a:nth-child(3) .button {
+    display: none;
+}
+.btn-sites a:nth-child(4) .button {
+    display: none;
+}
+}

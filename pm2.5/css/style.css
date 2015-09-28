@@ -1,0 +1,130 @@
+body {
+    margin: auto;
+    margin-top: 30px;
+    background-color: #EEEEEE;
+}
+
+.container {
+    margin: 20px;
+}
+
+.go-to {
+    display: inline-block;
+    padding-bottom: 2px;
+}
+
+.county {
+    clear: both;
+    margin: 10px;
+    border-bottom: 2px solid #CCC;
+}
+
+.county_name {
+    text-align: left;
+}
+
+.site {
+    width: 200px;
+    float: left;
+    padding: 10px;
+    min-width: 200px;
+    padding-bottom: 30px;
+}
+
+.site_name {
+    display: inline-block;
+}
+
+.status {
+    display: inline-block;
+}
+
+.status_img {
+    width: 150px;
+    height: 150px;
+}
+
+.country-select {
+    margin: 10px;
+}
+
+.pm25 {
+    color: blue;
+}
+
+.cd-top {
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    bottom: 40px;
+    right: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    /* image replacement properties */
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    background: rgba(232, 98, 86, 0.8) url(../img/cd-top-arrow.svg) no-repeat center 50%;
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+    -moz-transition: opacity .3s 0s, visibility 0s .3s;
+    transition: opacity .3s 0s, visibility 0s .3s;
+}
+.cd-top.cd-is-visible, .cd-top.cd-fade-out, .no-touch .cd-top:hover {
+    -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+    -moz-transition: opacity .3s 0s, visibility 0s 0s;
+    transition: opacity .3s 0s, visibility 0s 0s;
+}
+.cd-top.cd-is-visible {
+    /* the button becomes visible */
+    visibility: visible;
+    opacity: 1;
+}
+.cd-top.cd-fade-out {
+    /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+    opacity: .5;
+}
+.no-touch .cd-top:hover {
+    background-color: #e86256;
+    opacity: 1;
+}
+table.mobile-top-info, table.mobile-bottom-info {
+    display: none;
+}
+@media only screen and (min-width: 768px) {
+    .cd-top {
+        right: 20px;
+        bottom: 20px;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    .desktop-only {
+        display:none !important;
+    }
+    table.full-info {
+        display: none;
+    }
+    table.mobile-top-info, table.mobile-bottom-info {
+        display: block;
+    }
+    table.ui.celled.striped.table.mobile-top-info tbody tr td,
+    table.ui.celled.striped.table.mobile-bottom-info tbody tr td{ 
+        text-align: center !important;
+    }
+    table.ui.celled.striped.table.mobile-top-info tr.desktop-only td{
+        width: 20% !important;
+    }
+}
+
+
+@media only screen and (min-width: 1024px) {
+    .cd-top {
+        height: 60px;
+        width: 60px;
+        right: 30px;
+        bottom: 30px;
+    }
+}

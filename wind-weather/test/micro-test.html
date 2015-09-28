@@ -1,0 +1,399 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Micro Tests</title>
+
+    <link rel="stylesheet" href="../libs/qunit/1.12.0/qunit.css">
+    <script src="../libs/qunit/1.12.0/qunit.js"></script>
+
+    <script src="../libs/underscore.js/1.6.0/underscore.js"></script>
+    <script src="../libs/backbone.js/1.1.0/backbone.js"></script>
+    <script src="../libs/d3/3.3.10/d3.js"></script>
+    <script src="../libs/when/2.6.0/when.js"></script>
+    <script src="../libs/earth/1.0.0/micro.js"></script>
+
+    <script>
+        test("isTruthy", function() {
+            ok(µ.isTruthy(true));
+            ok(µ.isTruthy("a"));
+            ok(µ.isTruthy(1));
+            ok(!µ.isTruthy(false));
+            ok(!µ.isTruthy(0));
+            ok(!µ.isTruthy(""));
+            ok(!µ.isTruthy(null));
+            ok(!µ.isTruthy(undefined));
+            ok(!µ.isTruthy());
+        });
+
+        test("isValue", function() {
+            ok(µ.isValue(true));
+            ok(µ.isValue("a"));
+            ok(µ.isValue(1));
+            ok(µ.isValue(false));
+            ok(µ.isValue(0));
+            ok(µ.isValue(""));
+            ok(!µ.isValue(null));
+            ok(!µ.isValue(undefined));
+            ok(!µ.isValue());
+        });
+
+        test("coalesce", function() {
+            equal(µ.coalesce("a", "b"), "a");
+            equal(µ.coalesce("", "b"), "");
+            equal(µ.coalesce(1, "b"), 1);
+            equal(µ.coalesce(0, "b"), 0);
+            equal(µ.coalesce(null, "b"), "b");
+            equal(µ.coalesce(undefined, "b"), "b");
+            equal(µ.coalesce(null, null), null);
+            equal(µ.coalesce(null, undefined), null);
+            equal(µ.coalesce(), undefined);
+        });
+
+        test("floorMod", function() {
+            equal(µ.floorMod(11, 10), 1);
+            equal(µ.floorMod(10, 10), 0);
+            equal(µ.floorMod(9, 10), 9);
+            equal(µ.floorMod(1, 10), 1);
+            equal(µ.floorMod(0, 10), 0);
+            equal(µ.floorMod(-1, 10), 9);
+            equal(µ.floorMod(-9, 10), 1);
+            equal(µ.floorMod(-10, 10), 0);
+            equal(µ.floorMod(-11, 10), 9);
+
+            equal(µ.floorMod(1e-15, 10), 1e-15);
+            equal(µ.floorMod(1e-16, 10), 1e-16);
+            equal(µ.floorMod(-1e-15, 10), 10 - 1e-15);
+            equal(µ.floorMod(-1e-16, 10), 0);
+        });
+
+        test("ymdRedelimit", function() {
+            equal(µ.ymdRedelimit("2014-01-02", "-", "/"), "2014/01/02");
+            equal(µ.ymdRedelimit("2014-01-02", "-", ""), "20140102");
+            equal(µ.ymdRedelimit("2014/01/02", "/", "-"), "2014-01-02");
+            equal(µ.ymdRedelimit("2014/01/02", "/", ""), "20140102");
+            equal(µ.ymdRedelimit("20140102", "", "/"), "2014/01/02");
+            equal(µ.ymdRedelimit("20140102", "", "-"), "2014-01-02");
+
+            equal(µ.ymdRedelimit("2014-01-02T01:00Z", "-", ""), "20140102");
+            equal(µ.ymdRedelimit("20140102-0000Z", "", "-"), "2014-01-02");
+            equal(µ.ymdRedelimit("20140102-0000Z", "", "/"), "2014/01/02");
+        });
+
+        test("dateToUTCymd", function() {
+            equal(µ.dateToUTCymd(new Date("2014-01-02T00:00Z"), "/"), "2014/01/02");
+            equal(µ.dateToUTCymd(new Date("2014-01-02T00:00Z"), "-"), "2014-01-02");
+            equal(µ.dateToUTCymd(new Date("2014-01-02T00:00Z"), ""), "20140102");
+            equal(µ.dateToUTCymd(new Date("2014-01-02T00:00Z")), "20140102");
+            equal(µ.dateToUTCymd(new Date("2014-01-02T00:00:00.000+09:00"), "/"), "2014/01/01");
+        });
+
+        test("view", function() {
+            var view = µ.view();
+            ok(view.width > 0);
+            ok(view.height > 0);
+            // what else to do here without replicating the function itself?
+        });
+
+        test("segmentedColorScale", function() {
+            var f = µ.segmentedColorScale([
+                [0, [0, 0, 0]],
+                [1, [100, 100, 100]],
+                [2, [0, 0, 0]]
+            ]);
+
+            deepEqual(f(0, 0), [0, 0, 0, 0]);
+            deepEqual(f(0.5, 1), [50, 50, 50, 1]);
+            deepEqual(f(1, 2), [100, 100, 100, 2]);
+            deepEqual(f(1.5, 3), [50, 50, 50, 3]);
+            deepEqual(f(2, 4), [0, 0, 0, 4]);
+        });
+
+        var projections = d3.map({
+            a: function() {},
+            b: function() {},
+            orthographic: function() {}
+        });
+
+        var overlays = d3.set(["none", "wind", "temp", "foo"]);
+
+        var TOPOLOGY = "/data/earth-topo.json?v2";
+        function args(x) {
+            x.hour = x.hour || "";
+            x.topology = x.topology || TOPOLOGY;
+            x.projection = x.projection || "orthographic";
+            x.showGridPoints = x.showGridPoints || false;
+            x.orientation = x.orientation || "";
+            x.overlayType = x.overlayType || "default";
+            return x;
+        }
+
+        test("parse", function() {
+
+            deepEqual(
+                µ.parse("current/wind/isobaric/1000hPa", projections, overlays),
+                args({date: "current", param: "wind", surface: "isobaric", level: "1000hPa"}));
+            deepEqual(
+                µ.parse("current/wind/isobaric/1000hPa/", projections, overlays),
+                args({date: "current", param: "wind", surface: "isobaric", level: "1000hPa"}));
+            deepEqual(
+                µ.parse("2013/11/20/0900Z/wind/isobaric/1000hPa", projections, overlays),
+                args({date: "2013/11/20", hour: "0900", param: "wind", surface: "isobaric", level: "1000hPa"}));
+            deepEqual(
+                µ.parse("2013/1/1/900Z/wind/isobaric/1000hPa", projections, overlays),
+                args({date: "2013/01/01", hour: "0900", param: "wind", surface: "isobaric", level: "1000hPa"}));
+            deepEqual(
+                µ.parse("9999/99/99/9999Z/temp/something/1hPa", projections, overlays),
+                args({date: "9999/99/99", hour: "9999", param: "temp", surface: "something", level: "1hPa"}));
+            deepEqual(
+                µ.parse("current/x/y/z/a", projections, overlays),
+                args({date: "current", param: "x", surface: "y", level: "z", projection: "a", orientation: ""}));
+            deepEqual(
+                µ.parse("current/x/y/z/b=", projections, overlays),
+                args({date: "current", param: "x", surface: "y", level: "z", projection: "b", orientation: ""}));
+            deepEqual(
+                µ.parse("current/x/y/z/a=-,.", projections, overlays),
+                args({date: "current", param: "x", surface: "y", level: "z", projection: "a", orientation: "-,."}));
+            deepEqual(
+                µ.parse("current/x/y/z/b=1///abc/blah=barney/?..%21%30#", projections, overlays),
+                args({date: "current", param: "x", surface: "y", level: "z", projection: "b", orientation: "1"}));
+            deepEqual(
+                µ.parse("current/x/y/z/a=1", projections, overlays),
+                args({date: "current", param: "x", surface: "y", level: "z", projection: "a", orientation: "1"}));
+            deepEqual(
+                µ.parse("current/x/y/z/a=1/b", projections, overlays),
+                args({date: "current", param: "x", surface: "y", level: "z", projection: "b", orientation: ""}));
+            deepEqual(
+                µ.parse("current/x/y/z/a=1/b=2", projections, overlays),
+                args({date: "current", param: "x", surface: "y", level: "z", projection: "b", orientation: "2"}));
+            deepEqual(
+                µ.parse("current/x/y/z/a=abc", projections, overlays),
+                args({date: "current", param: "x", surface: "y", level: "z"}));
+
+            deepEqual(µ.parse(null, projections, overlays), {});
+            deepEqual(µ.parse("", projections, overlays), {});
+            deepEqual(µ.parse("/", projections, overlays), {});
+            deepEqual(µ.parse("current/", projections, overlays), {});
+            deepEqual(µ.parse("current/wind", projections, overlays), {});
+            deepEqual(µ.parse("current/wind/isobaric", projections, overlays), {});
+            deepEqual(µ.parse("current/wind/isobaric/", projections, overlays), {});
+            deepEqual(µ.parse("current/w ind/isobaric/", projections, overlays), {});
+            deepEqual(µ.parse("current/wind/isobar ic/", projections, overlays), {});
+        });
+
+        test("parse-overlays", function() {
+            deepEqual(
+                µ.parse("current/wind/isobaric/1000hPa/overlay=none", projections, overlays),
+                args({date: "current", param: "wind", surface: "isobaric", level: "1000hPa", overlayType: "none"}));
+            deepEqual(
+                µ.parse("current/wind/isobaric/1000hPa/overlay=temp", projections, overlays),
+                args({date: "current", param: "wind", surface: "isobaric", level: "1000hPa", overlayType: "temp"}));
+            deepEqual(
+                µ.parse("current/wind/isobaric/1000hPa/overlay=foo", projections, overlays),
+                args({date: "current", param: "wind", surface: "isobaric", level: "1000hPa", overlayType: "foo"}));
+            deepEqual(
+                µ.parse("current/wind/isobaric/1000hPa/overlay=wind", projections, overlays),
+                args({date: "current", param: "wind", surface: "isobaric", level: "1000hPa", overlayType: "wind"}));
+            deepEqual(
+                µ.parse("current/wind/isobaric/1000hPa/overlay=bad", projections, overlays),
+                args({date: "current", param: "wind", surface: "isobaric", level: "1000hPa", overlayType: "default"}));
+        });
+
+        test("configuration-defaults", function() {
+            var config = µ.buildConfiguration(projections, overlays);
+            config.fetch();
+            deepEqual(
+                config.attributes,
+                args({date: "current", param: "wind", surface: "surface", level: "level",
+                    projection: "orthographic", orientation: ""}));
+        });
+
+        test("agent-initial", function() {
+            var agent;
+            agent = µ.newAgent();
+            ok(agent.value() === undefined);
+            agent = µ.newAgent(null);
+            ok(agent.value() === null);
+            agent = µ.newAgent("hi");
+            ok(agent.value() === "hi");
+        });
+
+        asyncTest("agent-submit-simple", 4, function() {
+            var agent = µ.newAgent();
+            agent.submit(function(x) {
+                ok(this.cancel && !this.cancel.requested);
+                equal(x, 10);
+                equal(arguments.length, 1);
+                return 42;
+            }, 10);
+            setTimeout(function() {
+                equal(agent.value(), 42);
+                start();
+            }, 10);
+        });
+
+        asyncTest("agent-submit-then-cancel", 6, function() {
+            var agent = µ.newAgent();
+
+            agent.submit(function() {
+                ok(false);
+            });
+            ok(!agent.cancel.requested);
+            agent.cancel();
+            ok(agent.cancel.requested);
+
+            agent.submit(function() {
+                ok(false);
+            });
+            var prevCancel = agent.cancel;
+            ok(!agent.cancel.requested);
+
+            agent.submit(function() {
+                ok(true);
+                start();
+            });
+            ok(prevCancel.requested);
+            ok(!agent.cancel.requested);
+        });
+
+        asyncTest("agent-submit-then-cancel-running-task", 3, function() {
+            var agent = µ.newAgent();
+
+            agent.submit(function() {
+                var context = this;
+                ok(!context.cancel.requested);
+                var d = when.defer();
+                setTimeout(function() {
+                    ok(context.cancel.requested);
+                    d.resolve("ignored");
+                }, 20);
+                return d.promise;
+            });
+
+            setTimeout(function() {
+                agent.cancel();
+            }, 10);
+
+            setTimeout(function() {
+                ok(agent.value() === undefined);
+                agent.cancel();
+                start();
+            }, 30);
+        });
+
+        asyncTest("agent-submit-event-emitting", 4, function() {
+            var agent = µ.newAgent();
+
+            agent.on("submit", function(context) {
+                equal(context, agent);
+            });
+            agent.on("update", function(value, context) {
+                equal(value, 10);
+                equal(value, agent.value());
+                equal(context, agent);
+                start();
+            });
+
+            agent.submit(function(x) {
+                return x;
+            }, when(true).then(function() { return 10; }));  // argument is a promise
+        });
+
+        asyncTest("agent-exception-reject-event-emitting", 2, function() {
+            var agent = µ.newAgent();
+
+            agent.on("reject", function(err, context) {
+                equal(err.message, "whoops!");
+                equal(context, agent);
+                start();
+            });
+
+            agent.submit(function() {
+                throw new Error("whoops!");
+            });
+        });
+
+        asyncTest("agent-accept-then-reject", 5, function() {
+            var agent = µ.newAgent();
+
+            agent.on("update", function(value, context) {
+                equal(value, 10);
+                equal(context.value(), 10);
+                agent.submit(function() {
+                    throw new Error("whoops!");
+                });
+            });
+            agent.on("reject", function(err, context) {
+                equal(err.message, "whoops!");
+                equal(context, agent);
+                equal(context.value(), 10);  // should still have previous value
+                start();
+            });
+
+            agent.submit(10);
+        });
+
+        asyncTest("agent-promise-reject-event-emitting", 3, function() {
+            var agent = µ.newAgent();
+
+            agent.on("submit", function(context) {
+                equal(context, agent);
+            });
+            agent.on("reject", function(err, context) {
+                equal(err, "whoops!");
+                equal(context, agent);
+                start();
+            });
+
+            agent.submit(function() {
+                return when.reject("whoops!");
+            });
+        });
+
+        asyncTest("agent-fail-on-submit", 3, function() {
+            var agent = µ.newAgent(0);
+            agent.on("submit", function() {
+                throw new Error("whoops!");
+            }).on("fail", function(err, context) {
+                equal(err.message, "whoops!");
+                equal(context, agent);
+                equal(context.value(), 0);
+                start();
+            });
+            agent.submit(10);
+        });
+
+        asyncTest("agent-fail-on-update", 3, function() {
+            var agent = µ.newAgent(0);
+            agent.on("update", function() {
+                throw new Error("whoops!");
+            }).on("fail", function(err, context) {
+                equal(err.message, "whoops!");
+                equal(context, agent);
+                equal(context.value(), 10);
+                start();
+            });
+            agent.submit(10);
+        });
+
+        asyncTest("agent-fail-on-reject", 3, function() {
+            var agent = µ.newAgent(0);
+            agent.on("reject", function() {
+                throw new Error("whoops!");
+            }).on("fail", function(err, context) {
+                equal(err.message, "whoops!");
+                equal(context, agent);
+                equal(context.value(), 0);
+                start();
+            });
+            agent.submit(when.reject("darn it"));
+        });
+
+    </script>
+</head>
+<body>
+
+    <div id="qunit"></div>
+
+</body>
+</html>

@@ -1,0 +1,217 @@
+html {
+    font-family: 'Noto Sans', 'sans-serif', 'Microsoft Jhenghei';
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+
+a {
+    color: #337ab7;
+    text-decoration: blink;
+}
+
+.fb-share-button.fb_iframe_widget {
+    display: none;
+    position: fixed;
+    right: 10px;
+    top: 20px;
+}
+
+footer {
+    position: absolute;
+    bottom: -80px;
+    left: 10px;
+}
+
+#map {
+  position: relative;
+	width: 70%;
+	height: 83%;
+  float: left;
+}
+
+#chart {
+  position: relative;
+	width: 320px;
+  height: 83%;
+  float: left;
+}
+
+rect {
+	cursor: pointer;
+}
+
+.layer {
+    fill: #ccc;
+}
+
+.point-cell {
+    fill: none;
+    pointer-events: all;
+    stroke: #000;
+    stroke-opacity: .2;
+}
+
+i.fa.fa-compass.fa-2x {
+    cursor: pointer;
+    z-index: 20;
+    background: white;
+    border-radius: 30px;
+    color: #474747;
+	margin: 10px;
+    padding: 10px;
+    width: 38px;
+    height: 38px;
+    text-align: center;
+    font-size: 20px;
+}
+
+i.fa.fa-refresh.fa-2x {
+    cursor: pointer;
+    z-index: 20;
+    background: white;
+    border-radius: 30px;
+	margin: 10px;
+    padding: 7px;
+    color: #474747;
+    width: 38px;
+    height: 38px;
+    text-align: center;
+    font-size: 20px;
+}
+
+i.fa.fa-sort-asc.fa-2x {
+	cursor: pointer;
+	bottom: 15rem;
+	z-index: 20;
+	background: white;
+	border-radius: 30px;
+	color: #474747;
+	margin: 10px;
+	padding: 10px;
+	width: 38px;
+	height: 38px;
+	text-align: center;
+	font-size: 20px;
+}
+
+i.fa.fa-sort-desc.fa-2x {
+	cursor: pointer;
+	z-index: 20;
+	background: white;
+	border-radius: 30px;
+	margin: 10px;
+	padding: 7px;
+	color: #474747;
+	width: 38px;
+	height: 38px;
+	text-align: center;
+	font-size: 20px;
+}
+
+#toggle, #info {
+	width: 100px;
+	height: 50px;
+}
+
+#info {
+	height: 25px;
+	text-align: center;
+}
+
+.header {
+	width: 58px;
+	height: 150px;
+	position: absolute;
+	top: 40%;
+	z-index: 20;
+}
+
+.left {
+	left: 10px;
+}
+
+.right {
+	right: 10px;
+	left: auto;
+}
+
+@media only screen and (min-width: 1001px) and (max-width: 1300px) {
+#map {
+	width: 65%;
+}
+}
+
+@media only screen and (min-width: 701px) and (max-width: 1000px) {
+#map {
+	width: 55%;
+}
+}
+
+@media only screen and (max-width: 700px) {
+#map {
+	width: 100%;
+}
+
+#chart{
+	width: 100%;
+	position: static;
+	height: 33%;
+	margin-bottom: 20px;
+}
+
+.right {
+	top: 550px;
+}
+
+.left {
+	right: 10px;
+	left: auto;
+}
+
+
+.fb-like-box.fb_iframe_widget {
+    display: none;
+}
+
+.btn-sites .fb-like {
+    display: none;
+}
+
+.fb-share-button.fb_iframe_widget {
+    display: inline-block;
+
+}
+
+.info.leaflet-control {
+    width: 140px;
+}
+.rpi-q > .rpi-info {
+    display: block
+}
+
+.rpi-info {
+    left: 20%;
+    top: 35%;
+}
+
+.btn-sites a:nth-child(3) .button {
+    display: none;
+}
+.btn-sites a:nth-child(4) .button {
+    display: none;
+}
+}
+
+@media only screen and (max-width: 700px) and (max-height: 600px){
+.right {
+	top: 600px;
+}
+}

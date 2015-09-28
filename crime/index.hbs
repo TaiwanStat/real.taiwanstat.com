@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{> head}}
+  <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+  <script type="text/javascript" src="http://d3js.org/topojson.v1.min.js"></script>
+</head>
+<body>
+   {{> header}}
+    {{> start}}
+    <ul>
+        <li>
+            <div class="data-src">資料來源 : <a href="http://data.moi.gov.tw/MoiOD/default/Index.aspx">內政部</a></div>
+        </li>
+        <li>
+            <div class="data-update-time">更新時間（每季更新）：104年04月23日</div>
+        </li>
+        <li>
+            <div>單位：犯罪率(人/每十萬人)</div>
+        </li>
+        <li>
+            <div>資料為2015/01/01至2015/03/31</div>
+        </li>
+        <li>
+          點擊縣市地圖，可以觀看該縣市的各類排行，雙點擊後可再返回所有縣市排行。
+        </li>
+    </ul>
+
+
+  <div class="ui basic main segment">
+    <div class="ui stackable grid">
+      <div class="map eight wide column">
+        <svg id="map"></svg>
+      </div>
+
+      <div class="bar eight wide column">
+        <div class="ui basic segment">
+          <form>
+            <select id="City" onChange='change()'>
+        　     <option>住宅竊盜</option>
+        　     <option>強制性交</option>
+        　     <option>強盜</option>
+        　     <option>搶奪</option>
+        　     <option>機車竊盜</option>
+        　     <option>毒品</option>
+        　     <option>汽車竊盜</option>
+            </select>
+            <text id="name"></text>
+            <span class="note">犯罪率(人/每十萬人)</span>
+          </form>
+        </div>
+        <div class="ui basic segment">
+          <svg id="bar"></svg>
+        </div>
+
+        <a href="#0" class="cd-top">Top</a>
+      </div>
+    </div>
+
+  </div>
+
+    {{> end}}
+    <script src="../air/js/top.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="./js/d3.js"></script>
+    {{> footer}}
+</body>
+
+</html>

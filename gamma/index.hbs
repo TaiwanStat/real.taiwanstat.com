@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {{> head}}
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/tip.css" type="text/css" media="all" />
+    <link type="text/css" rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  </head>
+
+  <body>
+    {{> header}}
+    {{> start}}
+    <table class="ui celled striped table full-info" id = "main-info">
+      <tbody>
+        <tr>
+          <td>顏色</td>
+          <td style="background:rgb(31, 120, 180); color: white;">藍色</td>
+          <td style="background:rgb(227, 26, 28); color: white;">紅色</td>
+        </tr>
+        <tr>
+          <td>微西弗／時</td>
+          <td> < 0.2 </td>
+          <td> >= 0.2 </td>
+        </tr>
+        <tr>
+          <td>
+            嚴重污染環境<br>
+            （<a href="http://erss.aec.gov.tw/law/inc/GetFile.ashx?FileId=1060">嚴重污染環境輻射標準</a>）<br>
+            （<a href="http://www2.tku.edu.tw/~az/news/R201110113648.html.pdf">嚴重污染環境輻射標準修正</a>）
+          </td>
+          <td colspan="2">
+            一般人一小時內接受到超過 0.2 微西弗的輻射量，則此環境為嚴重污染環境。
+          </td>
+        </tr>
+        <tr>
+          <td>
+            對健康影響<br>
+            （<a href="http://www.aec.gov.tw/webpage/radtown/default.php">原子能委員會教學網</a>）
+          </td>
+          <td colspan="2">
+            1. 100 微西弗以下，不會對身體有太大影響。<br>
+            2. 100 微西弗以上，可能會使身體組織受到傷害，像皮膚紅斑脫皮等損傷，也可能提高癌症的發生機率。<br>
+            3. 基本一般民眾很難會接受到 100 微西弗的輻射量，所以不用太過擔憂。
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div id = "map">
+      <header class="header">
+        <i class="fa fa-refresh fa-2x" id="resetView"></i>
+        <i class="fa fa-compass fa-2x" id="getLocation"></i>
+        <i class="fa fa-info fa-2x" id="toogleInfo"></i>
+        <i class="fa fa-bar-chart fa-2x" id="barChart"></i>
+      </header>
+    </div>
+    <div id = "chart"></div>
+    <div class="foot-note">
+      <h5>
+        <br/>
+        資料來源：<a href="http://data.gov.tw/node/6095">政府資料開放平臺</a>
+        <br/>
+        <span class="updateAt">更新時間：</span><br/>
+      </h5>
+    </div>
+    {{> end}}
+    <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+    <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
+    <script type="text/javascript" src="js/map.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/chart.js"></script>
+    {{> footer}}
+  </body>
+
+</html>

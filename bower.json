@@ -1,0 +1,22 @@
+{
+  "name": "real",
+  "version": "0.0.0",
+  "authors": [
+    "chihsuan <chihsuan.huang.7@gmail.com>"
+  ],
+  "description": "",
+  "keywords": [
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.3",
+    "semantic": ""
+  }
+}

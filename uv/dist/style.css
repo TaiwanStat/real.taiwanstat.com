@@ -1,0 +1,34 @@
+body,html{height:100%;width:100%}
+i.fa.fa-compass.fa-2x,i.fa.fa-info.fa-2x,i.fa.fa-refresh{border-radius:30px;text-align:center;right:10px;z-index:20;background:#fff;color:#474747;cursor:pointer}
+.point-cell,.points path{stroke:#000;fill:none;pointer-events:all}
+html{font-family:'Noto Sans',sans-serif,'Microsoft Jhenghei';padding:0;margin:0}
+body{margin:auto}
+a{color:#337ab7;text-decoration:blink}
+.red{color:#f40000}
+.darkpurple{color:#5C016B}
+.purple{color:#E062C8}
+.blue{color:#39AADD}
+.green{color:#7FB73A}
+.orange{color:#E39941}
+.yellow{color:#EFCB17}
+#map{position:relative;height:600px;margin-bottom:20px}
+i.fa.fa-compass.fa-2x,i.fa.fa-info.fa-2x,i.fa.fa-refresh{position:absolute;height:38px}
+.layer{fill:#ccc}
+.point-cell{stroke-opacity:.2}
+i.fa.fa-compass.fa-2x{bottom:40%;padding:10px;width:38px;font-size:20px}
+i.fa.fa-info.fa-2x{bottom:24%;padding:10px;width:38px;font-size:20px}
+i.fa.fa-refresh{bottom:32%;padding:7px;width:38px;font-size:20px}
+.info.legend.leaflet-control{width:80px;margin-bottom:50px}
+.main-info{display:none}
+table td{text-align:left;padding-left:5px}
+.points path{stroke-opacity:.2}
+.point circle{fill:#4682b4;stroke:#fff;pointer-events:none}
+.points path.selected,.points path:hover{fill:rgba(134,134,134,.69);stroke:#000;stroke-opacity:.6;stroke-width:2px}
+.points path.selected{stroke-opacity:1;stroke-width:3px}
+.legend{line-height:18px;color:#555}
+.legend i{width:18px;height:18px;float:left;margin-right:8px;opacity:.7}
+@media only screen and (max-width:700px){span#stat-title{font-size:18px}
+.info.leaflet-control{width:140px}
+.rpi-q>.rpi-info{display:block}
+.rpi-info{left:20%;top:35%}
+.btn-sites a:nth-child(3) .button,.btn-sites a:nth-child(4) .button{display:none}}

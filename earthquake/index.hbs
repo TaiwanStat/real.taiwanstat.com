@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {{> head}}
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  {{> header}}
+  {{> start}}
+    <h3>相關連結：</h3>
+
+    <a href="http://real.taiwanstat.com/tw-earthquake">
+        <div class="ui red button">台灣過去 30 日規模大於 4.5 的地震地圖</div>
+    </a>
+    <hr>
+    <ul>
+      <li>
+        <div class="data-src">資料來源 : <a href="http://earthquake.usgs.gov/">USGS</a></div>
+      </li>
+      <li>
+        <div>較近期為深色，較遠期為淺色</div>
+      </li>
+      <li>
+        <div class="data-update-time">更新時間：每 15 分鐘更新</div>
+      </li>
+    </ul>
+    <!-- Content begin -->
+    <svg id="map"></svg>
+    <!-- Content end -->
+
+
+  {{> end}}
+  <!-- Dependencies begin-->
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
+  <!-- d3 -->
+  <script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
+  <script src="http://d3js.org/topojson.v0.min.js"></script>
+  <!-- Dependencies end-->
+
+  <script src="app.js" type="text/javascript"></script>
+  {{> footer}}
+</body>
+</html>

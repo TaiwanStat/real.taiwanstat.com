@@ -1,0 +1,57 @@
+body {
+    margin: auto;
+    background-color: #EEEEEE;
+}
+
+.container {
+    margin: 20px;
+}
+
+.water {
+  fill: #a4bac7;
+}
+
+.graticule {
+  fill: none;
+  stroke: #fff;
+  stroke-width: .5px;
+}
+
+.graticule :nth-child(2n+16) {
+  stroke-dasharray: 2,2;
+}
+
+.graticule :nth-child(-2n+15) {
+  stroke-dasharray: 2,2;
+}
+
+.land {
+  fill: #d7c7ad;
+  stroke: #CCC;
+}
+
+.borders {
+  fill: none;
+  stroke: #a5967e;
+  stroke-width: 10px;
+}
+
+.quake {
+  fill: rgba(0,0,0,0);
+  stroke-width: 3px;
+}
+
+table {
+  width: 80%;
+}
+@media only screen and (max-width: 700px) {
+  svg {
+    width: 100%;
+  }
+}
+
+#content {
+  fill: #FFF;
+  margin-top: 50px;
+}
+

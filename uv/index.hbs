@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {{> head}}
+    <link rel="stylesheet" type="text/css" href="./dist/style.css">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
+  </head>
+  <body>
+    {{> header}}
+    {{> start}}
+   <div class="header">
+      <i class="fa fa-refresh fa-2x" onclick="resetView()"></i>
+      <i class="fa fa-compass fa-2x" onclick="getLocation()"></i>
+      <i class="fa fa-info fa-2x" onclick="toogleInfo()"></i>
+  </div>
+  <div class="main-info">
+   <table border="1" align="center" cellpadding="4" cellspacing="0">
+  <tbody><tr align="center" style="background:#efefef;">
+  <td><b>紫外線指數</b></td>
+  <td><b>具體描述</b></td>
+  <td><b>曝曬級數</b></td>
+  <td><b>曬傷時間</b></td>
+  <td><b>防護措施</b></td>
+  </tr>
+  <tr>
+  <td align="center" bgcolor="#7FB73A">0–2</td>
+  <td>對於一般人無危險</td>
+  <td align="center">低量級（0～2）</td>
+  <td></td>
+  <td></td>
+  </tr>
+  <tr>
+  <td align="center" bgcolor="yellow">3–5</td>
+  <td>無保護暴露於陽光中有較輕傷害的風險</td>
+  <td align="center">中量級（3～5）</td>
+  <td></td>
+  <td></td>
+  </tr>
+  <tr>
+  <td align="center" bgcolor="#F7931C">6–7</td>
+  <td>無保護暴露於陽光中有很大傷害的風險</td>
+  <td align="center">高量級（6～7）</td>
+  <td>30分鐘內</td>
+  <td>帽子/陽傘+防曬液+太陽眼鏡+儘量待在陰涼處</td>
+  </tr>
+  <tr>
+  <td align="center" bgcolor="#F52305">8–10</td>
+  <td>暴露於陽光中有極高風險</td>
+  <td align="center">過量級（8～10）</td>
+  <td>20分鐘內</td>
+  <td>帽子/陽傘+防曬液+太陽眼鏡+陰涼處+長袖衣物+上午十時至下午二時最好不外出</td>
+  </tr>
+  <tr>
+  <td align="center" bgcolor="#E062C8">11+</td>
+  <td>暴露於陽光中極其危險</td>
+  <td align="center">危險級（11以上）</td>
+  <td>10分鐘內</td>
+  <td>帽子/陽傘+防曬液+太陽眼鏡+陰涼處+長袖衣物+上午十時至下午二時最好不外出</td>
+  </tr>
+  <tr>
+    參考來源：<a href="http://taqm.epa.gov.tw/taqm/tw/UvForcastMap.aspx">行政院環境保護署</a>
+  </tr>
+  </tbody></table>
+    </div>
+
+
+  <div id="map"></div>
+  <div class="footer">
+    <h5>資料來源：<a href="http://opendata.epa.gov.tw/Data/Contents/UV/">行政院環境保護署</a><br/>
+      <span class="updateAt">更新時間：</span><br/>
+      </h5>
+  </div>
+
+  {{> end}}
+    <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+  <script src="http://d3js.org/queue.v1.min.js"></script>
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.min.js"></script>
+  <script src="./dist/map.js"></script>
+  {{> footer}}
+
+</body>
+</html>

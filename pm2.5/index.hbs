@@ -1,0 +1,1037 @@
+<html>
+<head>
+
+    {{> head}}
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8">
+
+</head>
+<body>
+    {{> header}}
+    {{> start}}
+
+        <h3>相關連結：</h3>
+
+        <a href="http://real.taiwanstat.com/air-map">
+            <div class="ui red button">台灣空氣品質地圖</div>
+
+        <a href="http://real.taiwanstat.com/air">
+            <div class="ui basic button">台灣即時空污 PSI</div>
+        </a>
+
+        <hr>
+        <ul>
+            <li>
+                <div class="data-src">資料來源 : <a href="http://www.epa.gov.tw/">行政院環境保護署</a></div>
+            </li>
+            <li>
+                <div class="data-update-time">更新時間（每小時更新）：</div>
+            </li>
+        </ul>
+        <div class="ui form country-select">
+          <div class="field">
+            <label>快速選擇縣市：</label>
+            <select class="ui search dropdown" id="country-selection">
+              <option value="site13">臺北市</option>
+              <option value="site7">新北市</option>
+              <option value="site75">基隆市</option>
+              <option value="site9">桃園市</option>
+              <option value="site52">新竹市</option>
+              <option value="site53">新竹縣</option>
+              <option value="site49">苗栗縣</option>
+              <option value="site44">臺中市</option>
+              <option value="site41">彰化縣</option>
+              <option value="site5">南投縣</option>
+              <option value="site0">雲林縣</option>
+              <option value="site6">高雄市</option>
+              <option value="site30">台南市</option>
+              <option value="site34">嘉義市</option>
+              <option value="site36">嘉義縣</option>
+              <option value="site17">屏東縣</option>
+              <option value="site11">宜蘭縣</option>
+              <option value="site14">花蓮縣</option>
+              <option value="site1">臺東縣</option>
+              <option value="site3">金門縣</option>
+              <option value="site2">澎湖縣</option>
+              <option value="site4">連江縣</option>
+            </select>
+          </div>
+        </div>
+
+          <table class="ui celled striped table full-info">
+            <thead>
+                <tr>
+                    <th>
+                    </th>
+                    <th colspan="10">
+                      PM2.5 細微懸浮粒子濃度
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        PM2.5 濃度
+                    </td>
+                    <td>
+                        0 ~ 11
+                    </td>
+                    <td>
+                        12 ~ 23
+                    </td>
+                    <td>
+                        24 ~ 35
+                    </td>
+                    <td>
+                        36 ~ 41
+                    </td>
+                    <td>
+                        42 ~ 47
+                    </td>
+                    <td>
+                        48 ~ 53
+                    </td>
+                    <td>
+                        54 ~ 58
+                    </td>
+                    <td>
+                        59 ~ 64
+                    </td>
+                    <td>
+                        65 ~ 70
+                    </td>
+                    <td>
+                        >= 71
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        示意圖
+                    </td>
+                    <td>
+                        <img src="./img/PM2.5-1.png" width="40px">
+                    </td>
+                    <td>
+                        <img src="./img/PM2.5-2.png" width="40px">
+                    </td>
+                    <td>
+                        <img src="./img/PM2.5-3.png" width="40px">
+                    </td>
+                    <td>
+                        <img src="./img/PM2.5-4.png" width="40px">
+                    </td>
+                    <td>
+                        <img src="./img/PM2.5-5.png" width="40px">
+                    </td>
+                    <td>
+                        <img src="./img/PM2.5-6.png" width="40px">
+                    </td>
+                    <td>
+                        <img src="./img/PM2.5-7.png" width="40px">
+                    </td>
+                    <td>
+                        <img src="./img/PM2.5-8.png" width="40px">
+                    </td>
+                    <td>
+                        <img src="./img/PM2.5-9.png" width="40px">
+                    </td>
+                    <td>
+                        <img src="./img/PM2.5-10.png" width="40px">
+                    </td>
+                </tr>
+                <tr class="desktop-only">
+                    <th>
+                        一般民眾 活動建議
+                    </th>
+                    <th colspan="3">
+                        正常戶外活動。
+                    </th>
+                    <th colspan="3">
+                        正常戶外活動。
+                    </th>
+                    <th colspan="3">
+                        任何人如果有不適，如眼痛，咳嗽或喉嚨痛等，應該考慮減少戶外活動。
+                    </th>
+                    <td>
+                        任何人如果有不適，如眼痛，咳嗽或喉嚨痛等，應減少體力消耗，特別是減少戶外活動。
+                    </td>
+                </tr>
+                <tr class="desktop-only">
+                    <th>
+                        敏感性族群 活動建議
+                    </th>
+                    <th colspan="3">
+                        正常戶外活動。
+                    </th>
+                    <th colspan="3">
+                        有心臟、呼吸道及心血管疾病的成人與孩童感受到徵狀時，應考慮減少體力消耗，特別是減少戶外活動。
+                    </th>
+                    <th colspan="3">
+                        有心臟、呼吸道及心血管疾病的成人與孩童，應考慮減少體力消耗，特別是減少戶外活動。老人應減少體力消耗。具有氣喘的人可能需增加使用吸入劑頻率。
+                    </th>
+                    <td>
+                        有心臟、呼吸道及心血管疾病的成人與孩童，以及老人應避免體力消耗，特別是避免戶外活動。具有氣喘的人可能需增加使用吸入劑頻率。
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <table class="ui celled striped table mobile-top-info">
+            <thead>
+                <tr>
+                    <th>
+                    </th>
+                    <th colspan="6">
+                      PM2.5 細微懸浮粒子濃度
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        0 ~ 11
+                    </td>
+                    <td>
+                        12 ~ 23
+                    </td>
+                    <td>
+                        24 ~ 35
+                    </td>
+                    <td>
+                        36 ~ 41
+                    </td>
+                    <td>
+                        42 ~ 47
+                    </td>
+                     <td>
+                        48 ~ 53
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="./img/PM2.5-1.png" width="80%">
+                    </td>
+                    <td>
+                        <img src="./img/PM2.5-2.png" width="80%">
+                    </td>
+                    <td>
+                        <img src="./img/PM2.5-3.png" width="80%">
+                    </td>
+                    <td>
+                        <img src="./img/PM2.5-4.png" width="80%">
+                    </td>
+                    <td>
+                        <img src="./img/PM2.5-5.png" width="80%">
+                    </td>
+                      <td>
+                        <img src="./img/PM2.5-6.png" width="80%">
+                    </td>
+                </tr>
+                <tr class="desktop-only">
+                    <td colspan="3">
+                        正常戶外活動。
+                    </td>
+                    <td colspan="3">
+                        正常戶外活動。
+                    </td>
+                </tr>
+                <tr class="desktop-only">
+                    <td colspan="3">
+                        正常戶外活動。
+                    </td>
+                    <td colspan="3">
+                        有心臟、呼吸道及心血管疾病的成人與孩童感受到徵狀時，應考慮減少體力消耗，特別是減少戶外活動。
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+          <table class="ui celled striped table mobile-bottom-info">
+            <thead>
+                <tr>
+                    <th>
+                    </th>
+                    <th colspan="4">
+                      PM2.5 細微懸浮粒子濃度
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        54 ~ 58
+                    </td>
+                    <td>
+                        59 ~ 64
+                    </td>
+                    <td>
+                        65 ~ 70
+                    </td>
+                    <td
+                    >>= 71
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="./img/PM2.5-7.png" width="50%">
+                    </td>
+                    <td>
+                        <img src="./img/PM2.5-8.png" width="50%">
+                    </td>
+                    <td>
+                        <img src="./img/PM2.5-9.png" width="50%">
+                    </td>
+                    <td>
+                        <img src="./img/PM2.5-10.png" width="50%">
+                    </td>
+                </tr>
+                <tr class="desktop-only">
+                    <td colspan="3">
+                        任何人如果有不適，如眼痛，咳嗽或喉嚨痛等，應該考慮減少戶外活動。
+                    </td>
+                    <td colspan="1" style="width: 26% !important;">
+                        任何人如果有不適，如眼痛，咳嗽或喉嚨痛等，應減少體力消耗，特別是減少戶外活動。
+                    </td>
+                </tr>
+                <tr class="desktop-only">
+                    <td colspan="3">
+                        有心臟、呼吸道及心血管疾病的成人與孩童，應考慮減少體力消耗，特別是減少戶外活動。老人應減少體力消耗。具有氣喘的人可能需增加使用吸入劑頻率。
+                    </td>
+                    <td colspan="1" style="width: 26% !important;">
+                        有心臟、呼吸道及心血管疾病的成人與孩童，以及老人應避免體力消耗，特別是避免戶外活動。具有氣喘的人可能需增加使用吸入劑頻率。
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+        <div class="county">
+            <span class="county_name">
+                <h3>臺北市</h3>
+            <span>
+            <div id="site13" class="site">
+                <span class="site_name"><h4>陽明</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site60" class="site">
+                <span class="site_name"><h4>大同</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site61" class="site">
+                <span class="site_name"><h4>松山</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site62" class="site">
+                <span class="site_name"><h4>古亭</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site63" class="site">
+                <span class="site_name"><h4>萬華</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site64" class="site">
+                <span class="site_name"><h4>中山</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site65" class="site">
+                <span class="site_name"><h4>士林</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+        </div>
+        <div class="county">
+            <span class="county_name">
+                <h3>新北市</h3>
+            <span>
+            <div id="site7" class="site">
+                <span class="site_name"><h4>永和</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site10" class="site">
+                <span class="site_name"><h4>三重</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site66" class="site">
+                <span class="site_name"><h4>淡水</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site67" class="site">
+                <span class="site_name"><h4>林口</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site68" class="site">
+                <span class="site_name"><h4>菜寮</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site69" class="site">
+                <span class="site_name"><h4>新莊</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site70" class="site">
+                <span class="site_name"><h4>板橋</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site71" class="site">
+                <span class="site_name"><h4>土城</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site72" class="site">
+                <span class="site_name"><h4>新店</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site73" class="site">
+                <span class="site_name"><h4>萬里</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site74" class="site">
+                <span class="site_name"><h4>汐止</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+        </div>
+        <div class="county">
+            <span class="county_name">
+                <h3>基隆市</h3>
+            <span>
+            <div id="site75" class="site">
+                <span class="site_name"><h4>基隆</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+        </div>
+        <div class="county">
+            <span class="county_name">
+                <h3>桃園市</h3>
+            <span>
+            <div id="site9" class="site">
+                <span class="site_name"><h4>中壢</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site55" class="site">
+                <span class="site_name"><h4>龍潭</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site56" class="site">
+                <span class="site_name"><h4>平鎮</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site57" class="site">
+                <span class="site_name"><h4>觀音</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site58" class="site">
+                <span class="site_name"><h4>大園</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site59" class="site">
+                <span class="site_name"><h4>桃園</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+        </div>
+        <div class="county">
+            <span class="county_name">
+                <h3>新竹市</h3>
+            <span>
+            <div id="site52" class="site">
+                <span class="site_name"><h4>新竹</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+        </div>
+        <div class="county">
+            <span class="county_name">
+                <h3>新竹縣</h3>
+            <span>
+            <div id="site53" class="site">
+                <span class="site_name"><h4>竹東</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site54" class="site">
+                <span class="site_name"><h4>湖口</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+        </div>
+        <div class="county">
+            <span class="county_name">
+                <h3>苗栗縣</h3>
+            <span>
+            <div id="site49" class="site">
+                <span class="site_name"><h4>三義</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site50" class="site">
+                <span class="site_name"><h4>苗栗</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site51" class="site">
+                <span class="site_name"><h4>頭份</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+        </div>
+            <div class="county">
+            <span class="county_name">
+                <h3>臺中市</h3>
+            <span>
+            <div id="site44" class="site">
+                <span class="site_name"><h4>西屯</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site45" class="site">
+                <span class="site_name"><h4>忠明</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site46" class="site">
+                <span class="site_name"><h4>大里</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site47" class="site">
+                <span class="site_name"><h4>沙鹿</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site48" class="site">
+                <span class="site_name"><h4>豐原</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+        </div>
+        <div class="county">
+            <span class="county_name">
+                <h3>彰化縣</h3>
+            <span>
+            <div id="site41" class="site">
+                <span class="site_name"><h4>二林</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site42" class="site">
+                <span class="site_name"><h4>線西</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site43" class="site">
+                <span class="site_name"><h4>彰化</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+        </div>
+        <div class="county">
+            <span class="county_name">
+                <h3>南投縣</h3>
+            <span>
+            <div id="site5" class="site">
+                <span class="site_name"><h4>埔里</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site8" class="site">
+                <span class="site_name"><h4>竹山</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site40" class="site">
+                <span class="site_name"><h4>南投</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+        </div>
+        <div class="county">
+            <span class="county_name">
+                <h3>雲林縣</h3>
+            <span>
+            <div id="site0" class="site">
+                <span class="site_name"><h4>麥寮</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site35" class="site">
+                <span class="site_name"><h4>臺西</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site38" class="site">
+                <span class="site_name"><h4>崙背</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site39" class="site">
+                <span class="site_name"><h4>斗六</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+        </div>
+        <div class="county">
+            <span class="county_name">
+                <h3>高雄市</h3>
+            <span>
+            <div id="site6" class="site">
+                <span class="site_name"><h4>復興</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site19" class="site">
+                <span class="site_name"><h4>小港</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site20" class="site">
+                <span class="site_name"><h4>前鎮</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site21" class="site">
+                <span class="site_name"><h4>前金</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site22" class="site">
+                <span class="site_name"><h4>左營</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site23" class="site">
+                <span class="site_name"><h4>楠梓</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site24" class="site">
+                <span class="site_name"><h4>林園</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site25" class="site">
+                <span class="site_name"><h4>大寮</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site26" class="site">
+                <span class="site_name"><h4>鳳山</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site27" class="site">
+                <span class="site_name"><h4>仁武</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site28" class="site">
+                <span class="site_name"><h4>橋頭</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site29" class="site">
+                <span class="site_name"><h4>美濃</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+        </div>
+        <div class="county">
+            <span class="county_name">
+                <h3>臺南市</h3>
+            <span>
+            <div id="site30" class="site">
+                <span class="site_name"><h4>臺南</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site31" class="site">
+                <span class="site_name"><h4>安南</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site32" class="site">
+                <span class="site_name"><h4>善化</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site33" class="site">
+                <span class="site_name"><h4>新營</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+        </div>
+        <div class="county">
+            <span class="county_name">
+                <h3>嘉義市</h3>
+            <span>
+            <div id="site34" class="site">
+                <span class="site_name"><h4>嘉義</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+        </div>
+        <div class="county">
+            <span class="county_name">
+                <h3>嘉義縣</h3>
+            <span>
+            <div id="site36" class="site">
+                <span class="site_name"><h4>朴子</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site37" class="site">
+                <span class="site_name"><h4>新港</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+        </div>
+        <div class="county">
+            <span class="county_name">
+                <h3>屏東縣</h3>
+            <span>
+            <div id="site17" class="site">
+                <span class="site_name"><h4>潮州</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site18" class="site">
+                <span class="site_name"><h4>屏東</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site16" class="site">
+                <span class="site_name"><h4>恆春</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+        </div>
+        <div class="county">
+            <span class="county_name">
+                <h3>宜蘭縣</h3>
+            <span>
+            <div id="site11" class="site">
+                <span class="site_name"><h4>冬山</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site12" class="site">
+                <span class="site_name"><h4>宜蘭</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+        </div>
+        <div class="county">
+            <span class="county_name">
+                <h3>花蓮縣</h3>
+            <span>
+            <div id="site14" class="site">
+                <span class="site_name"><h4>花蓮</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+        </div>
+        <div class="county">
+            <span class="county_name">
+                <h3>臺東縣</h3>
+            <span>
+            <div id="site1" class="site">
+                <span class="site_name"><h4>關山</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+            <div id="site15" class="site">
+                <span class="site_name"><h4>臺東</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+        </div>
+        <div class="county">
+            <span class="county_name">
+                <h3>金門縣</h3>
+            <span>
+            <div id="site3" class="site">
+                <span class="site_name"><h4>金門</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+        </div>
+        <div class="county">
+            <span class="county_name">
+                <h3>澎湖縣</h3>
+            <span>
+            <div id="site2" class="site">
+                <span class="site_name"><h4>馬公</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+        </div>
+        <div class="county">
+            <span class="county_name">
+                <h3>連江縣</h3>
+            <span>
+            <div id="site4" class="site">
+                <span class="site_name"><h4>馬祖</h4></span>
+                <span class="status"></span>
+                <img class="status_img" src="../pm2.5/img/PM2.5-wait.png">
+                <span class="psi"><h5>PSI: 無</h5></span>
+                <span class="pm25"><h5>PM2.5: 無</h5></span>
+                <span class="pm10"><h5>PM10: 無</h5></span>
+            </div>
+        </div>
+
+    <a href="#0" class="cd-top">Top</a>
+
+    {{> end}}
+    <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+    <script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../air/js/top.js" type="text/javascript" charset="utf-8"></script>
+    {{> footer}}
+
+</body>
+</html>

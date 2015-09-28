@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {{> head}}
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body ng-app="myApp" ng-controller="mainController as mainCtrl">
+    {{> header}}
+    {{> start}}
+     <div class="note">
+        <li class="data-src">資料來源：<a href="http://www.cwb.gov.tw/V7/observe/phRain/">氣象局</a></li>
+        <li class="update-at">更新時間：2015年9月</li>
+        <li>酸雨知識：<a href="http://acidrain.epa.gov.tw/understand/01.htm">酸雨資訊網</a></li>
+        <table class="ui celled striped table full-info">
+            <thead>
+                <tr>
+                    <th>
+                    </th>
+                    <th colspan="3">
+                       顏色分級
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+               <tr>
+                   <td>顏色</td>
+                   <td style="background:rgb(227, 26, 28); color: white;">紅色</td>
+                   <td style="background-color: rgb(249, 114, 17); color: white;">橘色</td>
+                   <td style="background:rgb(31, 120, 180); color: white;">藍色</td>
+                </tr>
+               <tr>
+                   <td>pH值</td>
+                   <td>< 5</td>
+                   <td>5-5.6</td>
+                   <td>>= 5.6</td>
+                </tr>
+                <tr>
+                  <td>定義</td>
+                   <td>環保署酸雨的定義</td>
+                   <td>一般廣義的酸雨</td>
+                   <td>--</td>
+                 </tr>
+                 <tr>
+                  <td>酸雨的危害（<a href="http://content.edu.tw/senior/chemistry/tp_sc/surround/acid/right1.htm">教育部</a>）</td>
+                  <td colspan="3">
+                  1.酸雨因pH小於5.0以下，造成土壤、岩石中的有毒金屬元素溶解，流入河川或湖泊，嚴重時使得魚類大量死亡。<br/>
+2.水生植物和以河川酸化水質灌溉的農作物，因累積有毒金屬，將經由食物鏈進入人體，影響人類的健康。<br/>
+3.酸雨會影響農林作物的葉子，同時土壤中的金屬元素因被酸雨溶解，造成礦物質大量流　失，植物無法獲得充足的養分，將枯萎、死亡。<br/>
+4.湖泊酸化後，可能使生態系改變，甚至湖中生物死亡，生態系活動因而無法進行，最後變成死湖。<br/>
+5.腐蝕建築物、公共設施、古蹟和金屬物質，造成人類經濟、財物及文化遺產的損失。<br/>
+6.刺激人類眼睛和皮膚，對人體造成傷害。</td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+
+      <div class="place-container" ng-repeat="place in data">
+        <h3 ng-bind="place.title"></h3>
+        <svg id="\{{place.id}}">
+        </svg>
+        <div>
+          <span ng-class="place.this_avg < 5 ? 'red': ''">本月pH平均值：</span><span ng-class="place.this_avg < 5 ? 'red': ''" ng-bind="place.this_avg"></span> / <span>採樣數量：</span><span ng-bind="place.this_number"></span>
+        </div>
+        <div>
+          <span ng-class="place.this_avg < 5 ? 'red': ''">上月pH平均值：</span><span ng-class="place.this_avg < 5 ? 'red': ''" ng-bind="place.last_avg"></span> / <span>採樣數量：</span><span ng-bind="place.last_number"></span>
+        </div>
+      </div>
+    {{> end}}
+    <script src="./bower_components/angular/angular.min.js"></script>
+    <script src="./bower_components/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
+    {{> footer}}
+  </body>
+</html>
+

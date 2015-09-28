@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {{> head}}
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
+  </head>
+  <body>
+    {{> header}}
+    {{> start}}
+    <div class="header">
+      <i class="fa fa-refresh fa-2x" onclick="resetView()"></i>
+      <i class="fa fa-compass fa-2x" onclick="getLocation()"></i>
+      <i class="fa fa-info fa-2x" onclick="toogleInfo()"></i>
+    </div>
+    <div class="main-info">
+      <table border="1" align="center" cellpadding="4" cellspacing="0">
+      <tbody>
+      <tr align="center" style="background:#efefef;">
+      <td><b>PM2.5濃度</b></td>
+      <td><b>空污顏色</b></td>
+      <td><b>說明</b></td>
+      </tr>
+      <tr>
+      <td>0-12</td>
+      <td class="color" align="center" bgcolor="#7FB73A">綠色</td>
+      <td>空氣品質良好，大家皆可正常戶外活動。</td>
+      </tr>
+      <tr>
+      <td>13-35</td>
+      <td class="color" align="center" bgcolor="yellow">黃色</td>
+      <td>空氣品質普通，敏感性族群應減少體力消耗，特別是戶外活動。</td>
+      </tr>
+      <tr>
+      <td>36-55</td>
+      <td class="color" align="center" bgcolor="#F7931C">橘色</td>
+      <td>空氣品質對敏感性族群不健康。</td>
+      </tr>
+      <tr>
+      <td>56-150</td>
+      <td class="color" align="center" bgcolor="#F52305">紅色</td>
+      <td>空氣品質不良，如任何人有不適，應考慮減少戶外活動。</td>
+      </tr>
+      <tr>
+      <td>151-250</td>
+      <td class="color" align="center" bgcolor="#E062C8">紫色</td>
+      <td>空氣品質非常不良，任何人需減少戶外活動。</td>
+      </tr>
+      <tr>
+      <td>>250</td>
+      <td class="color" align="center" bgcolor="#5F2828">棕色</td>
+      <td>空氣品質屬有害，建議避免戶外活動</td>
+      </tbody></table>
+    </div>
+    <div id="map"></div>
+    <span class="st">採用美國空氣污染品質指標</span>
+    <div class="info-footer">
+      <h5>
+      <br/>
+      資料來源：<a href="http://taqm.epa.gov.tw/taqm/tw/Default.aspx">行政院環境保護署</a><br/>
+      <span class="updateAt">更新時間：</span><br/>
+      </h5>
+    </div>
+    {{> end}}
+
+    <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+    <script src="http://d3js.org/queue.v1.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.min.js"></script>
+    <script src="./dist/map.js"></script>
+    {{> footer}}
+</body>
+</html>

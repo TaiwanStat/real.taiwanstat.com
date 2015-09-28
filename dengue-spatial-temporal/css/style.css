@@ -1,0 +1,78 @@
+html {
+  background: white;
+  font-family: 'Noto Sans', 'sans-serif', 'Microsoft Jhenghei';
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+body {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+#map {
+  position: relative;
+  height: 450px;
+  margin-bottom: 20px
+}
+
+.info.legend.leaflet-control {
+  width: 120px;
+  margin-bottom: 50px;
+}
+.legend {
+  line-height: 18px;
+  color: #555;
+}
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
+}
+.info.leaflet-control h4{
+  width: 150px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.awesome-marker i {
+  font-size: 10px;
+}
+.toggle {
+  margin-bottom: 10px;
+}
+.visual {
+  padding: 20px;
+}
+.leaflet-right .leaflet-control {
+  margin-right: 10px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+}
+.leaflet-right h4 span {
+   color: rgb(235, 119, 101);
+}
+
+@media all and (max-width: 650px) {
+  .browser-note {
+    display: none;
+  }
+  .leaflet-right .leaflet-control h4 {
+    font-size: 14px;
+  }
+  .leaflet-control-attribution.leaflet-control {
+    display: none;
+  }
+}
+@media all and (min-width: 800px) {
+#map {
+  position: relative;
+  height: 600px;
+  margin-bottom: 20px
+}
+}
+
+

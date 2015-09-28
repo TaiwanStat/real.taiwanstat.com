@@ -1,0 +1,320 @@
+/**************************************************************************************************
+ * At-Rules
+ **************************************************************************************************/
+
+@font-face {
+    font-family: mplus-2p-light-sub;
+    src: url("./mplus-2p-light-sub.ttf?v6");
+}
+
+@font-face {
+    font-family: monosocialiconsfont-sub;
+    src: url("./monosocialiconsfont-sub.ttf?v1");
+}
+
+/**************************************************************************************************
+ * Styling Reset
+ **************************************************************************************************/
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, svg, canvas {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: 1em mplus-2p-light-sub,Helvetica,arial,freesans,clean,sans-serif;
+    -webkit-font-smoothing: subpixel-antialiased; /* safari disables subpixel antialiasing for some reason */
+}
+
+@media (max-width: 825px), (max-height: 700px) {
+    html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, svg, canvas {
+        font-size: 0.8em;
+    }
+}
+
+/**************************************************************************************************
+ * Page Styling
+ **************************************************************************************************/
+
+a, .text-button {
+    color: #888888;
+}
+
+.text-button.highlighted {
+    color: #e2b42e;
+}
+
+.text-button.disabled {
+    color: #444444;
+}
+
+a:hover, a:focus, .no-touch .text-button:hover, .no-touch .text-button:focus, .text-button:active {
+    color: #ffffff;
+    cursor: pointer;
+    transition: color 125ms ease-in;
+    -webkit-transition: color 125ms ease-in;
+}
+
+p.invisible, span.invisible, #sponsor.invisible {
+    display: none;
+}
+
+svg {
+    overflow: hidden;  /* Do not let IE draw outside the bounds of the svg element. */
+}
+
+body {
+    color: #eeeeee;
+    background: #000005;
+}
+
+#warn {
+    font-size: 2.0em;
+    position: absolute;
+    top: 10%;
+    left: 2%;
+}
+
+#display {
+    cursor: default;
+}
+
+#map, #animation, #overlay, #foreground {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#sponsor {
+    position: absolute;
+    text-align: right;
+    bottom: 3%;
+    right: 2%;
+    background-color: rgba(0, 0, 5, 0.6);
+    border-radius: 0.5rem/0.5rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    font-size: 1.0rem;
+}
+
+#sponsor:hover #sponsor-hide {
+    display: inline;
+}
+
+#sponsor a {
+    text-decoration: none;
+}
+
+#details {
+    position: absolute;
+    bottom: 3%;
+    left: 2%;
+    pointer-events: none;  /* This div is just a container--do not let it interfere with operation of the map. */
+}
+
+#earth {
+    font-size: 2.4rem;
+}
+
+#status, #location, #menu {
+    font-size: 1.75rem;
+}
+
+#status, #location, #earth {
+    background-color: rgba(0, 0, 5, 0.6);
+    border-radius: 0.5rem/0.5rem;
+    display: table;
+    margin-top: 1rem;
+    padding: 0 1rem 0 1rem;
+    pointer-events: all;
+}
+
+#menu {
+    background-color: rgba(5, 10, 30, 0.85);
+    border-radius: 0.5rem/0.5rem;
+    overflow: hidden;
+    pointer-events: all;
+
+    margin-top: 1rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    opacity: 1;
+    max-height: 34rem;
+    transition: opacity 250ms ease, max-height 250ms ease, margin-top 250ms ease;
+    -webkit-transition: opacity 250ms ease, max-height 250ms ease, margin-top 250ms ease;
+}
+
+#menu.invisible {
+    margin-top: 0;
+    padding: 0 1rem 0 1rem;
+    opacity: 0;
+    max-height: 0;
+    transition: opacity 250ms ease, max-height 250ms ease, margin-top 250ms ease;
+    -webkit-transition: opacity 250ms ease, max-height 250ms ease, margin-top 250ms ease;
+}
+
+#progress {
+    padding-left: 1rem;
+}
+
+#nav-now {
+    padding-right: 1rem;
+}
+
+#nav-backward, #nav-backward-more, #nav-forward, #nav-forward-more, #option-show-grid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#show-location {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+}
+
+#lang {
+    font-size: 1.25rem;
+    float: right;
+    padding-top: 0.5rem;
+}
+
+.social-icon {
+    font-size: 2.25rem;
+    font-family: monosocialiconsfont-sub,sans-serif;
+    padding-left: 0.25rem;
+    text-decoration: none;
+    position: relative;
+    top: 0.1rem;
+}
+
+.internal-link {
+    text-decoration: none;
+}
+
+.sup {
+    position: relative;
+   	bottom: 0.3em;
+   	font-size: 0.6em;
+}
+
+.sub {
+    position: relative;
+   	top: 0.3em;
+   	font-size: 0.6em;
+}
+
+/**************************************************************************************************
+ * SVG Element Styling
+ **************************************************************************************************/
+
+.coastline, .lakes {
+    stroke: #ffffff;
+    stroke-width: 1.25;
+    fill: none;
+}
+
+.firefox .coastline, .firefox .lakes {
+    stroke-width: 1.0;
+}
+
+.graticule {
+    stroke: #505050;
+    stroke-width: 1.0;
+    fill: none;
+}
+
+.hemisphere {
+    stroke: #707070;
+    stroke-width: 1.25;
+    fill: none;
+}
+
+.background-sphere {
+    stroke: none;
+    fill: #303030;
+}
+
+.foreground-sphere {
+    stroke: #000005;
+    stroke-width: 4.0;
+    fill: none;
+    -moz-user-select: none;  /* Oddly, Win FF sometimes selects this SVG element. Disable. */
+    user-select: none;
+}
+
+.location-mark {
+    stroke: #3aff3a;
+    stroke-width: 2.5;
+    fill: none;
+}
+
+/**************************************************************************************************
+ * About Page
+ **************************************************************************************************/
+
+#about {
+    font-size: 1.5rem;
+}
+
+#about h1 {
+    font-size: 2.4rem;
+    text-align: center;
+    padding-top: 2rem;
+}
+
+#about div {
+    clear: both;
+}
+
+#about .blurb {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+#about .blurb img {
+    padding-top: 2rem;
+}
+
+#about img {
+    display: block;
+    margin: auto;
+}
+
+#about:first-child {
+    padding-top: 3rem;
+}
+
+#cover {
+    border: 1px solid #eeeeee;
+}
+
+#about .left {
+    width: 50%;
+    float: left;
+    text-align: right;
+}
+
+#about .right {
+    width: 50%;
+    float: right;
+}
+
+#about .center {
+    text-align: center;
+}
+
+#about .pad {
+    visibility: hidden;
+}
+
+#closing {
+    padding-bottom: 2.5rem;
+}
+header div{
+    z-index: 999;
+    position: fixed;
+    font-size: 14px;
+    padding: 10px;
+    font-family: 'Noto Sans', 'sans-serif', 'Microsoft Jhenghei'; 
+    background-color: rgba(0, 0, 5, 0.6);
+    border-radius: 0.5rem/0.5rem;
+    color: #888888;
+}
+header div a {
+    font-size: 14px;
+}

@@ -1,0 +1,11 @@
+{
+  "name": "air_pollution",
+  "version": "0.0.1",
+  "homepage": "https://github.com/TaiwanStat/AirPollution",
+  "authors": [
+    "Frank Yang <yangpoan@gmail.com>"
+  ],
+  "description": "台灣空氣品質指標",
+  "license": "MIT",
+  "private": true
+}
