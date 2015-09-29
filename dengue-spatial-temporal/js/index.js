@@ -16,7 +16,7 @@
   var info = L.control();
   var dist800 = 'off';
   var showDrug = false;
-  var defaultCirlceParams = {
+  var defaultCircleParams = {
     size: 500,
     color: '#e851c',
     fillColor: '#E24A31',
@@ -44,7 +44,7 @@
     latestDate.setDate(from.getDate()+1);
     $('.updateAt').text(latestDate.toLocaleDateString());
     $('.dataUpdateAt').text(from.toLocaleDateString());
-    drawCircle(threeData, defaultCirlceParams);
+    drawCircle(threeData, defaultCircleParams);
   });
 
   myFirebaseRef.child("dengue-st2").limitToLast(1).on("child_added", function(snapshot) {
@@ -246,10 +246,10 @@
     dist800 = dist;
     removeCircles(circles);
     if (day == 3) {
-      drawCircle(threeData, defaultCirlceParams);
+      drawCircle(threeData, defaultCircleParams);
     }
     else if (day == 1){
-      drawCircle(oneData, defaultCirlceParams);
+      drawCircle(oneData, defaultCircleParams);
     }
     info.update();
   }
