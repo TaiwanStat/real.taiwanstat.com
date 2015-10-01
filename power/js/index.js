@@ -58,7 +58,7 @@
   });
 
   function loadReserveData (data) {
-    var myFirebaseRef = new Firebase("https://realtaiwanstat.firebaseio.com");
+    var myFirebaseRef = new Firebase("https://realtaiwanstat2.firebaseio.com");
       myFirebaseRef.child("power_3").limitToLast(1).on("child_added", function(snapshot) {
       var text = snapshot.val();  
       powerLoadData = d3.csv.parseRows(text)[0];
