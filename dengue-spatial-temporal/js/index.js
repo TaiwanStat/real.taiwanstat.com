@@ -41,7 +41,7 @@
     oneData = format(data.one);
     var from = new Date(threeData[threeData.length-1].日期);
     var latestDate = new Date();
-    latestDate.setDate(from.getDate()+1);
+    latestDate.setDate(2);
     console.log(threeData[threeData.length-1]);
     $('.updateAt').text(latestDate.toLocaleDateString());
     $('.dataUpdateAt').text(from.toLocaleDateString());
