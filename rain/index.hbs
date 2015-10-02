@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {{> head}}
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    {{> header}}
+    {{> start}}
+    <div>
+      <ul>
+      <li>單位：毫米
+      </li>
+      </ul>
+    </div>
+      <div class="mychart">
+
+      </div>
+    {{> end}}
+    <img id="background-img"/>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="./js/vendor/raindrops.js"></script>
+    <script type="text/javascript" src="./js/vendor/rainyday.min.js"></script>
+    <script type="text/javascript" src="./js/index.js"></script>
+    {{> footer}}
+  </body>
+</html>
+
