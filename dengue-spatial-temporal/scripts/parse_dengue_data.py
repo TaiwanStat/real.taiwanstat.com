@@ -17,6 +17,8 @@ def getDaysWithin(data):
         if event_date > now:
             break
         delta = now - event_date
+        if not item[-1]:
+            continue
         item[-1], item[-2] = float(item[-1]), float(item[-2])
         if delta.days < 7:
             tmp = list(item)
@@ -33,12 +35,21 @@ def getDaysWithin(data):
 
 if __name__ == '__main__':
     url = 'http://denguefever.csie.ncku.edu.tw/file/dengue_all.csv'
-    data = csv_io.req_csv(url, 'utf-8')
+    tmp = csv_io.req_csv(url, 'utf-8')
+    data = []
+    for item in tmp:
+        if item[5]:
+            item[5] = '2015/'+item[5].replace('月', '/').replace('日', '')
+            data.append([item[0], item[5], item[1], item[2], item[-1], item[-2]])
+
+    header = data[0]
+    data = data[1:]
+    data = sorted(data, key = lambda x: datetime.strptime(x[1], '%Y/%m/%d').date())
     output_data = {}
     now = datetime.strptime(data[-1][1], '%Y/%m/%d').date()
 
-    header = data[0]
     header[1], header[2], header[-2], header[-1] = '日期', '區別', 'Latitude', 'Longitude'
+    header[3] = '里別'
     data = data[1:]
     days1, days3, days7 = getDaysWithin(data)
     days1 = geo.get_hot_points(days1, len(days1)*0.03, 500)
