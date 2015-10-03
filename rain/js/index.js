@@ -22,8 +22,7 @@
     time = (now > 5 && now < 18) ? '白天' : '晚上';
     var myFirebaseRef = new Firebase("https://realtaiwanstat2.firebaseio.com");
     myFirebaseRef.child("rain").limitToLast(1).on("child_added", function(snapshot) {
-      var raw = snapshot.val();  
-      var _data = JSON.parse(raw);
+      var _data = snapshot.val();
     //$.getJSON('./data/data.json').then(function(_data) {
       data = _data;
       $('.updateAt').text(data[0].PublishTime);
