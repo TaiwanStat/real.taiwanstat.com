@@ -32,11 +32,11 @@ def getDaysWithin(data):
     return days1, days3, days7
 
 if __name__ == '__main__':
-    url = 'http://denguefever.csie.ncku.edu.tw/file/dengue_all_v2.csv'
+    url = 'http://denguefever.csie.ncku.edu.tw/file/dengue_all.csv'
     data = csv_io.req_csv(url, 'utf-8')
 
     output_data = {}
-    now = datetime.strptime(data[-4][1], '%Y/%m/%d').date()
+    now = datetime.strptime(data[-1][1], '%Y/%m/%d').date()
     header = data[0]
     header[1], header[2], header[-2], header[-1] = '日期', '區別', 'Latitude', 'Longitude'
     data = data[1:]
