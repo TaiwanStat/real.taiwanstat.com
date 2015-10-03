@@ -17,40 +17,97 @@
   
   init();
   function init() {
-    if (now > 5 && now < 18) {
-      time = 'daytime';
-    }
-    else {
-      time = 'night';
-    }
-
+    time = (now > 5 && now < 18) ? '白天' : '晚上';
     $.getJSON('./data/data.json').then(function(_data) {
       data = _data;
+      $('.updateAt').text(data[0].PublishTime);
       sumCountryData();
     });
   }
 
-  function setBackground(type) {
-    var image = document.getElementById('background-img');
+  function setBackground(type, placeNmae, maxRainValue) {
+    var image = document.createElement('img');
+    image.id = 'background-img';
     image.crossOrigin = 'anonymous';
+    document.body.appendChild(image);
+
     if (type === 'rain') {
       image.onload = function() {
           engine = new RainyDay({
               image: this
           });
-          engine.rain([ [1, 2, 8000] ]);
-          engine.rain([ [3, 3, 0.88], [5, 5, 0.9], [6, 2, 1] ], 100);
+          // default window rain drop
+          if (maxRainValue < 2) {
+            engine.rain([ [1, 3, 1000*maxRainValue] ]);
+          }
+          else if (maxRainValue < 5) {
+            engine.rain([ [1, 5, 1000] ]);
+          }
+          else {
+            engine.rain([ [1, 8, 1000] ]);
+          }
+
+          // dynamic drop size
+          var drops = [[1, 3, 2]];
+          if (maxRainValue > 1) {
+            drops.push([2, 3, 10]);
+          }
+          else if (maxRainValue > 5) {
+            drops.push([5, 10, 20]);
+          }
+          else if (maxRainValue > 10) {
+            drops.push([7, 15, 20]);
+          }
+          
+          // freq
+          if (maxRainValue < 1) {
+            engine.rain(drops, 500);
+          }
+          else if (maxRainValue < 5) {
+            engine.rain(drops, 100/maxRainValue);
+          }
+          else if (maxRainValue < 10){
+            engine.rain(drops, 5);
+          }
+          else {
+            engine.rain(drops, 0.5);
+          }
       };
-      image.src = './images/' + time + '-' + type + '.jpg';
+      image.src = './images/' + placeNmae + time + '.jpg';
     }
     else {
-      image.src = './images/' + time + '-' + type + '.jpg';
+      image.onload = function() {
+        engine = new RainyDay({
+          image: this,
+          blur: 10
+        });
+          engine.rain([]);
+      };
+
+      image.src = './images/' + placeNmae + time + '.jpg';
     }
   }
 
+  function removeBackground() {
+    if ($('#background-img')) {
+      $('#background-img').remove(); 
+      $('canvas').remove();
+      clearInterval();
+      engine = {};
+    }
+  }
+
+  function clearInterval() {
+    for (var i = 1; i < 99999; i++)
+      window.clearInterval(i);
+  }
+
   function sumCountryData() {
-    var numberKeys = ['Rainfall10min', 'Rainfall1hr', 'Rainfall3hr', 'Rainfall6hr',
-      'Rainfall12hr', 'Rainfall24hr'];
+    var numberKeys = [
+      'Rainfall10min', 'Rainfall1hr', 
+      'Rainfall3hr', 'Rainfall6hr',
+      'Rainfall12hr', 'Rainfall24hr'
+    ];
 
     data.forEach(function(site) {
       if (!countryData.hasOwnProperty(site.County)) {
@@ -81,6 +138,9 @@
   }
   
   function draw(data) {
+    var numberOfRain = 0;
+    var maxRainValue = 0;
+    removeBackground();
     countryOrder.forEach(function(key) {
       $('.mychart').append(
         '<div class="raindrop" id="'+ key + '">' + '<h3>' + key + '</h3>' +
@@ -88,14 +148,24 @@
         '</span></h6>'  +
         '<h6>1小時平均累積雨量<br/><span class="red">' + data[key].Rainfall1hr + 
         '</span></h6>' +
-        '<a href="#' + key + '" class="btn-more" onClick=showDetail(' + 
+        '<a href="#title" class="btn-more" onClick=showDetail(' + 
           key + ')>點擊觀看</a></div>' 
       );
-      if (Math.round(10*data[key].Rainfall1hr) !== 0) {
+
+      if (Math.round(10*data[key].Rainfall10min) !== 0) {
         createRainDrop('#'+key, getOptions(data[key].Rainfall10min));
+        numberOfRain += 1;
+        if (data[key].Rainfall10min > maxRainValue) {
+          maxRainValue = data[key].Rainfall10min;
+        }
       }
     });
-      setBackground('sunny');
+    if (numberOfRain > 4 || maxRainValue >= 2) {
+      setBackground('rain', '', maxRainValue);
+    }
+    else {
+      setBackground('sunny', '');
+    }
   }
 
   function createRainDrop(id, options) {
@@ -104,35 +174,72 @@
   }
 
   function getOptions(rainValue) {
-    var weak = {
-      color: 'rgb(23, 139, 202)',
-      waveLength: 400,
-      frequency: 2,
-      waveHeight: 80,
-      density: 0.04, 
-      rippleSpeed: 0.03
-    };
-    var normal = {
-      color: 'rgb(23, 139, 202)',
-      waveLength: 400,
-      frequency: 2,
-      waveHeight: 80,
-      density: 0.04, 
-      rippleSpeed: 0.03
-    };
-    var strong = {
-      color:'#f77b7b',
-      waveLength: 400,
-      frequency: 2,
-      waveHeight: 80,
-      density: 0.04, 
-      rippleSpeed: 0.03
-    };
-    normal.canvasHeight = rainValue*10;
-    if (normal.canvasHeight && normal.canvasHeight > 300) {
-      normal.canvasHeight = 300;
+    var canvasHeight = rainValue * 34;
+    if (rainValue < 1) {
+      return {
+        color: 'rgb(23, 139, 202)',
+        waveLength: 400,
+        frequency: 5 * rainValue,
+        waveHeight: 80,
+        density: 0.01, 
+        rippleSpeed: 0.01,
+        canvasHeight: canvasHeight
+      };
     }
-    return normal;
+    else if (rainValue < 5) {
+      return {
+        color: 'rgb(23, 139, 202)',
+        waveLength: 350,
+        frequency: 10*rainValue/5,
+        waveHeight: 80,
+        density: 0.05, 
+        rippleSpeed: 0.05,
+        canvasHeight: canvasHeight
+      };
+    }
+    else if (rainValue < 10) {
+      return {
+        color:'rgb(23, 139, 202)',
+        waveLength: 200,
+        frequency: 15*rainValue/10,
+        waveHeight: 80,
+        density: 0.04, 
+        rippleSpeed: 0.03,
+        canvasHeight: canvasHeight
+      };
+    }
+    else if (rainValue < 15) {
+      return {
+        color:'#f2711c',
+        waveLength: 200,
+        frequency: 20*rainValue/15,
+        waveHeight: 90,
+        density: 0.04, 
+        rippleSpeed: 0.05,
+        canvasHeight: canvasHeight
+      };
+    }
+    else if (rainValue < 20) {
+      return {
+        color:'#f77b7b',
+        waveLength: 200,
+        frequency: 25*rainValue/20,
+        density: 0.1, 
+        rippleSpeed: 0.05,
+        canvasHeight: 500,
+      };
+    }
+
+    $('span').removeClass('red');
+    return {
+      color:'#DB2828',
+      waveLength: 200,
+      frequency: 30,
+      waveHeight: 90,
+      density: 0.04, 
+      rippleSpeed: 0.09,
+      canvasHeight: 500
+    };
   }
 
   function showDetail(county) {
@@ -140,32 +247,38 @@
     data.forEach(function(site) {
       if (site.County === county.id) sites.push(site); 
     });
-    $('canvas').remove();
+    $('.mychart').empty();
     drawDetail(sites);
   }
 
   function drawDetail(data) {
-    $('.mychart').empty();
     var numberOfRain = 0;
+    var maxRainValue = 0;
+    removeBackground();
+
     data.forEach(function(site) {
       var name = site.SiteName.replace(/[()]/g, '-');
-      $('.mychart').append( '<div class="raindrop" id="'+ site.SiteId + '">' +
+      $('.mychart').append('<div class="raindrop" id="'+ site.SiteId + '">' +
         '<h3>' + name + '</h3>' +
         '<h6>10分鐘累積雨量<br/><span class="red">' + site.Rainfall10min + '</span></h6>' +
         '<h6>1小時累積雨量<br/><span class="red">' + site.Rainfall1hr + '</span></h6>' +
         '<h6>日累積雨量<br/><span class="red">' + site.Rainfall24hr + '</span></h6>' +
-        '<a href="#" class="btn-back" onClick=goBack()>返回</a></div>' 
+        '<a href="#' +  site.County + '" class="btn-back" onClick=goBack()>返回</a></div>' 
       );
       if (Math.round(10*site.Rainfall10min) !== 0) {
         createRainDrop('#'+site.SiteId, getOptions(site.Rainfall1hr));
         numberOfRain += 1;
+        if (site.Rainfall10min > maxRainValue) {
+          maxRainValue = site.Rainfall10min;
+        }
       }
     });
-    if (numberOfRain > 1) {
-      setBackground('rain');
+    var minRains = data.length * 1 / 4;
+    if (numberOfRain > minRains || maxRainValue > 2) {
+      setBackground('rain', data[0].County, maxRainValue);
     }
     else {
-      setBackground('sunny');
+      setBackground('sunny', data[0].County);
     }
   }
 
@@ -173,6 +286,5 @@
     $('.mychart').empty();
     draw(countryData);
   }
-
 
 })(window);
