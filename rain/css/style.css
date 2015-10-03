@@ -5,6 +5,7 @@ footer {
   z-index: 999;
 }
 body {
+  background: black;
   overflow: hidden;
   height: 100%;
   margin: 0;
