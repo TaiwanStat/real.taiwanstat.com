@@ -33,7 +33,7 @@
 
   function setBackground(type, placeNmae, maxRainValue) {
     var image = document.createElement('img');
-    image.id = 'background-img';
+   image.id = 'background-img';
     image.crossOrigin = 'anonymous';
     document.body.appendChild(image);
 
@@ -82,13 +82,13 @@
       image.src = './images/' + placeNmae + time + '.jpg';
     }
     else {
-      image.onload = function() {
+      /*image.onload = function() {
         engine = new RainyDay({
           image: this,
           blur: 10
         });
           engine.rain([]);
-      };
+      };*/
 
       image.src = './images/' + placeNmae + time + '.jpg';
     }
@@ -127,7 +127,6 @@
           Sitenumber: 0
         };
       }
-
       for (var i in numberKeys) {
         countryData[site.County][numberKeys[i]] += parseFloat(site[numberKeys[i]]); 
         countryData[site.County].Sitenumber += 1;
@@ -227,7 +226,7 @@
     }
     else if (rainValue < 20) {
       return {
-        color:'#f77b7b',
+        color:'#f2711c',
         waveLength: 200,
         frequency: 25*rainValue/20,
         density: 0.1, 
@@ -272,7 +271,7 @@
         '<a href="#' +  site.County + '" class="btn-back" onClick=goBack()>返回</a></div>' 
       );
       if (Math.round(10*site.Rainfall10min) !== 0) {
-        createRainDrop('#'+site.SiteId, getOptions(site.Rainfall1hr));
+        createRainDrop('#'+site.SiteId, getOptions(site.Rainfall10min));
         numberOfRain += 1;
         if (site.Rainfall10min > maxRainValue) {
           maxRainValue = site.Rainfall10min;
