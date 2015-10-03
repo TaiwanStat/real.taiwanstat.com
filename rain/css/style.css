@@ -78,7 +78,9 @@ a {
 .photo-note {
   color: rgb(200, 0, 0);
 }
-
+h3.sitename {
+  font-size: 20px;
+}
 @media all and (max-width: 600px) {
   .raindrop {
     width: 70%;

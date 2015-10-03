@@ -264,7 +264,7 @@
     data.forEach(function(site) {
       var name = site.SiteName.replace(/[()]/g, '-');
       $('.mychart').append('<div class="raindrop" id="'+ site.SiteId + '">' +
-        '<h3>' + name + '</h3>' +
+        '<h3 class="sitename">' + name + '（' + site.Township + '）</h3>' +
         '<h6>10分鐘累積雨量<br/><span class="red">' + site.Rainfall10min + '</span></h6>' +
         '<h6>1小時累積雨量<br/><span class="red">' + site.Rainfall1hr + '</span></h6>' +
         '<h6>日累積雨量<br/><span class="red">' + site.Rainfall24hr + '</span></h6>' +
