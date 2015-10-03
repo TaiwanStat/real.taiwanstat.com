@@ -6,3 +6,4 @@ npm-debug.log
 *~
 data/*.csv
 *.pyc
+data/data.json
