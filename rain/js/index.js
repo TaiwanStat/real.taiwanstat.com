@@ -140,7 +140,14 @@
         countryData[key].Sitenumber).toFixed(2);
       }
     }
-    draw(countryData);
+    var hash = window.location.hash;
+    var hashValue = hash.substring(hash.indexOf('#')+1);
+    if (hashValue in countryData) {
+      showDetail({id: hashValue});
+    }
+    else {
+      draw(countryData);
+    }
   }
   
   function draw(data) {
@@ -159,7 +166,6 @@
       );
 
       if (Math.round(10*data[key].Rainfall1hr) !== 0) {
-        console.log(data[key].Rainfall1hr);
         createRainDrop('#'+key, getOptions(data[key].Rainfall10min, data[key].Rainfall1hr));
         numberOfRain += 1;
         if (data[key].Rainfall10min > maxRainValue) {
@@ -274,6 +280,7 @@
     else {
       setBackground('sunny', data[0].County);
     }
+    setTimeout(function() { window.location.hash = data[0].County;}, 1000);
   }
 
   function goBack() {
