@@ -1,10 +1,12 @@
 .mdl-layout__container,.raindrop a,footer{z-index:999}
 .raindrop,a,body{color:#fff}
 .raindrop,body{overflow:hidden}
-body{background:#000;height:100%;margin:0;padding:0;font-family:Meiryo,"微軟正黑體","Microsoft JhengHei"}
-.mychart{min-height:600px;width:100%;margin:auto auto 20px;position:relative;top:20px}
+.cssload-jar,.mychart,.raindrop a{position:relative}
+body{background-color:rgba(68,167,147,.7);height:100%;margin:0;padding:0;font-family:Meiryo,"微軟正黑體","Microsoft JhengHei"}
+#layout-header{display:none}
+.mychart{min-height:600px;width:100%;margin:auto auto 20px;top:20px}
 a{text-decoration:blink}
-.raindrop a{border:1px solid #fff;margin:10px;min-width:150px;padding:10px 20px;line-height:1.42857143;font-size:16px;top:25px;position:relative}
+.raindrop a{border:1px solid #fff;margin:10px;min-width:150px;padding:10px 20px;line-height:1.42857143;font-size:16px;top:25px}
 .raindrop{height:320px;width:250px;display:inline-block;margin:15px 15px 30px;text-align:center;border-radius:25px;border:1.5px solid #fff;-webkit-mask-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC)}
 .raindrop h3{padding-top:20px;font-size:26px;font-weight:700}
 .raindrop h6{padding:2px;margin:0}
@@ -16,3 +18,65 @@ h3.sitename{font-size:20px}
 .btn-back,.btn-more{border-radius:5px}
 .btn-back:hover,.btn-more:hover{background:#fff;box-shadow:1px 1px 0 #eee}
 @media all and (max-width:600px){.raindrop{width:70%;margin:auto auto 20px;display:block}}
+.cssload-jar{width:425px;margin:106px auto 0;text-align:center}
+.cssload-jar .cssload-mouth{width:85px;height:21px;margin:0 auto -2px;border-right:9px solid rgba(255,255,255,.09);border-left:9px solid rgba(255,255,255,.08);border-radius:43px;-o-border-radius:43px;-ms-border-radius:43px;-webkit-border-radius:43px;-moz-border-radius:43px}
+.cssload-jar .cssload-neck{width:74px;height:100px;margin:0 auto -15px;z-index:7;position:relative;background-color:rgba(255,255,255,.49);border-right:9px solid rgba(255,255,255,.44);border-left:9px solid rgba(255,255,255,.49)}
+.cssload-jar .cssload-bubble{width:21px;height:21px;position:absolute;background-color:#4ca8d9;opacity:.4;left:196px;z-index:8;top:234px;border-radius:100%;-o-border-radius:100%;-ms-border-radius:100%;-webkit-border-radius:100%;-moz-border-radius:100%;animation:cssload-buble 1.3s linear .65s infinite;-o-animation:cssload-buble 1.3s linear .65s infinite;-ms-animation:cssload-buble 1.3s linear .65s infinite;-webkit-animation:cssload-buble 1.3s linear .65s infinite;-moz-animation:cssload-buble 1.3s linear .65s infinite}
+.cssload-jar .cssload-base,.cssload-jar .cssload-wave{border-radius:50%;-o-border-radius:50%;-ms-border-radius:50%}
+.cssload-jar .cssload-bubble+.cssload-bubble{left:185px;top:255px;width:32px;height:32px;animation-duration:1.95s;-o-animation-duration:1.95s;-ms-animation-duration:1.95s;-webkit-animation-duration:1.95s;-moz-animation-duration:1.95s}
+.cssload-jar .cssload-base{margin:auto;width:255px;height:213px;border:9px solid rgba(255,255,255,.5);-webkit-border-radius:50%;-moz-border-radius:50%;overflow:hidden;position:relative;z-index:5}
+.cssload-jar .cssload-base .cssload-bubble{left:32px;top:106px;animation:cssload-bounce 1.495s linear 0s infinite alternate;-o-animation:cssload-bounce 1.495s linear 0s infinite alternate;-ms-animation:cssload-bounce 1.495s linear 0s infinite alternate;-webkit-animation:cssload-bounce 1.495s linear 0s infinite alternate;-moz-animation:cssload-bounce 1.495s linear 0s infinite alternate}
+.cssload-jar .cssload-base .cssload-bubble+.cssload-bubble{left:159px;top:85px;animation-duration:1.95s;-o-animation-duration:1.95s;-ms-animation-duration:1.95s;-webkit-animation-duration:1.95s;-moz-animation-duration:1.95s}
+.cssload-jar .cssload-liquid{height:85px;background-color:rgba(76,168,217,.98);position:absolute;bottom:0;left:0;right:0}
+.cssload-jar .cssload-wave{width:128px;height:43px;position:absolute;background-color:#4ca8d9;left:0;top:121px;animation:cssload-wave .65s linear .65s infinite alternate;-o-animation:cssload-wave .65s linear .65s infinite alternate;-ms-animation:cssload-wave .65s linear .65s infinite alternate;-webkit-animation:cssload-wave .65s linear .65s infinite alternate;-moz-animation:cssload-wave .65s linear .65s infinite alternate;-webkit-border-radius:50%;-moz-border-radius:50%}
+.cssload-jar .cssload-wave+.cssload-wave{left:auto;right:0}
+@keyframes cssload-wave{from{transform:translateX(213px)}
+to{transform:translateX(-213px)}}
+@-o-keyframes cssload-wave{from{-o-transform:translateX(213px)}
+to{-o-transform:translateX(-213px)}}
+@-ms-keyframes cssload-wave{from{-ms-transform:translateX(213px)}
+to{-ms-transform:translateX(-213px)}}
+@-webkit-keyframes cssload-wave{from{-webkit-transform:translateX(213px)}
+to{-webkit-transform:translateX(-213px)}}
+@-moz-keyframes cssload-wave{from{-moz-transform:translateX(213px)}
+to{-moz-transform:translateX(-213px)}}
+@keyframes cssload-bounce{0%{transform:translate(11px,32px)}
+50%{transform:translate(0,-32px)}
+100%{transform:translate(-11px,-79px);opacity:1}}
+@-o-keyframes cssload-bounce{0%{-o-transform:translate(11px,32px)}
+50%{-o-transform:translate(0,-32px)}
+100%{-o-transform:translate(-11px,-79px);opacity:1}}
+@-ms-keyframes cssload-bounce{0%{-ms-transform:translate(11px,32px)}
+50%{-ms-transform:translate(0,-32px)}
+100%{-ms-transform:translate(-11px,-79px);opacity:1}}
+@-webkit-keyframes cssload-bounce{0%{-webkit-transform:translate(11px,32px)}
+50%{-webkit-transform:translate(0,-32px)}
+100%{-webkit-transform:translate(-11px,-79px);opacity:1}}
+@-moz-keyframes cssload-bounce{0%{-moz-transform:translate(11px,32px)}
+50%{-moz-transform:translate(0,-32px)}
+100%{-moz-transform:translate(-11px,-79px);opacity:1}}
+@keyframes cssload-buble{0%{transform:translate(6px,21px)}
+25%{transform:translate(0,0)}
+50%{transform:translate(-6px,-53px)}
+75%{transform:translate(0,-106px);opacity:1}
+100%{transform:translate(6px,-213px);opacity:0}}
+@-o-keyframes cssload-buble{0%{-o-transform:translate(6px,21px)}
+25%{-o-transform:translate(0,0)}
+50%{-o-transform:translate(-6px,-53px)}
+75%{-o-transform:translate(0,-106px);opacity:1}
+100%{-o-transform:translate(6px,-213px);opacity:0}}
+@-ms-keyframes cssload-buble{0%{-ms-transform:translate(6px,21px)}
+25%{-ms-transform:translate(0,0)}
+50%{-ms-transform:translate(-6px,-53px)}
+75%{-ms-transform:translate(0,-106px);opacity:1}
+100%{-ms-transform:translate(6px,-213px);opacity:0}}
+@-webkit-keyframes cssload-buble{0%{-webkit-transform:translate(6px,21px)}
+25%{-webkit-transform:translate(0,0)}
+50%{-webkit-transform:translate(-6px,-53px)}
+75%{-webkit-transform:translate(0,-106px);opacity:1}
+100%{-webkit-transform:translate(6px,-213px);opacity:0}}
+@-moz-keyframes cssload-buble{0%{-moz-transform:translate(6px,21px)}
+25%{-moz-transform:translate(0,0)}
+50%{-moz-transform:translate(-6px,-53px)}
+75%{-moz-transform:translate(0,-106px);opacity:1}
+100%{-moz-transform:translate(6px,-213px);opacity:0}}

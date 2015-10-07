@@ -20,9 +20,6 @@
   init();
   function init() {
     time = (now > 5 && now < 18) ? '白天' : '晚上';
-    if (time === '白天') {
-      $('body').css('background', '#fff');
-    }
 
     var myFirebaseRef = new Firebase("https://realtaiwanstat2.firebaseio.com");
     myFirebaseRef.child("rain").limitToLast(1).on("child_added", function(snapshot) {
@@ -30,13 +27,15 @@
     //$.getJSON('./data/data.json').then(function(_data) {
       data = _data;
       $('.updateAt').text(data[0].PublishTime);
+      $('.loading').hide();
+      $('#layout-header').show();
       sumCountryData();
     });
   }
 
   function setBackground(type, placeNmae, maxRainValue) {
     var image = document.createElement('img');
-   image.id = 'background-img';
+    image.id = 'background-img';
     image.crossOrigin = 'anonymous';
     document.body.appendChild(image);
 
@@ -85,14 +84,6 @@
       image.src = './images/' + placeNmae + time + '.jpg';
     }
     else {
-      /*image.onload = function() {
-        engine = new RainyDay({
-          image: this,
-          blur: 10
-        });
-          engine.rain([]);
-      };*/
-
       image.src = './images/' + placeNmae + time + '.jpg';
     }
   }
@@ -101,14 +92,8 @@
     if ($('#background-img')) {
       $('#background-img').remove(); 
       $('canvas').remove();
-      clearInterval();
       engine = {};
     }
-  }
-
-  function clearInterval() {
-    for (var i = 1; i < 99999; i++)
-      window.clearInterval(i);
   }
 
   function sumCountryData() {
@@ -121,9 +106,6 @@
         countryData[site.County] = {
           Rainfall10min: 0.0,
           Rainfall1hr: 0.0,
-          Rainfall3hr: 0.0,
-          Rainfall6hr: 0.0,
-          Rainfall12hr: 0.0,
           Rainfall24hr: 0.0,
           Sitenumber: 0.0
         };

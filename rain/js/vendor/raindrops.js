@@ -112,14 +112,35 @@ $.widget("water.raindrops", {
 
 function raindropsAnimationTick(drop) {
     if (!document.contains(drop.element[0])) return;
+    
+    if(isInView($('#'+drop.element[0].id))) {
 
-    if ((Math.random() * 100) < drop.options.frequency)
-        drop.springs[Math.floor(Math.random() * drop.options.waveLength)].p = drop.options.waveHeight;
+      if ((Math.random() * 100) < drop.options.frequency)
+          drop.springs[Math.floor(Math.random() * drop.options.waveLength)].p = drop.options.waveHeight;
 
-    drop.ctx.clearRect(0, 0, drop.options.realWidth, drop.options.canvasHeight);
-    drop.updateSprings(0.1);
-    drop.renderWaves();
+      drop.ctx.clearRect(0, 0, drop.options.realWidth, drop.options.canvasHeight);
+      drop.updateSprings(0.1);
+      drop.renderWaves();
+    }
+
     requestAnimationFrame(function () {
       raindropsAnimationTick(drop);
     });
+}
+
+function isInView(el) {
+  var win = $(window);
+  var viewport = {
+      top : win.scrollTop(),
+      left : win.scrollLeft()
+  };
+  viewport.right = viewport.left + win.width();
+  viewport.bottom = viewport.top + win.height();
+
+  var bounds = el.offset();
+  bounds.right = bounds.left + el.outerWidth();
+  bounds.bottom = bounds.top + el.outerHeight();
+
+  return (!(viewport.right < bounds.left || viewport.left > bounds.right || 
+    viewport.bottom < bounds.top || viewport.top > bounds.bottom));
 }
