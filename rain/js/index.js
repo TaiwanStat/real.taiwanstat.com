@@ -29,6 +29,7 @@
       $('.updateAt').text(data[0].PublishTime);
       $('.loading').remove();
       $('#layout-header').show();
+      $('body').css('background-color', 'black');
       sumCountryData();
     });
   }
