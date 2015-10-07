@@ -102,6 +102,10 @@ h3.sitename {
     display: block;
     margin-bottom: 20px;
   }
+
+  #main-content {
+    padding: 0px;
+  }
 }
 .cssload-jar {
   position: relative;
