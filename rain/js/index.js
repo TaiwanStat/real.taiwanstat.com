@@ -27,7 +27,7 @@
     //$.getJSON('./data/data.json').then(function(_data) {
       data = _data;
       $('.updateAt').text(data[0].PublishTime);
-      $('.loading').hide();
+      $('.loading').remove();
       $('#layout-header').show();
       sumCountryData();
     });
