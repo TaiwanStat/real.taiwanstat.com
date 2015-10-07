@@ -13,6 +13,9 @@ body {
   color: white;
   font-family: Meiryo, "微軟正黑體", "Microsoft JhengHei"; 
 }
+#main-content {
+  padding: 10px;
+}
 #layout-header {
   display: none;
 }
@@ -102,7 +105,7 @@ h3.sitename {
 }
 .cssload-jar {
   position: relative;
-  width: 425px;
+  width: 100%;
   margin: 106px auto 0;
   text-align: center;
 }
@@ -134,7 +137,7 @@ h3.sitename {
   position: absolute;
   background-color: rgb(76,168,217);
   opacity: 0.4;
-  left: 196px;
+  left: 50%;
   z-index: 8;
   top: 234px;
   border-radius: 100%;
@@ -149,7 +152,7 @@ h3.sitename {
     -moz-animation: cssload-buble 1.3s linear 0.65s infinite;
 }
 .cssload-jar .cssload-bubble + .cssload-bubble {
-  left: 185px;
+  left: 50%;
   top: 255px;
   width: 32px;
   height: 32px;
