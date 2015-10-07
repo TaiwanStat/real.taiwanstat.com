@@ -2,7 +2,7 @@
 .raindrop,a,body{color:#fff}
 .raindrop,body{overflow:hidden}
 body{background:#000;height:100%;margin:0;padding:0;font-family:Meiryo,"微軟正黑體","Microsoft JhengHei"}
-.mychart{width:100%;margin:auto auto 20px;position:relative;top:20px}
+.mychart{min-height:600px;width:100%;margin:auto auto 20px;position:relative;top:20px}
 a{text-decoration:blink}
 .raindrop a{border:1px solid #fff;margin:10px;min-width:150px;padding:10px 20px;line-height:1.42857143;font-size:16px;top:25px;position:relative}
 .raindrop{height:320px;width:250px;display:inline-block;margin:15px 15px 30px;text-align:center;border-radius:25px;border:1.5px solid #fff;-webkit-mask-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC)}
@@ -13,4 +13,6 @@ a{text-decoration:blink}
 .red{color:#f40000;font-weight:700;font-size:16px}
 .photo-note{color:#c80000}
 h3.sitename{font-size:20px}
+.btn-back,.btn-more{border-radius:5px}
+.btn-back:hover,.btn-more:hover{background:#fff;box-shadow:1px 1px 0 #eee}
 @media all and (max-width:600px){.raindrop{width:70%;margin:auto auto 20px;display:block}}

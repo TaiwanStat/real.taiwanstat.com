@@ -20,6 +20,10 @@
   init();
   function init() {
     time = (now > 5 && now < 18) ? '白天' : '晚上';
+    if (time === '白天') {
+      $('body').css('background', '#fff');
+    }
+
     var myFirebaseRef = new Firebase("https://realtaiwanstat2.firebaseio.com");
     myFirebaseRef.child("rain").limitToLast(1).on("child_added", function(snapshot) {
       var _data = snapshot.val();
@@ -109,9 +113,7 @@
 
   function sumCountryData() {
     var numberKeys = [
-      'Rainfall10min', 'Rainfall1hr', 
-      'Rainfall3hr', 'Rainfall6hr',
-      'Rainfall12hr', 'Rainfall24hr'
+      'Rainfall10min', 'Rainfall1hr', 'Rainfall24hr'
     ];
 
     data.forEach(function(site) {
