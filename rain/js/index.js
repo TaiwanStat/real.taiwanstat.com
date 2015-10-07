@@ -172,7 +172,7 @@
   }
 
   function getOptions(rainValue10min, rainValue1hr) {
-    var canvasHeight = rainValue1hr < 5 ? 20 : rainValue1hr * 4;
+    var canvasHeight = rainValue1hr < 5 ? 20 : rainValue1hr * 4.8;
     var density = 0.01;
     var rippleSpeed = 0.01;
     var frequency;
