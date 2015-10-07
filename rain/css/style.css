@@ -117,8 +117,8 @@ h3.sitename {
   width: 85px;
   height: 21px;
   margin: 0 auto -2px;
-  border-right: 9px solid rgba(255,255,255,0.09);
-  border-left: 9px solid rgba(255,255,255,0.08);
+  border-right: 9px solid rgba(255,255,255,0);
+  border-left: 9px solid rgba(255,255,255,0);
   border-radius: 43px;
     -o-border-radius: 43px;
     -ms-border-radius: 43px;
