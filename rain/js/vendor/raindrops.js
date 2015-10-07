@@ -107,20 +107,19 @@ $.widget("water.raindrops", {
         }
         this.ctx.lineTo(this.options.realWidth, this.options.canvasHeight);
         this.ctx.fill();
-    } 
-    
+    }
 });
 
 function raindropsAnimationTick(drop) {
+    if (!document.contains(drop.element[0])) return;
+
     if ((Math.random() * 100) < drop.options.frequency)
         drop.springs[Math.floor(Math.random() * drop.options.waveLength)].p = drop.options.waveHeight;
 
     drop.ctx.clearRect(0, 0, drop.options.realWidth, drop.options.canvasHeight);
     drop.updateSprings(0.1);
     drop.renderWaves();
-
     requestAnimationFrame(function () {
-        raindropsAnimationTick(drop);
+      raindropsAnimationTick(drop);
     });
 }
-;

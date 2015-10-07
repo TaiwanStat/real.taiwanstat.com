@@ -21,7 +21,7 @@ gulp.task('minify-css', function() {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('./js/*js', ['scripts']);
+  gulp.watch('./js/**/**.js', ['scripts']);
   gulp.watch('./css/*css', ['minify-css']);
 });
 

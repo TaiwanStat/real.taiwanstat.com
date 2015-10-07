@@ -185,7 +185,7 @@
 
   function createRainDrop(id, options) {
     options = options || {};
-    $(id).raindrops(options);
+    var raindrop = $(id).raindrops(options);
   }
 
   function getOptions(rainValue10min, rainValue1hr) {
