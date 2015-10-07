@@ -172,7 +172,7 @@
   }
 
   function getOptions(rainValue10min, rainValue1hr) {
-    var canvasHeight = rainValue1hr * 10;
+    var canvasHeight = rainValue1hr < 5 ? 20 : rainValue1hr * 4;
     var density = 0.01;
     var rippleSpeed = 0.01;
     var frequency;
@@ -212,8 +212,8 @@
       waveHeight = 100;
       $('span').removeClass('red');
     }
-    if (canvasHeight > 450) {
-      canvasHeight = 450;
+    if (canvasHeight > 480) {
+      canvasHeight = 480;
     }
 
     return {
