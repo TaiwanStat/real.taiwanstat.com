@@ -20,17 +20,15 @@
   init();
   function init() {
     time = (now > 5 && now < 18) ? '白天' : '晚上';
-
-    var myFirebaseRef = new Firebase("https://realtaiwanstat2.firebaseio.com");
     myFirebaseRef.child("rain").limitToLast(1).on("child_added", function(snapshot) {
       var _data = snapshot.val();
     //$.getJSON('./data/data.json').then(function(_data) {
       data = _data;
       $('.updateAt').text(data[0].PublishTime);
-      $('.loading').remove();
-      $('#layout-header').show();
       $('body').css('background-color', 'black');
       sumCountryData();
+      $('.loading').remove();
+      $('#layout-header').show();
     });
   }
 
@@ -82,11 +80,8 @@
             engine.rain(drops, 0.5);
           }
       };
-      image.src = './images/' + placeNmae + time + '.jpg';
     }
-    else {
-      image.src = './images/' + placeNmae + time + '.jpg';
-    }
+    image.src = './images/' + placeNmae + time + '.jpg';
   }
 
   function removeBackground() {
@@ -142,12 +137,9 @@
     countryOrder.forEach(function(key) {
       $('.mychart').append(
         '<div class="raindrop" id="'+ key + '">' + '<h3>' + key + '</h3>' +
-        '<h6>10分鐘平均累積雨量<br/><span class="red">' + data[key].Rainfall10min + 
-        '</span></h6>'  +
-        '<h6>1小時平均累積雨量<br/><span class="red">' + data[key].Rainfall1hr + 
-        '</span></h6>' +
-        '<a href="#title" class="btn-more" onClick=showDetail(' + 
-          key + ')>點擊觀看</a></div>' 
+        '<h6>10分鐘平均累積雨量<br/>' + colorlize(data[key].Rainfall10min) + '</h6>' +
+        '<h6>1小時平均累積雨量<br/>' + colorlize(data[key].Rainfall1hr) + '</h6>' +
+        '<a href="#title" class="btn-more" onClick=showDetail(' + key + ')>點擊觀看</a></div>' 
       );
 
       if (Math.round(10*data[key].Rainfall1hr) !== 0) {
@@ -164,6 +156,12 @@
     else {
       setBackground('sunny', '');
     }
+  }
+
+  function colorlize(value) {
+    if (value > 0) 
+      return '<span class="red">' + value + '</span>';
+    return value;
   }
 
   function createRainDrop(id, options) {
@@ -245,9 +243,9 @@
       var name = site.SiteName.replace(/[()]/g, '-');
       $('.mychart').append('<div class="raindrop" id="'+ site.SiteId + '">' +
         '<h3 class="sitename">' + name + '（' + site.Township + '）</h3>' +
-        '<h6>10分鐘累積雨量<br/><span class="red">' + site.Rainfall10min + '</span></h6>' +
-        '<h6>1小時累積雨量<br/><span class="red">' + site.Rainfall1hr + '</span></h6>' +
-        '<h6>日累積雨量<br/><span class="red">' + site.Rainfall24hr + '</span></h6>' +
+        '<h6>10分鐘累積雨量<br/>' + colorlize(site.Rainfall10min) + '</h6>' +
+        '<h6>1小時累積雨量<br/>' + colorlize(site.Rainfall1hr) + '</h6>' +
+        '<h6>日累積雨量<br/>' + colorlize(site.Rainfall24hr) + '</h6>' +
         '<a href="#' +  site.County + '" class="btn-back" onClick=goBack()>返回</a></div>' 
       );
       if (Math.round(10*site.Rainfall1hr) !== 0) {
