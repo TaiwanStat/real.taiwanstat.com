@@ -97,7 +97,7 @@ h3.sitename {
 }
 @media all and (max-width: 600px) {
   .raindrop {
-    width: 70%;
+    width: 280px;
     margin: auto;
     display: block;
     margin-bottom: 20px;

@@ -18,7 +18,7 @@ a{text-decoration:blink}
 h3.sitename{font-size:20px}
 .btn-back,.btn-more{border-radius:5px}
 .btn-back:hover,.btn-more:hover{background:#fff;box-shadow:1px 1px 0 #eee}
-@media all and (max-width:600px){.raindrop{width:70%;margin:auto auto 20px;display:block}
+@media all and (max-width:600px){.raindrop{width:280px;margin:auto auto 20px;display:block}
 #main-content{padding:0}}
 .cssload-jar{width:100%;margin:106px auto 0;text-align:center}
 .cssload-jar .cssload-mouth{width:85px;height:21px;margin:0 auto -2px;border-right:9px solid rgba(255,255,255,0);border-left:9px solid rgba(255,255,255,0);border-radius:43px;-o-border-radius:43px;-ms-border-radius:43px;-webkit-border-radius:43px;-moz-border-radius:43px}
