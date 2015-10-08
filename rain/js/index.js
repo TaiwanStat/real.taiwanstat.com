@@ -271,6 +271,7 @@
   function goBack() {
     $('.mychart').empty();
     draw(countryData);
+    setTimeout(function() { window.location.hash = ''; }, 1000);
   }
 
 })(window);
