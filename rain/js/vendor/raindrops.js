@@ -89,10 +89,6 @@ $.widget("water.raindrops", {
 
   },
   renderWaves: function() {
-    if (this.options.frequency > 0 &&
-        5 < this.options.canvasHeight) {
-      this.options.canvasHeight -= 0.02;
-    }
     var i;
     this.ctx.beginPath();
     this.ctx.moveTo(0, this.options.canvasHeight);
