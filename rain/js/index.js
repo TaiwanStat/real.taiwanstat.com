@@ -15,7 +15,7 @@
       '連江縣', '金門縣','澎湖縣'
   ];
   
-  var myFirebaseRef = new Firebase("https://realtaiwanstat2.firebaseio.com");
+  var myFirebaseRef = new Firebase("https://realtaiwanstat3.firebaseio.com");
 
   init();
   function init() {
