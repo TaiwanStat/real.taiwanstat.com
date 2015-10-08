@@ -13,7 +13,7 @@
       {
         "title": "台南 2015 年一月到現在登革熱散播狀況",
         "url": "dengue-fever",
-        "img": "images/dengue-fever.png",
+        "img": "images/dengue-fever.jpg",
         "description": "今年的台南登革熱疫情持續的不斷蔓延，而登革熱疫情如何散播的呢？讓我們用動態圖表帶你來看看！",
         "author": "Weber Chi",
         "collaborators": []
@@ -28,7 +28,7 @@
       {
         "title": "台灣即時 PM2.5",
         "url": "pm2.5",
-        "img": "images/pm2.5.png",
+        "img": "images/pm2.5.jpg",
         "description": "我們每天呼吸的台灣空氣品質到底如何呢？台灣即時空氣品質指標 PM2.5 版本提供給你台灣各地即時的 PM2.5 指數",
         "author": "Po-An Yang"
       },
@@ -56,7 +56,7 @@
       {
         "title": "台灣紫外線指數監測",
         "url": "uv",
-        "img": "images/uv.png",
+        "img": "images/uv.jpg",
         "description": "豔陽高照的中午，你知道台灣各地現在的紫外線指數嗎？",
         "author": "Chi-Hsuan Huang"
       },
@@ -117,7 +117,7 @@
       {
         "title": "縣市犯罪率",
         "url": "crime",
-        "img": "images/crime.png",
+        "img": "images/crime.jpg",
         "description": "在你所在的縣市最常發生犯罪的類別到底是什麼呢？跟其他縣市的比較又是如何呢？",
         "author": "Fu-Siou Li"
       },
