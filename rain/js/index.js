@@ -111,7 +111,7 @@
           Sitenumber: 0.0
         };
       }
-      //site.Rainfall1hr = Math.random()*90;
+      //site.Rainfall24hr = 100;
       //site.Rainfall10min = Math.random()*20;
       countryData[site.County].Sitenumber += 1;
       for (var i in numberKeys) {
@@ -183,6 +183,7 @@
     var yAxis = d3.svg.axis()
                       .scale(yScale)
                       .orient("left")
+                      .tickPadding(0)
                       .ticks(5);
     //Create Y axis
     svg.append("g")
@@ -203,7 +204,7 @@
   }
 
   function getOptions(rainValue10min, rainValue24hr) {
-    var canvasHeight = rainValue24hr;
+    var canvasHeight = rainValue24hr*1.25;
     var density = 0.01;
     var rippleSpeed = 0.01;
     var frequency;
