@@ -17,7 +17,7 @@ svg{top:-258px}
 .raindrop canvas{z-index:-1}
 #background-img{width:100%;height:100%;-webkit-filter:blur(5px);-moz-filter:blur(5px);-o-filter:blur(5px);-ms-filter:blur(5px);filter:blur(5px)}
 .red{color:#f40000;font-weight:700;font-size:16px}
-.photo-note{color:#c80000}
+.photo-note,.sred{color:#f00000}
 h3.sitename{font-size:20px}
 .btn-back,.btn-more{border-radius:5px}
 .btn-back:hover,.btn-more:hover{background:#fff;box-shadow:1px 1px 0 #eee}

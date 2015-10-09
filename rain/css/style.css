@@ -105,8 +105,11 @@ svg {
   font-weight: bold;
   font-size: 16px;
 }
+.sred {
+  color: rgb(240, 0, 0);
+}
 .photo-note {
-  color: rgb(200, 0, 0);
+  color: rgb(240, 0, 0);
 }
 h3.sitename {
   font-size: 20px;

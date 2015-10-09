@@ -274,7 +274,7 @@
 
     data.forEach(function(site) {
       var name = site.SiteName.replace(/[()]/g, '-');
-      $('.mychart').append('<div class="raindrop" id="'+ site.SiteId + '">' +
+      $('.mychart').append('<div class="raindrop" id="A'+ site.SiteId + '">' +
         '<h3 class="sitename">' + name + '（' + site.Township + '）</h3>' +
         '<h6>10分鐘累積雨量<br/>' + colorlize(site.Rainfall10min) + '</h6>' +
         '<h6>1小時累積雨量<br/>' + colorlize(site.Rainfall1hr) + '</h6>' +
@@ -282,12 +282,13 @@
         '<a href="#' +  site.County + '" class="btn-back" onClick=goBack()>返回</a></div>' 
       );
       if (Math.round(10*site.Rainfall1hr) !== 0) {
-        createRainDrop('#'+site.SiteId, getOptions(site.Rainfall10min, site.Rainfall24hr));
+        createRainDrop('#A'+site.SiteId, getOptions(site.Rainfall10min, site.Rainfall24hr));
         numberOfRain += 1;
         if (site.Rainfall10min > maxRainValue) {
           maxRainValue = site.Rainfall10min;
         }
       }
+      addTick('#A'+site.SiteId);
     });
     var minRains = data.length * 1 / 4;
     if (numberOfRain > minRains || maxRainValue > 2) {
