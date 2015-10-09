@@ -107,8 +107,8 @@
           Sitenumber: 0.0
         };
       }
-      //site.Rainfall1hr = Math.random()*90;
-      //site.Rainfall10min = Math.random()*20;
+      site.Rainfall1hr = Math.random()*90;
+      site.Rainfall10min = Math.random()*20;
       countryData[site.County].Sitenumber += 1;
       for (var i in numberKeys) {
         if (numberKeys[i] !== 'Sitenumber') {
