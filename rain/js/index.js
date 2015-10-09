@@ -27,6 +27,7 @@
       $('.updateAt').text(data[0].PublishTime);
       $('body').css('background-color', 'black');
       $('canvas').remove();
+      countryData = {};
       sumCountryData();
       $('.loading').remove();
       $('#layout-header').show();
