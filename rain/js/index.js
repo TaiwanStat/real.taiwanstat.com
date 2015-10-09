@@ -150,7 +150,7 @@
         '<a href="#title" class="btn-more" onClick=showDetail(' + key + ')>點擊觀看</a></div>' 
       );
 
-      if (Math.round(10*data[key].Rainfall1hr) !== 0) {
+      if (Math.round(10*data[key].Rainfall24hr) !== 0) {
         createRainDrop('#'+key, getOptions(data[key].Rainfall10min, data[key].Rainfall24hr));
         numberOfRain += 1;
         if (data[key].Rainfall10min > maxRainValue) {
@@ -281,7 +281,7 @@
         '<h6>日累積雨量<br/>' + colorlize(site.Rainfall24hr) + '</h6>' +
         '<a href="#' +  site.County + '" class="btn-back" onClick=goBack()>返回</a></div>' 
       );
-      if (Math.round(10*site.Rainfall1hr) !== 0) {
+      if (Math.round(10*site.Rainfall24hr) !== 0) {
         createRainDrop('#A'+site.SiteId, getOptions(site.Rainfall10min, site.Rainfall24hr));
         numberOfRain += 1;
         if (site.Rainfall10min > maxRainValue) {
