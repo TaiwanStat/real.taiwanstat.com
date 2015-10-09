@@ -45,6 +45,8 @@
           engine = new RainyDay({
               image: this
           });
+          var isMobile = $(window).width() < 680;
+
           // default window rain drop
           if (maxRainValue < 2) {
             engine.rain([ [1, 3, 1000*maxRainValue] ]);
@@ -58,7 +60,8 @@
 
           // dynamic drop size
           var drops = [[1, 3, 2]];
-          if (maxRainValue > 1) {
+          if (isMobile) {}
+          else if (maxRainValue > 1) {
             drops.push([2, 3, 10]);
           }
           else if (maxRainValue > 5) {
@@ -69,7 +72,7 @@
           }
           
           // freq
-          if (maxRainValue < 1) {
+          if (maxRainValue < 1 || isMobile) {
             engine.rain(drops, 500);
           }
           else if (maxRainValue < 5) {
