@@ -1,14 +1,17 @@
 .mdl-layout__container,.raindrop a,footer{z-index:999}
+#layout-header,.axis g:first-child text,.axis g:nth-child(6) text{display:none}
 .raindrop,a,body{color:#fff}
 .raindrop,body{overflow:hidden}
-.cssload-jar,.mychart,.raindrop a{position:relative}
+.cssload-jar,.mychart,.raindrop a,svg{position:relative}
 body{background-color:rgba(68,167,147,.7);height:100%;margin:0;padding:0;font-family:Meiryo,"微軟正黑體","Microsoft JhengHei"}
 #main-content{padding:10px}
-#layout-header{display:none}
 .mychart{min-height:600px;width:100%;margin:auto auto 20px;top:20px}
 a{text-decoration:blink}
 .raindrop a{border:1px solid #fff;margin:10px;min-width:150px;padding:10px 20px;line-height:1.42857143;font-size:16px;top:25px}
-.raindrop{height:320px;width:250px;display:inline-block;margin:15px 15px 30px;text-align:center;border-radius:25px;border:1.5px solid #fff;-webkit-mask-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC)}
+svg{top:-258px}
+.axis line,.axis path{fill:none;stroke:#fff;shape-rendering:crispEdges}
+.axis text{font-family:sans-serif;font-size:11px;fill:#fff}
+.raindrop{height:320px;width:250px;display:inline-block;margin:15px 15px 30px;text-align:center;border-radius:10px;border:1.5px solid #fff;-webkit-mask-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC)}
 .raindrop h3{padding-top:20px;font-size:26px;font-weight:700}
 .raindrop h6{padding:2px;margin:0}
 .raindrop canvas{z-index:-1}

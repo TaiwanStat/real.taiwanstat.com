@@ -143,16 +143,18 @@
         '<div class="raindrop" id="'+ key + '">' + '<h3>' + key + '</h3>' +
         '<h6>10分鐘平均累積雨量<br/>' + colorlize(data[key].Rainfall10min) + '</h6>' +
         '<h6>1小時平均累積雨量<br/>' + colorlize(data[key].Rainfall1hr) + '</h6>' +
+        '<h6>日平均累積雨量<br/>' + colorlize(data[key].Rainfall24hr) + '</h6>' +
         '<a href="#title" class="btn-more" onClick=showDetail(' + key + ')>點擊觀看</a></div>' 
       );
 
       if (Math.round(10*data[key].Rainfall1hr) !== 0) {
-        createRainDrop('#'+key, getOptions(data[key].Rainfall10min, data[key].Rainfall1hr));
+        createRainDrop('#'+key, getOptions(data[key].Rainfall10min, data[key].Rainfall24hr));
         numberOfRain += 1;
         if (data[key].Rainfall10min > maxRainValue) {
           maxRainValue = data[key].Rainfall10min;
         }
       }
+      addTick('#'+key);
     });
     if (numberOfRain > 4 || maxRainValue >= 2) {
       setBackground('rain', '', maxRainValue);
@@ -160,6 +162,30 @@
     else {
       setBackground('sunny', '');
     }
+  }
+
+  function addTick(id) {
+    var width = $(id).width();
+    var height = $(id).height();
+    var svg = d3.select(id)
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .attr("position", 'absolute');
+
+    var yScale = d3.scale.linear()
+                .range([height, 0])
+                .domain([0, 500]);
+      //Define Y axis
+    var yAxis = d3.svg.axis()
+                      .scale(yScale)
+                      .orient("left")
+                      .ticks(5);
+    //Create Y axis
+    svg.append("g")
+        .attr("class", "axis")
+        .attr("transform", "translate(30,0)")
+        .call(yAxis); 
   }
 
   function colorlize(value) {
@@ -173,8 +199,8 @@
     var raindrop = $(id).raindrops(options);
   }
 
-  function getOptions(rainValue10min, rainValue1hr) {
-    var canvasHeight = rainValue1hr < 5 ? 20 : rainValue1hr * 4.8;
+  function getOptions(rainValue10min, rainValue24hr) {
+    var canvasHeight = rainValue24hr;
     var density = 0.01;
     var rippleSpeed = 0.01;
     var frequency;
@@ -214,8 +240,8 @@
       waveHeight = 100;
       $('span').removeClass('red');
     }
-    if (canvasHeight > 480) {
-      canvasHeight = 480;
+    if (canvasHeight > 500) {
+      canvasHeight = 500;
     }
 
     return {
@@ -253,7 +279,7 @@
         '<a href="#' +  site.County + '" class="btn-back" onClick=goBack()>返回</a></div>' 
       );
       if (Math.round(10*site.Rainfall1hr) !== 0) {
-        createRainDrop('#'+site.SiteId, getOptions(site.Rainfall10min, site.Rainfall1hr));
+        createRainDrop('#'+site.SiteId, getOptions(site.Rainfall10min, site.Rainfall24hr));
         numberOfRain += 1;
         if (site.Rainfall10min > maxRainValue) {
           maxRainValue = site.Rainfall10min;

@@ -43,6 +43,29 @@ a {
   position: relative;
   z-index: 999;
 }
+svg {
+  position: relative;
+  top: -258px;
+}
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #fff;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-family: sans-serif;
+    font-size: 11px;
+    fill: #fff;
+}
+.axis g:first-child text{
+  display: none;
+}
+.axis g:nth-child(6) text{
+  display: none;
+}
+
 .raindrop {
   height: 320px;
   width: 250px;
@@ -51,7 +74,7 @@ a {
   overflow: hidden;
   margin-bottom: 30px;
   text-align: center;
-  border-radius: 25px; 
+  border-radius: 10px; 
   border: 1.5px solid #fff;
   color: white;
   -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
