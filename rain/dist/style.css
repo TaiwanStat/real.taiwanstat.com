@@ -8,7 +8,7 @@ body{background-color:rgba(68,167,147,.7);height:100%;margin:0;padding:0;font-fa
 .mychart{min-height:600px;width:100%;margin:auto auto 20px;top:20px}
 a{text-decoration:blink}
 .raindrop a{border:1px solid #fff;margin:10px;min-width:150px;padding:10px 20px;line-height:1.42857143;font-size:16px;top:25px}
-svg{top:-258px}
+svg{top:-263.2px}
 .axis line,.axis path{fill:none;stroke:#fff;shape-rendering:crispEdges}
 .axis text{font-family:sans-serif;font-size:11px;fill:#fff}
 .raindrop{height:320px;width:250px;display:inline-block;margin:15px 15px 30px;text-align:center;border-radius:10px;border:1.5px solid #fff;-webkit-mask-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC)}
