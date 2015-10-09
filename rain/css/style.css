@@ -99,7 +99,13 @@ svg {
   -o-filter: blur(5px);
   -ms-filter: blur(5px);
   filter: blur(5px);
+  filter: brightness(0.8);
+  -webkit-filter: brightness(0.8);
+  -moz-filter: brightness(0.8);
+  -o-filter: brightness(0.8);
+  -ms-filter: brightness(0.8);
 }
+
 .red {
   color:rgb(244, 0, 0);
   font-weight: bold;

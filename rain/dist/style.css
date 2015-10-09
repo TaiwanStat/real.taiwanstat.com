@@ -15,7 +15,7 @@ svg{top:-258px}
 .raindrop h3{padding-top:20px;font-size:26px;font-weight:700}
 .raindrop h6{padding:2px;margin:0}
 .raindrop canvas{z-index:-1}
-#background-img{width:100%;height:100%;-webkit-filter:blur(5px);-moz-filter:blur(5px);-o-filter:blur(5px);-ms-filter:blur(5px);filter:blur(5px)}
+#background-img{width:100%;height:100%;filter:blur(5px);filter:brightness(.8);-webkit-filter:brightness(.8);-moz-filter:brightness(.8);-o-filter:brightness(.8);-ms-filter:brightness(.8)}
 .red{color:#f40000;font-weight:700;font-size:16px}
 .photo-note,.sred{color:#f00000}
 h3.sitename{font-size:20px}
