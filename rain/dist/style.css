@@ -72,3 +72,4 @@ h3.sitename{font-size:20px}
 50%{-moz-transform:translate(-6px,-53px)}
 75%{-moz-transform:translate(0,-106px);opacity:1}
 100%{-moz-transform:translate(6px,-213px);opacity:0}}
+body>canvas{filter:brightness(.8);-webkit-filter:brightness(.8);-moz-filter:brightness(.8);-o-filter:brightness(.8);-ms-filter:brightness(.8)}
