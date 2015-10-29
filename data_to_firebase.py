@@ -16,16 +16,6 @@ with open('gamma/data/gammamonitor.csv', 'r') as outfile:
 result = taiwanstat_firebase.post('/gamma', gamma_data)
 print (result)
 
-'''with open('power/data/loadfueltype', 'r') as outfile:
-    power_1_data = outfile.read()
-result = taiwanstat_firebase.post('/power_1', power_1_data)
-print (result)
-
-with open('power/data/loadpara.txt', 'r') as outfile:
-    power_2_data = outfile.read()
-result = taiwanstat_firebase.post('/power_2', power_2_data)
-print (result)'''
-
 with open('power/data/loadpara.csv', 'r') as outfile:
     power_3_data = outfile.read()
 result = taiwanstat_firebase2.post('/power_3', power_3_data)
@@ -39,13 +29,4 @@ print (result)
 with open('uv/data/data.csv', 'r') as outfile:
     uv_data = outfile.read()
 result = taiwanstat_firebase2.post('/uv', uv_data)
-print (result)
-
-with open('../reservoir-data/data.json', 'r') as outfile:
-    water_data = outfile.read()
-result = taiwanstat_firebase.post('/water', water_data)
-
-with open('/home/ice479/global.taiwanstat.com/r/world-news/data/data.json', 'r') as outfile:
-    water_data = outfile.read()
-result = taiwanstat_firebase.post('/world_news', water_data)
 print (result)
