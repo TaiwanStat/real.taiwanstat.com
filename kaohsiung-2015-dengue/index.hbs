@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+  {{> head}}
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
+    <link rel="stylesheet" href="./css/style.css" type="text/css" />
+
+</head>
+<body>
+  {{> header}}
+  {{> start}}
+  <ul>
+    <li>資料來源：<a href="http://data.gov.tw/">政府資料開放平臺</a></li>
+    <li>熱區及噴藥日期計算方式：以最新確診病例日期為基礎來計算</i>
+    <li>最新病例資料：<span class="current"><span></i>
+  </ul>
+  <div class="visual">
+    <div class="ui form">
+      <div class="inline fields">
+        <label>熱區時間計算：</label>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="days" value="3" checked="checked">
+            <label>3天內</label>
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui radio checkbox">
+            <input type="radio" name="days" value="5">
+            <label>5天內<span class="browser-note">（建議以Chrome、Firefox顯示）</span></label>
+          </div>
+        </div> 
+      </div>
+    </div>
+    <div class="ui toggle checkbox">
+      <input type="checkbox" name="drug" value="drug" checked="checked">
+      <label>顯示7天內噴藥區域（50公尺）</label>
+    </div>
+      <span class="date">日期：<span class="current"></span></span>
+    <div id="map"> </div>
+    <div class="ui slider range" style="width:100%">
+      <input type="range"
+      min="0" max="240" value="0" tabindex="0"/>
+      <span class="ui icon buttons">
+      <button class="ui button stepback">
+          <i class="step backward icon"></i>
+      </button>
+      <button class="ui button play">
+        <i class="play icon"></i>
+      </button>
+      <button class="ui button pause">
+        <i class="pause icon"></i>
+      </button>
+      </span> 
+    </div>
+    <div id="bar">
+    </div>
+  </div>
+  {{> end}}
+   <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.min.js"></script>
+   <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+   <script type="text/javascript" src="./js/bar.js" charset="UTF-8"> </script>
+   <script type="text/javascript" src="./js/index.js" charset="UTF-8"> </script>
+   <script>
+     window.initData(
+      './file/2015_kao_data.json',
+       null,
+      './file/2015_kao_bar.json',
+       null,
+       null,
+       null
+    );
+      window.initDate('2015/06/01', '2015/10/03');
+      window.initMap(22.63, 120.34, 12);
+   </script>
+    <!-- my js & css -->
+  {{> footer}}
+</body>
