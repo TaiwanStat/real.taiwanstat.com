@@ -123,7 +123,7 @@
       .on('mouseover', vm.tip.show)
       .on('mouseout', vm.tip.hide)
       .on('click', function(d) {
-        var value = getDiffDays(d.date, new Date('2015/08/01'));
+        var value = getDiffDays(d.date, new Date('2015/06/01'));
         var input = $('.range input')[0];
         input.value = value;
         window.updateVis(input, null);
