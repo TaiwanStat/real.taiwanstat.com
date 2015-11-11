@@ -76,12 +76,6 @@
       }
       drawCircle(threeCircleData, defaultCircleParams);
   
-      if (drugUrl)
-        d3.json(drugUrl, function(data) {
-          drugOrg = data;
-          drugData = format(drugOrg[key]);
-          toggleDrugCircle();
-        });
     });
 
     if (topoUrl)
@@ -98,8 +92,8 @@
     if (barUrl) {
       //d3.json(barUrl, function(error, data) { 
       myFirebaseRef.child("dengue-kao2").limitToLast(1).on("child_added", function(snapshot) {
-        data = JSON.parse(snapshot.val());
-        new window.BarLineChart('#bar', data, showDefaultTip, {
+        var bar_data = JSON.parse(snapshot.val());
+        new window.BarLineChart('#bar', bar_data, showDefaultTip, {
           showLine: true
         }); 
       });
