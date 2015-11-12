@@ -265,7 +265,6 @@ function createStockChart() {
           value: data[i].ultra,
           volume: data[i].ultra
         });
-        console.log(chartData4);
       }else if(data[i].type==2){//events
         if(data[i].domestic==1){//domestic
           dataSet1.stockEvents.push({
