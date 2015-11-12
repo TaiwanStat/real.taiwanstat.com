@@ -1,0 +1,196 @@
+html {
+  background: white;
+  font-family: 'Noto Sans', 'sans-serif', 'Microsoft Jhenghei';
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+body {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+}
+#map {
+  position: relative;
+  height: 80%;
+  margin-bottom: 20px
+}
+
+.info.legend.leaflet-control {
+  width: 180px;
+  margin-bottom: 50px;
+}
+.legend {
+  line-height: 18px;
+  color: #555;
+}
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
+}
+.info.leaflet-control h4{
+  width: 150px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.awesome-marker i {
+  font-size: 10px;
+}
+.toggle {
+  margin-bottom: 10px;
+}
+.visual {
+  padding: 20px;
+}
+.leaflet-right .leaflet-control {
+  margin-right: 10px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+}
+.leaflet-right h4 span {
+  color: rgb(235, 119, 101);
+}
+
+.ui.slider.range input[type="range"] {
+  -webkit-appearance: none;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 50rem;
+  border-color: rgba(0, 0, 0, 0.1);
+  padding: 3px 5px;
+  width: 100%;
+}
+.ui.slider.range input[type="range"]::-moz-range-track {
+  background: none;
+  border: none;
+}
+.ui.slider.range input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: #89B84C;
+  border-radius: 50rem;
+  height: 0.7em;
+  width: 0.7em;
+}
+.ui.slider.range input[type="range"]::-moz-range-thumb {
+  background: #89B84C;
+  border-color: #89B84C;
+  border-radius: 50rem;
+  height: 0.7em;
+  width: 0.7em;
+}
+.toggle {
+  display: inline;
+}
+.date {
+  font-weight: bold;
+  font-size: 16px;
+  padding-left: 5px;
+  vertical-align: super;
+}
+#bar {
+  width: 100%;
+  background: white;
+}
+
+@media all and (max-width: 650px) {
+  .browser-note {
+    display: none;
+}
+.leaflet-right .leaflet-control h4 {
+  font-size: 14px;
+}
+.date {
+  padding: 10px;
+  display: block;
+}
+.leaflet-control-attribution.leaflet-control {
+  display: none;
+}
+
+}
+
+@media all and (max-height: 700px) {
+  #map {
+    height: 380px;
+ }
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+  z-index: 999;
+}
+.d3-tip span{
+  padding: 3px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+rect.active {
+  fill: rgba(222, 17, 17, 0.91) !important;
+}
+.line {
+  fill: none;
+  stroke-width: 1.5px;
+}
+.in-drug-day {
+  stroke-width: 2px;
+  stroke: black;
+}
+.arrow-up {
+  width: 0px; 
+  height: 0px; 
+  border: 5px solid; 
+  border-color:transparent transparent #f00 transparent;
+  border-style:dashed dashed solid dashed;
+  top: -10px;
+  position: relative;
+  margin: 1px;
+}
+.arrow-down {
+  width: 0px; 
+  height: 0px; 
+  border: 5px solid; 
+  border-color: green transparent transparent transparent;
+  border-style:solid dashed dashed dashed;
+  top: 10px;
+  position: relative;
+  margin: 1px;
+}

@@ -1,0 +1,53 @@
+extends layout
+block content
+    style.
+      .visual {
+        height: 100%;
+      }
+      #map {
+        height: 80%;
+      }
+    body   
+      #layout-header.mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+        main#main-content.mdl-layout__content
+          h2 #{title}
+          |     
+          ul
+            li 最新病例日期：
+              span.updateAt
+            li 本網頁呈現以病例的確診日期為準
+            li
+              | &#x5099;&#x8A3B;&#xFF1A; 
+              br
+              | 疫別分類為各里按照14天病例總數排序（無病例數不列入排序），排序前1/4為高病例區，後3/4為低病例區。
+              br
+              | 排序後將再依據自己里內前1-7天與8-14天病例數變化分為上升與下降。點擊區塊可以查看各里病例數目。
+          |   
+          .visual
+            #map  
+            iframe(src="http://medvis.csie.ncku.edu.tw/village_rank/", frameborder="0", height="100%")
+          |    
+      
+      script(type='text/javascript', src='http://d3js.org/d3.v3.min.js')
+      script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+      script(type='text/javascript', src='http://d3js.org/topojson.v1.min.js', charset='UTF-8')
+      script(src='/bower_components/semantic/dist/semantic.min.js')
+      script(src='http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js')
+      |    
+      script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.min.js')
+      |    
+      script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false', charset='UTF-8')
+      script(type='text/javascript', src='./javascripts/village_class.js', charset='UTF-8')
+      footer.mdl-mini-footer
+        .mdl-mini-footer__left-section
+          | &copy; 2015 
+          a(href='http://medvis_members.cannerapp.com') Medvis開發團隊
+          |  |     
+          a(href='http://netdb.csie.ncku.edu.tw') NCKU-NetDB
+        |   
+      script.
+        window.initMap(22.99, 120.2, 13);
+        window.initData(
+          '/file/dynamic/tainan.topo.json',
+          '/file/village_class.json'
+          );
