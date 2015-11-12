@@ -43,13 +43,19 @@
 
   function style(feature) {
     var color = getColor(feature.properties.TOWNNAME+feature.properties.VILLAGENAM);
+    var fillOpacity = 0.6;
+    console.log($(window).width())
+    if ($(window).width() < 600) {
+      fillOpacity = 0.4;
+    }
+
     return {
       fillColor: color,
       weight: 1,
       opacity: 0.3,
       color: '#eee',
       dashArray: '',
-      fillOpacity: 0.65
+      fillOpacity: fillOpacity
     };
   }
 
