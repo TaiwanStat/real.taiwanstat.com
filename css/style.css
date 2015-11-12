@@ -90,7 +90,9 @@ discussion {
 .mdl-mini-footer {
   padding: 20px 16px !important;
 }
-
+.footer-mobile {
+  display: none;
+}
 .share-btn {
   color: #333;
 }
@@ -205,6 +207,7 @@ li {
   right: 20px;
   z-index: 999;
   font-size: 1rem;
+  display: block;
 }
 
 .footer-mobile .mdl-button--fab.mdl-button--colored {
