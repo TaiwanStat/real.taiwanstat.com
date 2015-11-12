@@ -2,6 +2,15 @@
   "data": {
     "title": "用數據看台灣 - 即時資料",
     "page": [
+       {
+        "title": "油價知多少-即時油價資訊",
+        "url": "oil",
+        "img": "./images/oil.jpg",
+        "description": "想知道這週和下週的油價嗎？即時油價及長期油價走勢圖",
+        "author": "詹博山、李岳庭、謝忠穎",
+        "collaborators": []
+      },
+     
       {
         "title": "台南2015年登革熱恢復狀況",
         "url": "tainan-2015-denguefever-recovery",

@@ -1,0 +1,60 @@
+#chartwrapper{width:100%;padding:0 20px;border:1px solid #eee;background:-moz-box-sizing: border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+#loading-data{
+  width:100%;height:50px;font-size:25px;text-align:center;
+  margin-top:-25px;top:50%;position: relative;
+}
+.chart-div {
+  overflow: auto;
+}
+.amcharts-left-div {
+  position: relative !important;
+}
+
+.info
+{
+  padding-top : 30px;
+}
+.current li
+{
+  float : left ;
+  /*display : inline;*/
+  width : 200px;
+}
+.predict li
+{
+  float : left ;
+  /*display : inline;*/
+  width : 200px;
+}
+.price p
+{
+  font-weight: bold;
+  font-size : 1.4rem;
+}
+.price {
+  margin: 20px 20px 0px 20px;
+}
+.price li {
+  font-size: 1.2rem;
+}
+@media all and (max-width: 650px) {
+  div#chartdiv {
+    height: 900px;
+    overflow: auto;
+
+}
+.price p {
+  display: -webkit-inline-box;
+  margin: 20px;
+  display: inline-block;
+}
+.amChartsCompareList, .amChartsPeriodSelector{
+  display: none;
+}
+.amcharts-center-div {
+  padding: 0 !important;
+}
+#chartwrapper { 
+  margin-top: 50px;
+}
+}
