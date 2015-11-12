@@ -61,10 +61,10 @@
       return 'rgb(0, 187, 170)';
     }
     var cls = data[village].class;
-    if (cls === 'low-down' || cls === 'height-down' &&
+    /*if (cls === 'low-down' || cls === 'height-down' &&
         data[village].day_1_7 < 3) {
           return 'rgb(0, 187, 170)';
-    }
+    }*/
     return '#C1BEBE';
   }
 
@@ -125,10 +125,10 @@
   function onLegnendAdd (map) {
 
       var div = L.DomUtil.create('div', 'info legend');
-      var color = ['#C1BEBE', 'rgb(0, 187, 170)', 'rgb(3, 177, 255)'];
+      var color = ['#C1BEBE', 'rgb(0, 187, 170)', 'rgb(3, 177, 255)'].reverse();
       var labels = ['2週內無病例數', 
-          '1週內低病例下降中<span class="arrow-down"></span>', 
-          '尚有登革熱病例'].reverse();
+          '1週內無病例', 
+          '其他'];
 
       for (var i = 0; i < labels.length; i++) {
           div.innerHTML += '<i style="background:' + color[i] + 
