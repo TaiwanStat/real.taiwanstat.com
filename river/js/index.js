@@ -75,7 +75,7 @@
                       + '</strong><br/><span class="red">污染程度：' + polluDegree.disc
                       + "</span><br/>所屬流域：" + siteInfo[i].Basin 
                       + '<br/>RPI指標：' + riverData[siteInfo[i].SiteName].RPI
-                      + '<br/>酸鹼值：' + riverData[siteInfo[i].SiteName].PH
+                      + '<br/>酸鹼值：' + riverData[siteInfo[i].SiteName].pH
                       + '<br/>懸浮固體：' 
                       + riverData[siteInfo[i].SiteName].SS + '（mg/L）'
                       + '<br/>溶氧量：' 
