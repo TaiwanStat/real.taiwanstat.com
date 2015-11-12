@@ -22,7 +22,8 @@ a {
 #map {
     position: relative;
     height: 500px;
-    height: 50vh;
+    min-height: 550px;
+    height: 60vh;
     margin-bottom: 20px
     margin-top: 30px;
     width: 95%;
@@ -71,7 +72,7 @@ i.fa.fa-compass.fa-2x {
     cursor: pointer;
     position: absolute;
     right: 10px;
-    bottom: 28%;
+    bottom: 34%;
     z-index: 20;
     background: rgb(66, 186, 221);
     border-radius: 30px;
@@ -83,7 +84,7 @@ i.fa.fa-refresh {
     cursor: pointer;
     position: absolute;
     right: 10px;
-    bottom: 20%;
+    bottom: 25%;
     z-index: 20;
     background: rgb(66, 186, 221);
     border-radius: 30px;
