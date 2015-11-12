@@ -179,8 +179,9 @@ main .mdl-card.author {
 .footer_msg {
   display: none
 }
-footer {
+footer.mdl-mini-footer {
   height: 75px;
+  display: none;
 }
 footer a {
   line-height: 1.8em;
@@ -197,5 +198,21 @@ nav.mdl-navigation.mdl-layout--large-screen-only {
 }
 li {
   padding-top: 4px;
+}
+.footer-mobile {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  font-size: 1rem;
+}
+
+.footer-mobile .mdl-button--fab.mdl-button--colored {
+  background: rgb(2, 155, 108);
+  font-size: 18px;
+  vertical-align: middle;
+}
+.footer-mobile i {
+  margin-top: 18px;
 }
 }
