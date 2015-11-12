@@ -47,7 +47,7 @@
       fillColor: color,
       weight: 1,
       opacity: 0.3,
-      color: '#666',
+      color: '#eee',
       dashArray: '',
       fillOpacity: 0.7
     };

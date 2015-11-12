@@ -3,6 +3,14 @@
     "title": "用數據看台灣 - 即時資料",
     "page": [
       {
+        "title": "台南2015年登革熱恢復狀況",
+        "url": "tainan-2015-denguefever-recovery",
+        "img": "images/tainan-2015-denguefever-recovery.jpg",
+        "description": "台南登革熱已經開始趨緩，進入了恢復期，一起來看看最近各里的恢復狀況吧！",
+        "author": "Chi-Hsuan Huang",
+        "collaborators": []
+      },
+      {
         "title": "高雄2015年即時登革熱資訊",
         "url": "kaohsiung-2015-dengue",
         "img": "images/kaohsiung-2015-dengue.jpg",
