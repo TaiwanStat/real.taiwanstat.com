@@ -21,24 +21,21 @@ a {
 
 #map {
     position: relative;
-    height: 600px;
+    height: 500px;
+    height: 50vh;
     margin-bottom: 20px
+    margin-top: 30px;
+    width: 95%;
+    margin: auto;
+}
+.foot-note {
+  margin: 20px;
 }
 
 .info.leaflet-control {
     min-width: 174px;
 }
 
-div.title {
-    vertical-align: middle;
-    font-size: 28px;
-    text-align: center;
-    width: 250px;
-    display: table-cell;
-    padding-left: 5px;
-}
-.foot-note {
-}
 .btn-sites a > .ui.pink.button {
     margin: 0 10px 0 10px;
 }

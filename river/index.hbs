@@ -10,15 +10,12 @@
   <body>
     {{> header}}
     {{> start}}
-
-    <div class="links">
-      <ul>
-        <li><a href="http://taiwanstat.com/">用數據看台灣</a></li>
-        <li><a href="http://water.taiwanstat.com">台灣水庫即時水情</li>
-        <li><a href="http://real.taiwanstat.com/air/">台灣即時空氣品質指標</a></li>
-        <li><a href="http://real.taiwanstat.com/power/">台灣即時用電資訊</a></li>
-      </ul>
+    <div class="foot-note">
+    <li>資料來源：<a href="https://www.google.com.tw/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0CBwQFjAA&url=http%3A%2F%2Fwww.epa.gov.tw%2F&ei=51olVe_hGOHNmwWYkYDoBA&usg=AFQjCNHuHmDZw9FzlHwyg9Q5DWy5vbxFXw&bvm=bv.90237346,d.dGY">行政院環境保護署</a><br/>
+    </li>
+    <li>監測時間：2015年9月</li>
     </div>
+
     <div id="map">
       <div class="header">
         <i class="fa fa-refresh fa-2x" onclick="resetView()"></i>
@@ -28,12 +25,6 @@
     </div>
 
     <div class="rpi-info"><a class="hide-rpi" href="#" onclick="hideRPIInfo()">x</a><p>「河川污染程度指數, River Pollution Index」簡稱「RPI」。RPI指數係以水中溶氧量 （DO）、生化需氧量（BOD5）、懸浮固體（SS）、與氨氮(NH3-N）等四項水質參數之濃度值，來計算所得之指數積分值，並判定河川水質污染程度。</p></div>
-    <div class="foot-note">
-    <h5>資料來源：<a href="https://www.google.com.tw/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0CBwQFjAA&url=http%3A%2F%2Fwww.epa.gov.tw%2F&ei=51olVe_hGOHNmwWYkYDoBA&usg=AFQjCNHuHmDZw9FzlHwyg9Q5DWy5vbxFXw&bvm=bv.90237346,d.dGY">行政院環境保護署</a><br/>
-      監測時間：2015年9月<br/>
-      </h5>
-
-    </div>
 
     {{> end}}
      <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
