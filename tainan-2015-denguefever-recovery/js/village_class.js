@@ -49,7 +49,7 @@
       opacity: 0.3,
       color: '#eee',
       dashArray: '',
-      fillOpacity: 0.7
+      fillOpacity: 0.65
     };
   }
 
@@ -114,7 +114,7 @@
       weight: 2,
       color: '#666',
       dashArray: '',
-      fillOpacity: 0.9
+      fillOpacity: 0.2
     });
 
     if (!L.Browser.ie && !L.Browser.opera) {
