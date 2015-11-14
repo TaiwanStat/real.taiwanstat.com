@@ -74,7 +74,7 @@ function createStockChart() {
   dataSet3.categoryField = "date";
 
   var dataSet4 = new AmCharts.DataSet();
-  dataSet4.title = "ultra原油";
+  dataSet4.title = "高級柴油";
   dataSet4.fieldMappings = [{
     fromField: "value",
     toField: "value"
