@@ -159,7 +159,7 @@
       }
       addTick('#'+key);
     });
-    if (numberOfRain > 4 || maxRainValue >= 2) {
+    if (numberOfRain > 7 || maxRainValue >= 3) {
       setBackground('rain', '', maxRainValue);
     }
     else {
