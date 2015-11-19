@@ -13,6 +13,7 @@ body, html {
   width: 30px;
 }
 .title__wrapper{
+  border-bottom: 1px solid #e2e2e2;
   min-height: 150px; 
   min-height: 15vh;
 }
