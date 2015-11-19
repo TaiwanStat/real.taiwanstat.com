@@ -101,6 +101,8 @@ $.widget("water.raindrops", {
 });
 
 function raindropsAnimationTick(drop) {
+  var fps = 60;
+
   if (!document.contains(drop.element[0])) return;
 
   if (isInView($('#' + drop.element[0].id))) {
@@ -113,8 +115,10 @@ function raindropsAnimationTick(drop) {
     drop.renderWaves();
   }
 
-  requestAnimationFrame(function() {
-    raindropsAnimationTick(drop);
+  setTimeout(function() {
+    requestAnimationFrame(function() {
+      raindropsAnimationTick(drop);
+    }, 2000 / fps);
   });
 }
 
