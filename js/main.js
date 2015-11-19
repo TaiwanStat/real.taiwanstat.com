@@ -46,4 +46,11 @@
     $('footer').hide();
   });
 
+  window.sendEmail = function() {
+    var mail = 'mailto:contact@taiwanstat.com';
+    var a = document.createElement('a');
+    a.href = mail;
+    a.click();
+  };
+
 })(window, document, jQuery);

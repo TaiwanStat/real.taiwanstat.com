@@ -211,14 +211,10 @@ li {
   font-size: 1rem;
   display: block;
 }
-
 .footer-mobile .mdl-button--fab.mdl-button--colored {
   background: rgb(2, 155, 108);
   font-size: 18px;
   vertical-align: middle;
-}
-.footer-mobile i {
-  margin-top: 18px;
 }
 .author-info {
   width: 100px;
