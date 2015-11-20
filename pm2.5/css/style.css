@@ -126,3 +126,15 @@ table.mobile-top-info, table.mobile-bottom-info {
         bottom: 30px;
     }
 }
+@media only screen and (max-width: 650px) {
+  .site {
+    width: 100%;
+    margin: auto;
+    float: initial;
+    text-align: center;
+  }
+  .status_img {
+    margin: auto;
+    display: block;
+  }
+}

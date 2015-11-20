@@ -93,6 +93,7 @@ body {
         right: 20px;
         bottom: 20px;
     }
+
 }
 
 @media only screen and (max-width: 500px) {
@@ -109,4 +110,16 @@ body {
         right: 30px;
         bottom: 30px;
     }
+}
+@media only screen and (max-width: 650px) {
+  .site {
+    width: 100%;
+    margin: auto;
+    float: initial;
+    text-align: center;
+  }
+  .status_img {
+    margin: auto;
+    display: block;
+  }
 }
