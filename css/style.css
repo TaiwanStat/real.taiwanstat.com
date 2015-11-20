@@ -156,6 +156,7 @@ main .mdl-card.author {
 discussion {
   float: left;
   width: 100%;
+  overflow-x: hidden;
 }
 #discussion_title{
   font-size: 38px;
