@@ -58,6 +58,10 @@
   var scrollup = $('.footer-mobile');
 
   scrollup.click(function () {
+      $("main").animate({
+          scrollTop: 0
+      }, 600);
+
       $("#layout-header").animate({
           scrollTop: 0
       }, 600);
