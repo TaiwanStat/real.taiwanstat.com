@@ -179,7 +179,7 @@ discussion {
     display: block;
  }
   #main-content {
-    width: 98%;
+    width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
     padding: 0px;
