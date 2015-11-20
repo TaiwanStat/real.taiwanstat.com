@@ -43,7 +43,7 @@
 
   }
 
-  $('main').scroll(function() {
+  $('#layout-header').scroll(function() {
     $('footer').hide();
   });
 
