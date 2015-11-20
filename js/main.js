@@ -54,7 +54,7 @@
   };
 
   $('.scrollup').click(function () {
-      $("html, body").animate({
+      $("#layout-header").animate({
           scrollTop: 0
       }, 600);
       return false;
