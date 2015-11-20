@@ -54,7 +54,7 @@
     a.click();
 
   };
-  var scrollup = $('.scrollup');
+  var scrollup = $('.footer-mobile');
 
   scrollup.click(function () {
       $("#layout-header").animate({
@@ -65,9 +65,9 @@
   $('#layout-header').scroll(function() {
     var scroll = $(this).scrollTop();
     if (scroll > 200) {
-      $('.footer-mobile').fadeIn(500);
+      scrollup.fadeIn(500);
     } else {
-      $('.footer-mobile').fadeOut(500);
+      scrollup.fadeOut(500);
     }
    }); 
 
