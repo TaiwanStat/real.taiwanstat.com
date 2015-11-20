@@ -163,7 +163,7 @@ discussion {
     right: 20px;
     z-index: 999;
     font-size: 1rem;
-    display: block;
+    display: none;
   }
   .footer-mobile .mdl-button--fab.mdl-button--colored {
     background: rgb(2, 155, 108);
@@ -176,6 +176,7 @@ discussion {
 @media all and (max-width: 650px) {
  .footer-mobile {
     bottom: 30px;
+    display: block;
  }
   #main-content {
     width: 98%;

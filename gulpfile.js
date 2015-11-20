@@ -17,7 +17,7 @@ gulp.task('scripts', function() {
 
 gulp.task('minify-css', function() {
   return gulp.src(css_dir)
-  .pipe(minifyCSS({keepBreaks:true}))
+  .pipe(minifyCSS())
   .pipe(rename({suffix: ".min"}))
   .pipe(gulp.dest(function(file) {
     return file.base;
