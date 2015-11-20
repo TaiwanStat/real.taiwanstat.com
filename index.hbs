@@ -45,7 +45,15 @@
     var a = document.createElement('a');
     a.href = mail;
     a.click();
-  };
-  </script>
+    };
+    $('.scrollup').click(function () {
+      console.log(111);
+      $("#layout-header").animate({
+          scrollTop: 0
+      }, 600);
+      return false;
+    }); 
+</script>
+
 </body>
 </html>

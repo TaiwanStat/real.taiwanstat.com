@@ -14,7 +14,6 @@ header.mdl-layout__header{background-color:#029B6C;box-shadow:0 0 1px rgba(0,0,0
 .demo-card-wide>.mdl-card__title:hover{opacity:1}
 .demo-card-wide>.mdl-card__menu{color:#fff}
 footer{position:fixed;bottom:0;width:100%;z-index:999}
-.footer-mobile{display:none}
 footer.mdl-mini-footer{padding:20px 16px}
 main .mdl-card.author{clear:both;min-width:300px;max-width:500px;width:50%;padding:20px;background:#fff;border:none;border-radius:.2857rem;z-index:'';height:220px;margin:20px;display:block}
 .author h4{color:#999;font-size:20px;margin:20px 0;padding-bottom:20px;border-bottom:1px solid #eee;width:150px}
@@ -25,13 +24,13 @@ main .mdl-card.author{clear:both;min-width:300px;max-width:500px;width:50%;paddi
 discussion{float:left;width:100%}
 #discussion_title{font-size:38px;margin-left:20px;margin-top:10px}
 .fb-comments,.fb-comments iframe[style],.fb-comments span{margin-top:10px;width:95%!important;margin-left:10px;padding-right:5%;margin-bottom:30px}
-@media all and (max-width:650px){#main-content{width:98%}
+.footer-mobile{position:fixed;bottom:80px;right:20px;z-index:999;font-size:1rem;display:block}
+.footer-mobile .mdl-button--fab.mdl-button--colored{background:#029b6c;font-size:18px;vertical-align:middle}
+@media all and (max-width:650px){footer.mdl-mini-footer,nav.mdl-navigation.mdl-layout--large-screen-only{display:none}
+.footer-mobile{bottom:30px}
+#main-content{width:98%}
 .demo-card-wide.mdl-card{width:95%;margin-left:auto;margin-right:auto}
-nav.mdl-navigation.mdl-layout--large-screen-only{display:none}
 #title{font-size:26px}
 li{padding-top:4px}
-.footer-mobile{position:fixed;bottom:20px;right:20px;z-index:999;font-size:1rem;display:block}
-.footer-mobile .mdl-button--fab.mdl-button--colored{background:#029b6c;font-size:18px;vertical-align:middle}
-footer.mdl-mini-footer{display:none}
 .author img{height:60px}
 .author-info{width:100px}}
