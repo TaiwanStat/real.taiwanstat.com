@@ -6,18 +6,10 @@ footer {
 }
 body {
   background-color: rgba(68, 167, 147, 0.7);
-  overflow: hidden;
-  height: 100%;
-  margin: 0;
-  padding: 0;
   color: white;
   font-family: Meiryo, "微軟正黑體", "Microsoft JhengHei"; 
 }
-#main-content {
-  padding: 10px;
-}
 #layout-header {
-  display: none;
 }
 .mychart {
   min-height: 600px;
@@ -105,7 +97,6 @@ svg {
   -o-filter: brightness(0.8);
   -ms-filter: brightness(0.8);
 }
-
 .red {
   color:rgb(244, 0, 0);
   font-weight: bold;
