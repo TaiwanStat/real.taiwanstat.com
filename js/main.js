@@ -5,7 +5,8 @@
   var window_width = $(window).width();
   var path = window.location.pathname;
 
-  if (path != '/' && path != '/r/' && path != '/l/') {
+  if (path != '/' && path != '/r/' && path != '/l/' || 
+      window.location.hostname == 'water.taiwanstat.com') {
 
     discussion = 
       '<discussion style= "margin: 20px;>' + 
