@@ -9,8 +9,8 @@
       window.location.hostname == 'water.taiwanstat.com') {
 
     discussion = 
-      '<discussion style= "margin: 20px;>' + 
-      '<h3 id="discussion_title">數據討論區</h3>' + 
+      '<discussion>' + 
+      '<h3 id="discussion_title" style="margin-left: 20px;">數據討論區</h3>' + 
       '<div id="fb-root"></div>' + 
       '<script>' + 
       '(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id))' + 
