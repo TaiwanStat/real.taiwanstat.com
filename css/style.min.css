@@ -28,8 +28,8 @@ discussion{float:left;width:100%}
 .footer-mobile .mdl-button--fab.mdl-button--colored{background:#029b6c;font-size:18px;vertical-align:middle}
 @media all and (max-width:650px){footer.mdl-mini-footer,nav.mdl-navigation.mdl-layout--large-screen-only{display:none}
 .footer-mobile{bottom:30px}
-#main-content{width:98%}
-.demo-card-wide.mdl-card{width:95%;margin-left:auto;margin-right:auto}
+#main-content{width:98%;overflow-y:auto;overflow-x:hidden;padding:0}
+.demo-card-wide.mdl-card{width:100%;margin:0 auto 2px}
 #title{font-size:26px}
 li{padding-top:4px}
 .author img{height:60px}

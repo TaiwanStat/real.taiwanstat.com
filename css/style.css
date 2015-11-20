@@ -179,9 +179,13 @@ discussion {
  }
   #main-content {
     width: 98%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0px;
   }
   .demo-card-wide.mdl-card {
-    width: 95%;
+    width: 100%;
+    margin: 0 0 2px 0;
     margin-left: auto;
     margin-right: auto;
   }
