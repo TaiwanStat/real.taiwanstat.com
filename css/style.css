@@ -208,7 +208,7 @@ discussion {
   .author-info {
     width: 100px;
   }
-  sml-hide {
+  .sml-hide, .note {
     display: none;
   }
 }
