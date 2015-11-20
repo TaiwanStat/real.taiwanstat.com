@@ -208,4 +208,7 @@ discussion {
   .author-info {
     width: 100px;
   }
+  sml-hide {
+    display: none;
+  }
 }
