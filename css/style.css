@@ -3,9 +3,19 @@ body, html {
   padding: 0;
   background: #eee;
 }
+body, main {
+  font-family: "Helvetica Neue",Helvetica, "Hiragino Sans GB","Microsoft JhengHei",sans-serif;
+}
 #round-logo {
   margin-right: 20px;
   width: 30px;
+}
+.mdl-layout-title a {
+  color: #FF860A;
+}
+.mdl-layout__drawer-button i  {
+  color: #9E9E9E;
+  color: #FF860A;
 }
 #main-content {
   padding: 20px;
@@ -24,10 +34,13 @@ body, html {
   max-width: 600px;
   float:left;
 }
-
 header.mdl-layout__header {
-  background-color: #029B6C;
+  background-color: #fff;
   box-shadow: 0 0 1px rgba(0,0,0,0.15);
+  position: fixed;
+}
+#main-content {
+  margin-top: 60px;
 }
 .mdl-shadow {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.14);
@@ -166,9 +179,17 @@ discussion {
     display: none;
   }
   .footer-mobile .mdl-button--fab.mdl-button--colored {
-    background: rgb(2, 155, 108);
+    background: #FF860A;
+    color: #fff;
     font-size: 18px;
     vertical-align: middle;
+  }
+  .mdl-layout__header-row .mdl-navigation__link {
+    font-size: 1rem;
+  }
+  .mdl-layout__header-row .mdl-navigation__link:hover {
+    border-bottom: 3px solid #FFC107;
+    height: 64px;
   }
  
 
