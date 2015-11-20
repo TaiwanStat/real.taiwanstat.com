@@ -3,8 +3,8 @@ var uglify = require('gulp-uglify');
 var minifyCSS = require('gulp-minify-css');
 var rename = require("gulp-rename");
 
-var css_dir = ['./css/*.css', '!./css/*.css'];
-var js_dir = ['./js/*.js', '!./js/*min.js'];
+var css_dir = ['./css/*.css', '!./css/*.css']//, './**/css/*.css', '!./**/css/*min.css'];
+var js_dir = ['./js/*.js', '!./js/*min.js']//, './**/js/*.js', '!./**/js/*min.js'];
 
 gulp.task('scripts', function() {
   gulp.src(js_dir)

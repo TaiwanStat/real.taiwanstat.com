@@ -1,0 +1,7 @@
+.city{stroke-width:.5;stroke:#777}
+.mouse{stroke:#FF0;stroke-width:2}
+.labels{fill:#777;stroke:none;font-size:18px;pointer-events:none}
+form{height:50px;float:left}
+.note{padding:10px}
+#name{font-size:30px}
+#City{background:0 0;width:100px;padding:5px;font-size:16px;border:1px solid #ccc;height:34px}
