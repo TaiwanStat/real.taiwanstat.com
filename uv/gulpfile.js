@@ -37,4 +37,4 @@ gulp.task('watch', function () {
   gulp.watch('./css/*css', ['minify-css']);
 });
 
-gulp.task('default', ['minify-html', 'scripts',  'minify-css', 'watch']);
+gulp.task('default', ['scripts',  'minify-css', 'watch']);

@@ -9,11 +9,6 @@
   <body>
     {{> header}}
     {{> start}}
-   <div class="header">
-      <i class="fa fa-refresh fa-2x" onclick="resetView()"></i>
-      <i class="fa fa-compass fa-2x" onclick="getLocation()"></i>
-      <i class="fa fa-info fa-2x" onclick="toogleInfo()"></i>
-  </div>
   <div class="main-info">
    <table border="1" align="center" cellpadding="4" cellspacing="0">
   <tbody><tr align="center" style="background:#efefef;">
@@ -65,7 +60,12 @@
     </div>
 
 
-  <div id="map"></div>
+    <div id="map"></div>
+    <div class="menu">
+      <i class="fa fa-refresh fa-2x" onclick="resetView()"></i>
+      <i class="fa fa-compass fa-2x" onclick="getLocation()"></i>
+      <i class="fa fa-info fa-2x" onclick="toogleInfo()"></i>
+    </div>
   <div class="footer">
     <h5>資料來源：<a href="http://opendata.epa.gov.tw/Data/Contents/UV/">行政院環境保護署</a><br/>
       <span class="updateAt">更新時間：</span><br/>
