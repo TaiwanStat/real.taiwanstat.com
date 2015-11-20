@@ -11,7 +11,7 @@
 
   var str = '<header class="mdl-layout__header">';
   str += '<div class="mdl-layout__header-row">';
-  str += '<span class="mdl-layout-title"><a href="http://real.taiwanstat.com/" style="color: #FFF"><img src="/images/assert/round-logo.png" id="round-logo"/>用數據看台灣</a></span>';
+  str += '<span class="mdl-layout-title"><a href="http://real.taiwanstat.com/"><img src="/images/assert/round-logo.png" id="round-logo"/>用數據看台灣</a></span>';
   str += '<div class="mdl-layout-spacer"></div>';
   str += '<nav class="mdl-navigation mdl-layout--large-screen-only">';
   str += links;
