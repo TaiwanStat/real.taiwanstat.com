@@ -233,4 +233,7 @@ discussion {
   .sml-hide{
     display: none;
   }
+  .fb-plugin {
+    display: none;
+  }
 }
