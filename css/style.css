@@ -236,4 +236,7 @@ discussion {
   .fb-plugin {
     display: none;
   }
+  .title__wrapper{
+    height: 10vh;
+  }
 }
