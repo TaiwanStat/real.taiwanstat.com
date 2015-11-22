@@ -37,7 +37,12 @@ def rain():
     rain = read_json("rain/data/data.json")
     insert("rains", rain)
 
+def water():
+    rain = read_json("water/data.json")
+    insert("waters", rain)
+
 air()
 gamma()
 uv()
 rain()
+water()
