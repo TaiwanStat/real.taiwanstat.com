@@ -5,7 +5,7 @@ footer {
   z-index: 999;
 }
 body {
-  background-color: rgba(68, 167, 147, 0.7);
+  background-color: #222;
   color: white;
   font-family: Meiryo, "微軟正黑體", "Microsoft JhengHei"; 
 }
