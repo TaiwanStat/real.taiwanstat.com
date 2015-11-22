@@ -7,7 +7,7 @@
 	window.resetView = resetView;
 	window.toogleInfo = toogleInfo;
 
-  var api = "http://localhost:3000/gammas/latest";
+  var api = "http://52.69.145.204:3000/gammas/latest";
     
   d3.json(api, function(data) {
 
