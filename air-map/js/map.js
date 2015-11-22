@@ -32,10 +32,8 @@
   $( document ).ready(function() {
     initMap();
     d3.csv('./data/site.csv', function(sites) {
-      var myFirebaseRef = new Firebase("https://realtaiwanstat2.firebaseio.com");
-      myFirebaseRef.child("air").limitToLast(1).on("child_added", function(snapshot) {
-        var raw = snapshot.val();  // Alerts "San Francisco"
-        var data = JSON.parse(raw);
+      var api = "http://52.69.145.204:3000/airs/latest";
+      d3.json(api, function(data) { 
         addSiteToMap(data, sites);
       });
     });
@@ -115,15 +113,12 @@
   function initMap() {
     map = new L.Map('map');
 
-    url = 'http://openmapsurfer.uni-hd.de/tiles/roadsg/x={x}&y={y}&z={z}';
-    attrib = 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
 
     /*url = 'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png';
     attrib = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';*/
 
-    /*url = 'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
-    attrib = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>';*/
-
+    url = 'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png';
+    attrib = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
    /*url = 'http://openmapsurfer.uni-hd.de/tiles/roads/x={x}&y={y}&z={z}';
     attrib = 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';*/
 
@@ -131,7 +126,6 @@
     attrib = 'Map &copy; 1987-2014 <a href="http://developer.here.com">HERE</a>';&*/
 
     var osm = new L.TileLayer(url, {minZoom: 1,  maxZoom: 16, attribution: attrib});   
-
 
     map.setView(new L.LatLng(24, 121), 7);
     osm.addTo(map);

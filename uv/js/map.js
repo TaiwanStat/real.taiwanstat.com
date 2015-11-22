@@ -22,10 +22,10 @@
 
   $( document ).ready(function() {
     initMap();
-    var myFirebaseRef = new Firebase("https://realtaiwanstat2.firebaseio.com");
-    myFirebaseRef.child("uv").limitToLast(1).on("child_added", function(snapshot) {
-    var raw = snapshot.val();  
-    var data = d3.csv.parse(raw);
+
+    var api = "http://52.69.145.204:3000/uvs/latest";
+    
+    d3.json(api, function(data) {
       d3.json('./data/locations.json', function(sites) {
         addSiteToMap(data, sites);
       });
@@ -50,7 +50,7 @@
       }
     
       var keys = Object.keys(data[i]);
-      var name = data[i][keys[0]];
+      var name = data[i].SiteName;
       var latlng = sites[name];
       data[i].TWD97Lat = latlng.lat;
       data[i].TWD97Lon = latlng.lng;

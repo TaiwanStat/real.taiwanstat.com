@@ -236,7 +236,11 @@ discussion {
   .fb-plugin {
     display: none;
   }
-  .title__wrapper{
+  .title__wrapper {
     height: 10vh;
+  }
+  .license__wrapper {
+    width: 90%;
+    margin: auto;
   }
 }

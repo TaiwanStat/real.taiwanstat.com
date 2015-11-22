@@ -1,9 +1,7 @@
 (function() {
 
-  var myFirebaseRef = new Firebase("https://realtaiwanstat2.firebaseio.com");
-  myFirebaseRef.child("air").limitToLast(1).on("child_added", function(snapshot) {
-      var raw = snapshot.val();  // Alerts "San Francisco"
-      var data = JSON.parse(raw);
+  var api = "http://52.69.145.204:3000/airs/latest";
+  d3.json(api, function(data) { 
       $('.data-update-time').text('更新時間（每小時更新）：' + data[0]['PublishTime']);
 
       for (site_index in data) {
@@ -42,7 +40,7 @@
           }
 
           $('#' + data[site_index]['site_id'] + ' .pm25').children('h5')
-                          .text("PM2.5: " + data[site_index]['PM2.5'] + " μg/m").append('<sup>3</sup>');
+                          .text("PM2.5: " + data[site_index]['PM2_5'] + " μg/m").append('<sup>3</sup>');
           $('#' + data[site_index]['site_id'] + ' .pm10').children('h5')
                           .text("PM10: " + data[site_index]['PM10'] + ' μg/m').append('<sup>3</sup>');
           $('#' + data[site_index]['site_id'] + ' .update').children('h5')

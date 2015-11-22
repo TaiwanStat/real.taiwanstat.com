@@ -15,15 +15,8 @@ a {
     text-decoration: blink;
 }
 
-.fb-share-button.fb_iframe_widget {
-    display: none;
-    position: fixed;
-    right: 10px;
-    top: 20px;
-}
-
 .info-footer {
-    position: fixed;
+    position: relative;
     bottom: 60px;
     left: 10px;
     z-index: 999;
@@ -34,10 +27,10 @@ a {
 }
 
 .st {
-  position: absolute;
-  right: 10px;
+  position: relative;
   z-index: 30;
   bottom: 60px;
+  left: 20px;
   font-weight: bold;
 }
 

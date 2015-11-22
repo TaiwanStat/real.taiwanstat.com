@@ -15,15 +15,14 @@
       '連江縣', '金門縣','澎湖縣'
   ];
   
-  var myFirebaseRef = new Firebase("https://realtaiwanstat3.firebaseio.com");
 
   init();
   function init() {
     time = (now > 5 && now < 18) ? '白天' : '晚上';
-    myFirebaseRef.child("rain").limitToLast(1).on("child_added", function(snapshot) {
-      var _data = snapshot.val();
-    //$.getJSON('./data/data.json').then(function(_data) {
+    var api = "http://52.69.145.204:3000/rains/latest";
+    d3.json(api, function(_data) { 
       data = _data;
+    //$.getJSON('./data/data.json').then(function(_data) {
       $('.updateAt').text(data[0].PublishTime);
       $('body').css('background-color', 'black');
       $('canvas').remove();
@@ -101,7 +100,6 @@
     var numberKeys = [
       'Rainfall10min', 'Rainfall1hr', 'Rainfall24hr'
     ];
-
     data.forEach(function(site) {
       if (!countryData.hasOwnProperty(site.County)) {
         countryData[site.County] = {

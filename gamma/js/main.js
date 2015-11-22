@@ -7,10 +7,10 @@
 	window.resetView = resetView;
 	window.toogleInfo = toogleInfo;
 
-  var myFirebaseRef = new Firebase("https://realtaiwanstat.firebaseio.com");
-  myFirebaseRef.child("gamma").limitToLast(1).on("child_added", function(snapshot) {
-    var raw = snapshot.val();  
-    var data = d3.csv.parse(raw);
+  var api = "http://localhost:3000/gammas/latest";
+    
+  d3.json(api, function(data) {
+
     var timeTemp = data[0].時間;
 		map = makeMap();
 
