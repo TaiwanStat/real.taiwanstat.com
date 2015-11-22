@@ -22,12 +22,22 @@
 
   $( document ).ready(function() {
 
-    var myFirebaseRef = new Firebase("https://realtaiwanstat2.firebaseio.com");
-    myFirebaseRef.child("power_4").limitToLast(1).on("child_added", function(snapshot) {
-      var text = snapshot.val();  
-      var data = d3.csv.parseRows(text)[0];
+    //var myFirebaseRef = new Firebase("https://realtaiwanstat2.firebaseio.com");
+    //myFirebaseRef.child("power_4").limitToLast(1).on("child_added", function(snapshot) {
+    //  var text = snapshot.val();  
+    //  var data = d3.csv.parseRows(text)[0];
+    var api = "http://52.69.145.204:3000/powers/latest";
+    d3.json(api, function(_data) {
+      var regionData = _data.regionData;
+      var data = [
+        regionData.updateTime, regionData.northSupply,regionData.northUsage,
+        regionData.centerSupply, regionData.centerUsage,
+        regionData.southSupply, regionData.southUsage,
+        regionData.eastSupply, regionData.eastUsage
+      ];
       var id;
       var perUsage;
+
       for (var i = 1; i < data.length; ++i) {
         data[i] = (+data[i]);
         region = Math.round(i/2)-1;
@@ -53,20 +63,18 @@
         }
       }
 
-      loadReserveData(data);
+      loadReserveData(data, _data.reserveData);
     });
   });
 
-  function loadReserveData (data) {
-    var myFirebaseRef = new Firebase("https://realtaiwanstat2.firebaseio.com");
-      myFirebaseRef.child("power_3").limitToLast(1).on("child_added", function(snapshot) {
-      var text = snapshot.val();  
-      powerLoadData = d3.csv.parseRows(text)[0];
-      reserveSupply = powerLoadData[2];
-      reserveLoad = powerLoadData[1];
+  function loadReserveData (data, loadReserve) {
+      powerLoadData = [loadReserve.reserveLoad, loadReserve.reserveSupply, 
+        loadReserve.updateTime];
+      reserveSupply = powerLoadData[1];
+      reserveLoad = powerLoadData[0];
       reserveLoadRate = ((reserveSupply-reserveLoad)/reserveLoad)*100;
       reserveLoadRate = reserveLoadRate.toFixed(2);
-      $('.update-at').text('更新時間：' + powerLoadData[3] + '（每小時更新）');
+      $('.update-at').text('更新時間：' + powerLoadData[2] + '（每小時更新）');
       $('.load-rate').text(reserveLoadRate + '％');
       
       for (var i in areaSupplyRate) {
@@ -99,7 +107,6 @@
       }
 
       createGauges(data);
-    });
   }
 
   function visualBattery (id, percentage, color) {
