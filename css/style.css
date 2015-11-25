@@ -125,20 +125,24 @@ main .mdl-card.author {
   width: 150px;
 
 }
+.author-wrapper {
+  display: -webkit-flex;
+  display: flex;
+}
 .author img {
   float: left;
-  height: 80px;
   background: #f0f0f0;
   border: 1px solid #f0f0f0;
   padding: 5px;
+  width: 80px;
+  height: 80px;
 }
 .author-info {
-  margin: 20px;
+  margin-top: 20px;
   margin-left: 30px;
   float: left;
-  width: 80%;
-  max-width: 270px;
-  min-width: 140px;
+  -webkit-flex: 1;
+  flex: 1;
 }
 .author-info h5 {
   font-size: 16px;
@@ -146,7 +150,6 @@ main .mdl-card.author {
   color: #5a5556;
   font-weight: normal;
 }
-
 .fb-like {
   margin:20px;
 }
@@ -192,12 +195,6 @@ discussion {
     border-bottom: 3px solid #FFC107;
     height: 64px;
   }
-.contributor {
-    float: left;
-    font-size: 14px;
-    width: 100%;
-    color: #5A5556;
-} 
 
 /* mobile phone */
 @media all and (max-width: 650px) {
