@@ -7,7 +7,7 @@
         "url": "oil",
         "img": "./images/oil.jpg",
         "description": "想知道這週和下週的油價嗎？即時油價及長期油價走勢圖",
-        "author": "Authors：詹博山、李岳庭、謝忠穎 Contributor：Chi-Hsuan, Huang",
+        "author": "Authors：詹博山、李岳庭、謝忠穎 Collaborator：Chi-Hsuan, Huang",
         "class": ""
       },
       {
@@ -16,7 +16,6 @@
         "img": "images/tainan-2015-denguefever-recovery.jpg",
         "description": "台南登革熱已經開始趨緩，進入了恢復期，一起來看看最近各里的恢復狀況吧！",
         "author": "Chi-Hsuan Huang",
-        "collaborators": [],
         "class": ""
       },
       {
@@ -25,7 +24,6 @@
         "img": "images/kaohsiung-2015-dengue.jpg",
         "description": "今年高雄登革熱持續升溫，你知道哪些地需要特別注意嗎？",
         "author": "Chi-Hsuan Huang",
-        "collaborators": [],
         "class": ""
       },
       {
@@ -34,7 +32,6 @@
         "img": "images/rain.jpg",
         "description": "下雨了，你知道台灣各地的即時降雨情況嗎？",
         "author": "Chi-Hsuan Huang",
-        "collaborators": [],
         "class": ""
       },
       {
@@ -43,7 +40,6 @@
         "img": "images/dengue-spatial-temporal.jpg",
         "description": "想知道台南哪些地方需要特別預防，想知道現在家裡附近會很嚴重嗎？一起來看看吧！",
         "author": "Chi-Hsuan Huang",
-        "collaborators": [],
         "class": ""
       },
       {
@@ -52,7 +48,6 @@
         "img": "images/dengue-fever.jpg",
         "description": "今年的台南登革熱疫情持續的不斷蔓延，而登革熱疫情如何散播的呢？讓我們用動態圖表帶你來看看！",
         "author": "Weber Chi",
-        "collaborators": [],
         "class": ""
       },
       {
