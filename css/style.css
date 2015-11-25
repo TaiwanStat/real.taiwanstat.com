@@ -192,7 +192,12 @@ discussion {
     border-bottom: 3px solid #FFC107;
     height: 64px;
   }
- 
+.contributor {
+    float: left;
+    font-size: 14px;
+    width: 100%;
+    color: #5A5556;
+} 
 
 /* mobile phone */
 @media all and (max-width: 650px) {
