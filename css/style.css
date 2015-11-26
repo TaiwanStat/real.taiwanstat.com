@@ -98,6 +98,10 @@ footer {
 footer.mdl-mini-footer {
   padding: 20px 16px;
 }
+.license__wrapper {
+  position: relative;
+  left: 20px;
+}
 
 /* author */
 main .mdl-card.author {
@@ -174,75 +178,75 @@ discussion {
   margin-bottom: 30px;
 
 }
- .footer-mobile {
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    z-index: 999;
-    font-size: 1rem;
-    display: none;
-  }
-  .footer-mobile .mdl-button--fab.mdl-button--colored {
-    background: #FF860A;
-    color: #fff;
-    font-size: 18px;
-    vertical-align: middle;
-  }
-  .mdl-layout__header-row .mdl-navigation__link {
-    font-size: 1rem;
-  }
-  .mdl-layout__header-row .mdl-navigation__link:hover {
-    border-bottom: 3px solid #FFC107;
-    height: 64px;
-  }
+.footer-mobile {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  z-index: 999;
+  font-size: 1rem;
+  display: none;
+}
+.footer-mobile .mdl-button--fab.mdl-button--colored {
+  background: #FF860A;
+  color: #fff;
+  font-size: 18px;
+  vertical-align: middle;
+}
+.mdl-layout__header-row .mdl-navigation__link {
+  font-size: 1rem;
+}
+.mdl-layout__header-row .mdl-navigation__link:hover {
+  border-bottom: 3px solid #FFC107;
+  height: 64px;
+}
 
 /* mobile phone */
 @media all and (max-width: 650px) {
- .footer-mobile {
+  .footer-mobile {
     bottom: 30px;
     display: block;
  }
-  #main-content {
-    width: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 0px;
-  }
-  .demo-card-wide.mdl-card {
-    width: 100%;
-    margin: 0 0 2px 0;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  nav.mdl-navigation.mdl-layout--large-screen-only {
-    display: none;
-  }
-  #title {
-    font-size: 26px;
-  }
-  li {
-    padding-top: 4px;
-  }
-  footer.mdl-mini-footer {
-    display: none;
-  }
-  .author img {
-    height: 60px;
-  }
-  .author-info {
-    width: 100px;
-  }
-  .sml-hide{
-    display: none;
-  }
-  .fb-plugin {
-    display: none;
-  }
-  .title__wrapper {
-    height: 10vh;
-  }
-  .license__wrapper {
-    width: 90%;
-    margin: auto;
-  }
+ #main-content {
+   width: 100%;
+   overflow-y: auto;
+   overflow-x: hidden;
+   padding: 0px;
+}
+.demo-card-wide.mdl-card {
+  width: 100%;
+  margin: 0 0 2px 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+nav.mdl-navigation.mdl-layout--large-screen-only {
+  display: none;
+}
+#title {
+  font-size: 26px;
+}
+li {
+  padding-top: 4px;
+}
+footer.mdl-mini-footer {
+  display: none;
+}
+.author img {
+  height: 60px;
+}
+.author-info {
+  width: 100px;
+}
+.sml-hide{
+  display: none;
+}
+.fb-plugin {
+  display: none;
+}
+.title__wrapper {
+  height: 10vh;
+}
+.license__wrapper {
+  width: 90%;
+  margin: auto;
+}
 }
