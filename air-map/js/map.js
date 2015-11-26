@@ -50,7 +50,7 @@
         timeTmp = data[i].PublishTime;
       }
       
-      var degree = getDegree(data[i]['PM2.5']);
+      var degree = getDegree(data[i]['PM2_5']);
       var icon;
 
       if (degree.color == 'yellow') {
@@ -72,7 +72,7 @@
       marker.bindPopup('<strong>測站名稱：'  + data[i].SiteName
                   + '</strong><br/><span class="' + degree.color + '">' 
                   + 'PM2.5 空污指標：' + degree.disc
-                  + "</span><br/>PM2.5：" + data[i]['PM2.5'] + '（μg/m3）'
+                  + "</span><br/>PM2.5：" + data[i]['PM2_5'] + '（μg/m3）'
                   + '<br/>PM10：' + data[i]['PM10'] + '（μg/m3）'
                   + '<br/>PSI：' + data[i].PSI
                   + '<br/>測站類型：' + siteInfo.SiteType
