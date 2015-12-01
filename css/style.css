@@ -10,7 +10,7 @@ body, main {
   margin-right: 20px;
   width: 40px;
 }
-.mdl-layout-title a {
+.mdl-layout-title a, .mdl-layout-title a:hover {
   color: #FF860A;
 }
 .mdl-layout__drawer-button i  {
@@ -33,6 +33,7 @@ body, main {
   margin: 15px;
   max-width: 600px;
   float:left;
+  font-size: 2.8rem;
 }
 header.mdl-layout__header {
   background-color: #fff;
