@@ -3,8 +3,8 @@ body, html {
   padding: 0;
   background: #eee;
 }
-body, main {
-  font-family: "Helvetica Neue",Helvetica, "Hiragino Sans GB","Microsoft JhengHei",sans-serif;
+body, main, h1, h2, h3, h4, h5, h6 {
+  font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB","Microsoft JhengHei", sans-serif;
 }
 #round-logo {
   margin-right: 20px;
