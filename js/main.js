@@ -3,10 +3,11 @@
   var discussion;
   var embed;
   var window_width = $(window).width();
+  var hostname = window.location.hostname;
   var path = window.location.pathname;
 
   if (path != '/' && path != '/r/' && path != '/l/' || 
-      window.location.hostname == 'water.taiwanstat.com') {
+      hostname == 'water.taiwanstat.com') {
 
     discussion = 
       '<discussion>' + 
@@ -75,5 +76,21 @@
       scrollup.fadeOut(500);
     }
    }); 
+
+   var rootPath = window.location.pathname.split('/')[1];
+   if (hostname == 'real.taiwanstat.com' || hostname == 'water.taiwanstat.com' || hostname == "localhost") {
+     $('.mdl-layout--large-screen-only a:nth-child(1)').addClass('active');   
+   }
+   else if (hostname == 'long.taiwanstat.com') {
+     $('.mdl-layout--large-screen-only a:nth-child(2)').addClass('active');   
+   }
+   else if (hostname == 'global.taiwanstat.com') {
+     if (rootPath == 'r') {
+       $('.mdl-layout--large-screen-only a:nth-child(3)').addClass('active');
+     }
+     else if (rootPath == 'l') {
+       $('.mdl-layout--large-screen-only a:nth-child(4)').addClass('active');
+     }
+   }
 
 })(window, document, jQuery);

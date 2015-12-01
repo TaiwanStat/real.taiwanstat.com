@@ -8,7 +8,7 @@ body, main {
 }
 #round-logo {
   margin-right: 20px;
-  width: 30px;
+  width: 40px;
 }
 .mdl-layout-title a {
   color: #FF860A;
@@ -195,7 +195,7 @@ discussion {
 .mdl-layout__header-row .mdl-navigation__link {
   font-size: 1rem;
 }
-.mdl-layout__header-row .mdl-navigation__link:hover {
+.mdl-layout__header-row .mdl-navigation__link:hover, .mdl-navigation__link.active {
   border-bottom: 3px solid #FFC107;
   height: 64px;
 }
