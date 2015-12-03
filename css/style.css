@@ -32,8 +32,9 @@ main h6 {
 }
 .title__wrapper{
   border-bottom: 1px solid #e2e2e2;
-  min-height: 150px; 
-  min-height: 15vh;
+  min-height: 130px; 
+  min-height: 12vh;
+  margin-bottom: 20px;
 }
 #title {
   margin: 15px;
