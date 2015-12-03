@@ -37,9 +37,9 @@ main h6 {
 }
 #title {
   margin: 15px;
-  max-width: 600px;
+  max-width: 650px;
   float:left;
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   font-weight: normal;
 }
 header.mdl-layout__header {
