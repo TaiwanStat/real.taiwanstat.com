@@ -256,4 +256,7 @@ footer.mdl-mini-footer {
   width: 90%;
   margin: auto;
 }
+#title {
+  font-size: 1.4rem;
+}
 }
