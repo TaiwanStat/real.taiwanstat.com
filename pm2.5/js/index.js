@@ -3,7 +3,7 @@
     var api = "http://52.69.145.204:3000/airs/latest";
     d3.json(api, function(data) { 
 
-        $('.data-update-time').text('更新時間（每小時更新）：' + data[0]['PublishTime']);
+        $('.data-update-time').text('更新時間（每小時更新）：' + data[data.length-1]['PublishTime']);
         for (var site_index in data) {
             if (parseInt(data[site_index]['PM2_5']) <= 11) {
                 $('#' + data[site_index]['site_id'] + ' .status').attr('class', 'ui green tag label status').text('低');
