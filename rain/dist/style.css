@@ -1,5 +1,5 @@
 .mdl-layout__container,.raindrop a,footer{z-index:999}
-.raindrop,a,body{color:#fff}
+#title,.raindrop,a,body{color:#fff}
 .cssload-jar,.mychart,.raindrop a,svg{position:relative}
 body{background-color:#222;font-family:Meiryo,"微軟正黑體","Microsoft JhengHei"}
 .mychart{min-height:600px;width:100%;margin:auto auto 20px;top:20px}
