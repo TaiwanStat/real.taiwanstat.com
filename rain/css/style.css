@@ -1,6 +1,9 @@
 .mdl-layout__container {
   z-index: 999;
 }
+body #title {
+  color: #fff;
+}
 footer {
   z-index: 999;
 }
