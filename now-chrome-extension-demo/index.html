@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+    <meta property="og:title" content="Now - chrome extension">
+    <meta property="og:site_name" content="Now - chrome extension">
+    <meta property="og:description" content="提供您最即時的生活資訊">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="./bower_components/semantic-ui-label/label.min.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="./dist/index.css" type="text/css" media="screen" charset="utf-8">
+</head>
+<body>
+    <div class="container-fluid">
+      <div class="row">
+        <h5 class="now" id="now"></h5>
+
+        <div class="col-md-4 top">
+          <h3 class="col-title ui blue massive label top left attached">
+            <a href="http://water.taiwanstat.com/">即時水情</a>
+          </h3>
+          <div id="water" class="content">
+          </div>
+        </div>
+
+        <div class="col-md-4 top center">
+          <h4 class="col-title ui massive" style="margin-bottom:20px;">
+            <a href="http://real.taiwanstat.com/pm2.5/">即時空氣品質</a>
+          </h4>
+          <div id="pm2_5" class="content">
+          </div> 
+        </div>
+  
+        <div class="col-md-4 top">
+          <div id="rain" class="content">
+            <h3 class="col-title ui blue massive label top right attached">
+              <a href="http://real.taiwanstat.com/rain/">即時雨量</a>
+            </h3>
+          </div>
+        </div>
+
+     
+        <div class="col-md-4 bottom">
+          <div id="power" class="content">
+            <h3 class="col-title ui red massive label top left attached">
+              <a href="http://real.taiwanstat.com/power/">即時用電</a>
+            </h3>
+          </div>
+        </div>
+
+       <div class="col-md-4 bottom center">
+          <div id="uv" class="content">
+            <h4 class="col-title ui huge">
+              <a href="http://real.taiwanstat.com/uv/">即時紫外線指數</a>
+            </h4>
+            <img class="image" src="./images/uv.png" alt="UV太陽雨傘" />
+            <h4>9-中量級</h4>
+          </div>
+        </div>
+
+        <div class="col-md-4 bottom">
+          <div id="weather" class="content">
+            <h3 class="col-title ui red massive label top right attached">
+              <a href="http://www.cwb.gov.tw/V7/index.htm">即時氣溫</a>
+            </h3>
+            <img class="image" src="./images/normal.png" alt="衣服" />
+            <h2>20<sup>˚C</sup></h2>
+          </div>
+        </div>
+
+        <!--end-->
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.9/d3.min.js"></script>
+    <script src="./bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script src="./dist/bundle.js"></script>
+    <script>
+      function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        h = checkTime(h);
+        document.getElementById('now').innerHTML =
+         h + ":" + m + ":" + s;
+        var t = setTimeout(startTime, 500);
+    }
+
+    function checkTime(i) {
+      if (i < 10) {
+        i = "0" + i;
+      }  // add zero in front of numbers < 10
+      return i;
+    }
+    startTime();
+    </script>
+</body>
+</html>

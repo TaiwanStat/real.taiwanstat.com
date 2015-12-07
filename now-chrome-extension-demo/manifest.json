@@ -1,0 +1,11 @@
+{
+  "manifest_version": 2,
+  "name": "Now",
+  "version": "0.0.1",
+  "description": "以全新的視覺化方式，提供您即時的生活資訊",
+  "icons": {
+  },
+  "author": "Now Team",
+  "chrome_url_overrides": {"newtab": "index.html"},
+  "permissions": ["bookmarks", "history", "storage", "tabs"]
+}

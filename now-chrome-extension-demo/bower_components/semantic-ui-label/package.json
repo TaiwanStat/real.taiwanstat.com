@@ -1,0 +1,17 @@
+{
+  "name": "semantic-ui-label",
+  "version": "2.1.6",
+  "title": "Semantic UI - Label",
+  "description": "Single component release of label",
+  "homepage": "http://www.semantic-ui.com",
+  "author": "Jack Lukic <jack@semantic-ui.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Semantic-Org/UI-Label.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Semantic-Org/Semantic-UI/issues"
+  },
+  "devDependencies": {}
+}

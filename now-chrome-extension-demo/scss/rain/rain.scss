@@ -1,0 +1,53 @@
+#rain {
+  svg {
+    position: relative;
+    top: -228.3px;
+    left: -6px;
+    display: none;
+  }
+  .axis path,
+  .axis line {
+      fill: none;
+      stroke: #fff;
+      shape-rendering: crispEdges;
+  }
+
+  .axis text {
+      font-size: 9px;
+      fill: #fff;
+  }
+  .axis g:first-child text{
+    display: none;
+  }
+  .axis g:nth-child(6) text{
+    display: none;
+  }
+}
+.raindrop {
+  margin-top: 15px;
+  height: 235px;
+  width: 170px;
+  display: block;
+  overflow: hidden;
+  text-align: center;
+  margin: auto;
+  border-radius: 10px; 
+  border: 1.5px solid #fff;
+  color: white;
+  -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+  h3 {
+    padding-top: 20px;
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+  h5 {
+    padding-top: 5px;
+    margin: 0px;
+    font-weight: 400;
+    line-height: 24px;
+    font-size: 1.4rem;
+  }
+  canvas {
+    z-index: -1;
+  }
+}
