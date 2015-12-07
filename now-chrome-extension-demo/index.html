@@ -13,7 +13,7 @@
 <body>
     <div class="container">
       <div class="row">
-        <h5 class="now"></h5>
+        <h5 class="now" id="now"></h5>
 
         <div class="col-md-4 top">
           <h3 class="col-title ui blue massive label top left attached">
@@ -75,5 +75,27 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.9/d3.min.js"></script>
     <script src="./bower_components/jquery-ui/jquery-ui.min.js"></script>
     <script src="./dist/bundle.js"></script>
+    <script>
+      function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        h = checkTime(h);
+        document.getElementById('now').innerHTML =
+         h + ":" + m + ":" + s;
+        var t = setTimeout(startTime, 500);
+    }
+
+    function checkTime(i) {
+      if (i < 10) {
+        i = "0" + i;
+      }  // add zero in front of numbers < 10
+      return i;
+    }
+    startTime();
+    </script>
 </body>
 </html>
