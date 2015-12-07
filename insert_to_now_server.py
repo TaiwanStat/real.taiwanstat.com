@@ -59,8 +59,20 @@ def rain():
         insert('rain/create/', d)
 
 def water():
-    rain = read_json('water/data.json')
-    insert('waters', rain)
+    water = read_json('water/data.json')[0]
+    sites = read_csv('water/water_location.csv')
+    for name in water:
+        d = water[name]
+        d['reservoir_id'] = d['id']
+        del d['id']
+        for site in sites:
+            if site[0] == d['name']:
+                d['lat'] = site[-2]
+                d['lng'] = site[-1]
+            
+                break
+        print ('<option value="'+name+'">'+name+'</option>')
+        #insert('water/create/', d)
 
 def power():
     loadpara = read_csv('power/data/loadpara.csv')
@@ -78,8 +90,16 @@ def power():
         data['regionData'][keys[i]] = loadregion[i]
     insert("powers", data)
 
+def weather():
+    weather = read_json('./data/weather.json')
+    for d in weather:
+        insert('weather/create/', d)
+
+
 #air()
 #rain()
 #power()
 #gamma()
-uv()
+#uv()
+water()
+#weather()
