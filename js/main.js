@@ -93,4 +93,7 @@
      }
    }
 
+  $('body').append('<a class="ui button blue banner" href="http://demo.instants.xyz">Instants Chrome 擴充功能發布！</a>');
+
+
 })(window, document, jQuery);
