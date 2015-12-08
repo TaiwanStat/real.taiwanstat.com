@@ -3,6 +3,7 @@ import requests
 from pprint import pprint
 
 req = requests.get('http://opendata.epa.gov.tw/ws/Data/AQX/?$format=json')
+#req = requests.get('http://opendata2.epa.gov.tw/AQX.json')
 
 id_file = open('data/id.json')
 id_json = json.load(id_file)
