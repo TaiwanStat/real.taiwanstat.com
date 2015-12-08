@@ -93,7 +93,7 @@
      }
    }
 
-  $('body').append('<a class="ui button blue banner" href="http://demo.instants.xyz">Instants Chrome 擴充功能發布！提供您即時的生活品質資訊。</a>');
+  $('body').append('<a class="ui button blue banner" href="https://chrome.google.com/webstore/detail/instants/fghfkeajhcmoohfcfmdkajambdcanmob">Instants Chrome 擴充功能發布！提供您即時的生活品質資訊。</a>');
 
 
 })(window, document, jQuery);
