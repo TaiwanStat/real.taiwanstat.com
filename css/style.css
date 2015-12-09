@@ -269,3 +269,12 @@ text-align: center;
 z-index: 9999;
 top: 57px;
 }
+@media all and (max-width: 650px) {
+  .banner {
+    bottom: 0px;
+    top: inherit;
+  }
+  .footer-mobile {
+    bottom: 70px;
+  }
+}
