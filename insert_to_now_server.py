@@ -41,7 +41,8 @@ def air():
                 d['lat'] = site[-2]
                 d['lng'] = site[-3]
                 break
-        insert('air/create/', d)
+        print ('<option value="'+d['SiteName']+'">'+d['SiteName']+'</option>')
+        #insert('air/create/', d)
 
 def gamma():
     gamma = read_json('gamma/data/gammamonitor.json')
@@ -71,8 +72,7 @@ def water():
                 d['lng'] = site[-1]
             
                 break
-        print ('<option value="'+name+'">'+name+'</option>')
-        #insert('water/create/', d)
+        insert('water/create/', d)
 
 def power():
     loadpara = read_csv('power/data/loadpara.csv')
@@ -101,5 +101,5 @@ def weather():
 #power()
 #gamma()
 #uv()
-water()
-#weather()
+#water()
+weather()
