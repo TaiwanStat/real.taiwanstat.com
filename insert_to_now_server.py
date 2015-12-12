@@ -42,7 +42,8 @@ def air():
                 d['lng'] = site[-3]
                 break
         print ('<option value="'+d['SiteName']+'">'+d['SiteName']+'</option>')
-        #insert('air/create/', d)
+        insert('air/create/', d)
+        insert('air/create/site/', d)
 
 def gamma():
     gamma = read_json('gamma/data/gammamonitor.json')
@@ -53,11 +54,14 @@ def uv():
     uv = update_key(uv, u'\ufeffSiteName', 'SiteName')
     for d in uv:
         insert('uv/create/', d)
+        insert('uv/create/site/', d)
 
 def rain():
     rain = read_json('rain/data/data.json')
     for d in rain:
         insert('rain/create/', d)
+        insert('rain/create/site/', d)
+
 
 def water():
     water = read_json('water/data.json')[0]
@@ -70,9 +74,10 @@ def water():
             if site[0] == d['name']:
                 d['lat'] = site[-2]
                 d['lng'] = site[-1]
-            
+
                 break
         insert('water/create/', d)
+        insert('water/create/site/', d)
 
 def power():
     loadpara = read_csv('power/data/loadpara.csv')
@@ -93,7 +98,12 @@ def power():
 def weather():
     weather = read_json('./data/weather.json')
     for d in weather:
+        d['pred_temp'] = ''
+        d['pred_rain'] = ''
+        d['pred_status'] = ''
+        d['pred_date'] = ''
         insert('weather/create/', d)
+        insert('weather/create/location/', d)
 
 
 #air()
@@ -102,4 +112,4 @@ def weather():
 #gamma()
 #uv()
 #water()
-weather()
+#weather()
