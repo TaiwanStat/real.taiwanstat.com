@@ -98,10 +98,6 @@ def power():
 def weather():
     weather = read_json('./data/weather.json')
     for d in weather:
-        d['pred_temp'] = ''
-        d['pred_rain'] = ''
-        d['pred_status'] = ''
-        d['pred_date'] = ''
         insert('weather/create/', d)
         insert('weather/create/location/', d)
 
