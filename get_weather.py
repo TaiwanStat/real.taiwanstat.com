@@ -14,6 +14,7 @@ def parseCityList(citys, pred_date):
         preds[city]['pred_rain'] = tds[2].text
         preds[city]['pred_status'] = (tds[3].find('img').get('alt'))
         preds[city]['pred_date'] = pred_date
+        print (preds[city]['pred_status'])
 
     return preds
 
@@ -55,6 +56,29 @@ def write_json(file_name, content):
 o = xmltodict.parse(req.text)['cwbopendata']['location']
 
 data = []
+for each in o:
+    new = {}
+    new['lat'] = each['lat']
+    new['lng'] = each['lon']
+    new['locationName'] = each['locationName']
+    new['stationId'] = each['stationId']
+    new['obsTime'] = each['time']['obsTime']
+    for e in each["weatherElement"]:
+        new[e["elementName"]] = e["elementValue"]['value']
+    
+    for p in each["parameter"]:
+        new[p["parameterName"]] = p["parameterValue"]
+    pred = city_preds[new['CITY']]
+    for k in pred:
+        new[k] = pred[k]
+
+    data.append(new)
+
+
+req = requests.get('http://data.gov.tw/iisi/logaccess/3537?dataUrl=http://opendata.cwb.gov.tw/govdownload?dataid=O-A0001-001&authorizationkey=rdec-key-123-45678-011121314&ndctype=XML&ndcnid=9176')
+
+o = xmltodict.parse(req.text)['cwbopendata']['location']
+
 for each in o:
     new = {}
     new['lat'] = each['lat']
