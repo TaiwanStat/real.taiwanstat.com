@@ -9,4 +9,6 @@ cd ../gamma/data/ && python gammamonitor.py
 #csvjson ./gammamonitor.csv > ./gammamonitor.json
 #cd $DIR && python data_to_firebase.py
 cd $DIR && node csv2json.js
-#cd $DIR && python insert_data_to_server.py
+cd $DIR && python3 get_weather.py
+cd $DIR && python insert_data_to_server.py
+#cd $DIR && python3 insert_to_now_server.py
