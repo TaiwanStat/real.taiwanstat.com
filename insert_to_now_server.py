@@ -102,10 +102,8 @@ def weather():
         insert('weather/create/location/', d)
 
 
-#air()
-#rain()
-#power()
-#gamma()
-#uv()
-#water()
-#weather()
+air()
+rain()
+uv()
+water()
+weather()
