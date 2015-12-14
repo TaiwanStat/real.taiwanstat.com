@@ -1,8 +1,8 @@
 import requests
 import json
 import csv
-domain = 'http://localhost:8000/'
-#domain = 'http://www.instants.xyz/'
+from time import sleep
+domain = 'http://www.instants.xyz/'
 headers = {'content-type': 'application/json'}
 
 """Utils"""
@@ -26,8 +26,10 @@ def update_key(data, old_key, new_key):
 
 def insert(path, data):
     data = json.dumps(data)
+    #print (data)
     res = requests.post(domain+path, data=data, headers=headers)
-    print(res)
+    #print(res)
+    sleep(0.05)
 
 
 """Main"""
@@ -42,7 +44,6 @@ def air():
                 d['lng'] = site[-3]
                 break
         insert('air/create/', d)
-        insert('air/create/site/', d)
 
 def gamma():
     gamma = read_json('gamma/data/gammamonitor.json')
@@ -53,14 +54,11 @@ def uv():
     uv = update_key(uv, '\ufeffSiteName', 'SiteName')
     for d in uv:
         insert('uv/create/', d)
-        insert('uv/create/site/', d)
 
 def rain():
-    rain = read_json('rain/data/data.json')
+    rain = read_json('../rain/rain.json')
     for d in rain:
         insert('rain/create/', d)
-        insert('rain/create/site/', d)
-
 
 def water():
     water = read_json('../data/data.json')
@@ -73,10 +71,9 @@ def water():
             if site[0] == d['name']:
                 d['lat'] = site[-2]
                 d['lng'] = site[-1]
-
+            
                 break
         insert('water/create/', d)
-        insert('water/create/site/', d)
 
 def power():
     loadpara = read_csv('power/data/loadpara.csv')
@@ -98,14 +95,15 @@ def weather():
     weather = read_json('./data/weather.json')
     for d in weather:
         insert('weather/create/', d)
-        insert('weather/create/location/', d)
 
 
 air()
 print ('air done')
+#rain()
+print ('rain done')
 uv()
 print ('uv done')
 water()
 print ('water done')
 weather()
-print ('w done')
+print ('weater done')
