@@ -5,3 +5,4 @@ npm-debug.log
 *.swp
 .DS_Store
 *~
+data/movie*.json
