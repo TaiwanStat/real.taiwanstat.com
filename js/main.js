@@ -93,7 +93,9 @@
      }
    }
 
-  $('body').append('<a class="ui button blue banner" href="https://chrome.google.com/webstore/detail/instants/fghfkeajhcmoohfcfmdkajambdcanmob">Instants Chrome 擴充功能發布！提供您即時的生活品質資訊。</a>');
+   var url = 'https://chrome.google.com/webstore/detail/instants/fghfkeajhcmoohfcfmdkajambdcanmob';
+   url = 'https://docs.google.com/forms/d/1nR8zqzI-Kl3x2KtBl1q-x5V3ReFw4E1PA5twv7GlFXs/viewform';
+  $('body').append('<a class="ui button blue banner" href="' + url + '">Instants Chrome 擴充功能發布！提供您即時的生活品質資訊。</a>');
 
 
 })(window, document, jQuery);
