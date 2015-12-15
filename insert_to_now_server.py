@@ -49,9 +49,12 @@ def gamma():
     insert('gammas', gamma)
 
 def uv():
+    sites = read_json('uv/data/locations.json')
     uv = read_json('uv/data/data.json')
     uv = update_key(uv, '\ufeffSiteName', 'SiteName')
     for d in uv:
+        d['WGS84Lat'] = sites[d['SiteName']]['lat']
+        d['WGS84Lng'] = sites[d['SiteName']]['lng']
         insert('uv/create/', d)
         insert('uv/create/site/', d)
 
@@ -100,6 +103,20 @@ def weather():
         insert('weather/create/', d)
         insert('weather/create/location/', d)
 
+def movie_site():
+    sites = read_json('./data/movie_location.json')
+    for d in sites:
+        insert('movie/create/site/', d)
+
+def movie():
+    movies = read_json('./data/movie_this_week.json')
+    for d in movies:
+        insert('movie/create/', d)
+
+def movie_rank():
+    movies = read_json('./data/movie_rank_week.json')
+    for d in movies:
+        insert('movie/create/rank/', d)
 
 air()
 print ('air done')
@@ -108,4 +125,9 @@ print ('uv done')
 water()
 print ('water done')
 weather()
-print ('w done')
+print ('weather done')
+
+movie_site()
+movie()
+movie_rank()
+print ('movie done')
