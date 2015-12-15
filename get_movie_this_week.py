@@ -9,23 +9,34 @@ def write_json(file_name, content):
 req = requests.get('https://tw.movies.yahoo.com/movie_thisweek.html')
 req.encoding = 'big-5'
 boca_soup = BeautifulSoup(req.text, "html.parser") #get text content of the website
-
 movies = boca_soup.find_all('div', attrs={"class": "row-container"})
 output = []
+links = boca_soup.find_all('ul', attrs={'class': 'links'})
+index = 0
+
 for movie in movies:
     item = {}
     img = movie.img.get('src')
     text = movie.find('div', attrs={"class": "text"})
     title = text.find('h4').text
     date = text.find('span', attrs={'class': 'date'}).span.text
-    content = text.find('p').text
+    #content = text.find('p').text
+    intro = links[index].find('li', attrs={'class': 'intro'}).a.get('href').split('*')[1]
+    trailer = links[index].find('li', attrs={'class': 'trailer'})
+    if trailer:
+        trailer = trailer.a.get('href').split('*')[1]
+    else:
+        trailer = ''
 
     item = { \
         'img': img, \
-        'content': content, \
+        #'content': content, \
         'title': title,\
-        'date': date \
+        'date': date, \
+        'intro': intro, \
+        'trailer': trailer \
     }
+    index += 1
     output.append(item)
 
 write_json('data/movie_this_week.json', output)
@@ -39,11 +50,14 @@ for item in movies:
     if (not rank):
         continue
     rank = rank.text
-    title = item.find('td', attrs={'class', 'title'}).text
+    title = item.find('td', attrs={'class', 'title'})
+    intro = 'https://tw.movies.yahoo.com/movieinfo_main.html/id=' + title.p.get('mvid')
+    title = title.text
     item = { \
         'title': title,\
         'date': date, \
-        'rank': rank \
+        'rank': rank, \
+        'intro': intro \
     }
     output.append(item)
 
