@@ -118,6 +118,11 @@ def movie_rank():
     for d in movies:
         insert('movie/create/rank/', d)
 
+def art():
+    arts = read_json('./data/art.json')
+    for d in arts:
+        insert('art/create/', d)
+
 air()
 print ('air done')
 uv()
@@ -131,3 +136,6 @@ movie_site()
 movie()
 movie_rank()
 print ('movie done')
+
+art()
+print ('art done')
