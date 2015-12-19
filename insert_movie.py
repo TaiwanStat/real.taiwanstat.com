@@ -1,7 +1,7 @@
 import requests
 import json
 import csv
-domain = 'http://localhost:8000/'
+#domain = 'http://localhost:8000/'
 domain = 'http://www.instants.xyz/'
 headers = {'content-type': 'application/json'}
 
@@ -76,7 +76,6 @@ def water():
             if site[0] == d['name']:
                 d['lat'] = site[-2]
                 d['lng'] = site[-1]
-
                 break
         insert('water/create/', d)
         #insert('water/create/site/', d)
@@ -100,15 +99,7 @@ def power():
 def weather():
     weather = read_json('./data/weather.json')
     for d in weather:
-    	if 'H_F10' not in d:
-    		d['H_F10'] = -1
-    		d['H_FXT'] = -1
-    		d['H_FX'] = -1
-    		d['H_F10T'] = -1
-    		d['H_10D'] = -1
-    		d['H_10XD'] = -1
-    		d['H_XD'] = -1
-    	insert('weather/create/', d)
+        insert('weather/create/', d)
         #insert('weather/create/location/', d)
 
 def movie_site():
@@ -126,16 +117,7 @@ def movie_rank():
     for d in movies:
         insert('movie/create/rank/', d)
 
-def art():
-    arts = read_json('./data/art.json')
-    for d in arts:
-        insert('art/create/', d)
 
-air()
-print ('air done')
-uv()
-print ('uv done')
-water()
-print ('water done')
-weather()
-print ('weather done')
+movie_site()
+movie()
+print ('movie done')
