@@ -24,9 +24,11 @@ for competition_tr in competition_tr_all:
     if competition_dict['score'] != '':
         competition_dict['score1'] = competition_dict['score'].split(':')[0]
         competition_dict['score2'] = competition_dict['score'].split(':')[1]
+        competition_dict['is_result'] = True
     else:
         competition_dict['score1'] = str()
         competition_dict['score2'] = str()
+        competition_dict['is_result'] = False
 
     if competition_td_all[6].find('a') != None:
         competition_dict['detail_result_link'] = competition_td_all[6].find('a').get('href', '')
