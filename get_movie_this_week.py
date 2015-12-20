@@ -22,11 +22,10 @@ for movie in movies:
     date = text.find('span', attrs={'class': 'date'}).span.text
     #content = text.find('p').text
     intro = links[index].find('li', attrs={'class': 'intro'}).a.get('href').split('*')[1]
-    trailer = links[index].find('li', attrs={'class': 'trailer'})
-    if trailer:
-        trailer = trailer.a.get('href').split('*')[1]
-    else:
-        trailer = ''
+    resp = requests.get('https://www.googleapis.com/youtube/v3/search?part=snippet&q='+title+ ' 電影預告片' + '&key=AIzaSyCN7Fm5tDc3S1uIy1UPk9dURgYL3dreVmw')
+    youtube = json.loads(resp.text)
+    youtube_id = youtube['items'][0]['id']['videoId']
+    trailer = 'https://www.youtube.com/watch?v=' + youtube_id
 
     item = { \
         'img': img, \
