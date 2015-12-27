@@ -2,8 +2,13 @@ import requests
 import json
 import csv
 import os
+from datetime import date, timedelta, datetime
+
+tomorrow = date.today() + timedelta(days=1)
+tomorrow_str = tomorrow.strftime("%Y-%m-%d")
+
 domain = 'http://localhost:8000/'
-if os.environ['instants'] == 'prod':
+if 'instants' in os.environ and os.environ['instants'] == 'prod':
     domain = 'http://www.instants.xyz/'
 headers = {'content-type': 'application/json'}
 
@@ -133,11 +138,32 @@ def art():
     for d in arts:
         insert('art/create/', d)
 
-air()
+def air_forecast():
+    airs = read_json('./data/air_forecast.json')
+    for d in airs:
+        forecast_date = datetime.strptime(d['ForecastDate'], '%Y-%m-%d').date()
+        if (forecast_date <= tomorrow):
+            print (d['AreaName'])
+            insert('air/create/forecast/', d)
+
+def weather_forecast():
+    weather = read_json('./data/weather_forecast.json')
+    for d in weather:
+        insert('weather/create/forecast/', d)
+
+def oil():
+    data = read_json('./data/oil.json')
+    insert('oil/create/', data)
+
+
+'''air()
 print ('air done')
 uv()
 print ('uv done')
 water()
 print ('water done')
 weather()
-print ('weather done')
+print ('weather done')'''
+#air_forecast()
+#weather_forecast()
+oil()

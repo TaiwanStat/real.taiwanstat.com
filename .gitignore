@@ -9,3 +9,6 @@ data/movie*.json
 data/art.json
 instants*.py
 data/tw_basketball.json
+data/oil.json
+data/weather*.json
+data/air*.json
