@@ -8,3 +8,6 @@ npm-debug.log
 data/movie*.json
 data/art.json
 data/tw_basketball.json
+data/oil.json
+data/weather*.json
+data/air*.json
