@@ -3,6 +3,15 @@
     "title": "用數據看台灣 - 即時資料",
     "page": [
        {
+        "title": "Instants Life",
+        "url": "http://life.instants.io/",
+        "img": "./images/instants.jpg",
+        "description": "提供您即時的生活品質資訊",
+        "author": "Chi-Hsaun, Huang",
+        "collaborator": "",
+        "class": ""
+       },
+       {
         "title": "油價知多少-即時油價資訊",
         "url": "oil",
         "img": "./images/oil.jpg",

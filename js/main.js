@@ -93,13 +93,7 @@
      }
    }
 
-   var url = '';
-   if (window_width < 700) {
-     url = 'https://chrome.google.com/webstore/detail/instants/fghfkeajhcmoohfcfmdkajambdcanmob';
-   }
-   else {
-    url = 'http://demo.instants.xyz/';
-   }
+   var url = 'https://chrome.google.com/webstore/detail/instants/fghfkeajhcmoohfcfmdkajambdcanmob';
 
   $('body').append('<a class="ui button blue banner" href="' + url + '">Instants Chrome 擴充功能發布！提供您即時的生活品質資訊。</a>');
 
