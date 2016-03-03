@@ -47,6 +47,7 @@
 
   $('#layout-header').scroll(function() {
     $('footer').hide();
+    $('.banner').hide();
   });
 
   window.sendEmail = function() {
