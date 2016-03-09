@@ -1,0 +1,77 @@
+body{
+  padding:0;
+  margin:0;
+  font-family: 'cwTeXHei', sans-serif;
+}
+.node text{
+  font-size: 12px;
+}
+#welcome{
+  margin:0;
+  padding:0;
+  display: none;
+  position:fixed;
+  width:100%;
+  height:100px;
+  top:41%;
+}
+#backing{
+  text-align: center;
+  width:100%;
+  height:100%;
+  background-color: rgba(20, 38 , 30 , 0.15);
+}
+#welcome_text{
+  position: relative;
+  margin:0;
+  top:20%;
+  font-size:38px;
+  font-weight: 600;
+  color:rgba(204, 61 , 97 , 0.82);
+}
+#welcome_name{
+  font-size:53px;
+  color:black;
+  font-weight: 900;
+}
+#welcome_icon{
+  font-size:12px;
+}
+#main{
+  width:100%;
+  text-align: center;
+}
+.name_text{
+  opacity: 0;
+}
+#logo{
+  position: relative;
+  top:2em;
+  left:-3em;
+  line-height: 35px;
+}
+#logo_chinese{
+  font-weight: 900;
+  color:#FD5275;
+  font-size: 55px;
+}
+#logo_english{
+  font-size: 25px;
+}
+.data_text{
+  position: relative;
+  font-size: 0px;
+  font-family: 'Frijole', cursive;
+}
+.face_eye{
+  display: none;
+  opacity: 0;
+}
+.face_outEye{
+  display: none;
+  opacity: 0;
+}
+.face_smile{
+  display: none;
+  opacity: 0;
+}

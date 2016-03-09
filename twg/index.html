@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lan="en" >
+<title> taieanstatG || 重力球 </title>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Firebase -->
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <!-- jquery -->
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <!-- d3 -->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <!-- css -->
+    <link type="text/css" rel="stylesheet" href="index.css">
+    <style>
+    	@import url(http://fonts.googleapis.com/earlyaccess/cwtexhei.css);
+    	@import url(https://fonts.googleapis.com/css?family=Exo:400,700,700italic,400italic);
+    	@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700);
+    	@import url(https://fonts.googleapis.com/css?family=Frijole);
+    </style>
+</head>
+
+<body>
+    <div id="welcome">
+        <div id="backing">
+            <p id="welcome_text"></p>
+        </div>
+    </div>
+    <div id = "logo_div" style = "text-align:center;">
+    	<p id = "logo"><span id = "logo_chinese">用數聚</span><br><span id = "logo_english">TAIWANSTATG</span></p>
+    </div>
+    <div id="main">
+        <svg width="900" height="800" id = "main_pic">
+            <text class="name_text" id="text_1" x="200" y="350" font-size="1.1em" text-anchor="middle"> 1</text>
+            <text class="name_text" id="text_2" x="650" y="350" font-size="1.1em" text-anchor="middle"> 2</text>
+            <text class="name_text" id="text_3" x="200" y="700" font-size="1.1em" text-anchor="middle"> 3</text>
+            <text class="name_text" id="text_4" x="650" y="700" font-size="1.1em" text-anchor="middle"> 4</text>
+            <text class="name_text" id="text_5" x="425" y="600" font-size="1.1em" text-anchor="middle"> 5</text>
+            <text class="name_text" id="text_6" x="200" y="580" font-size="1.1em" text-anchor="middle"> 6</text>
+            <text class="name_text" id="text_7" x="650" y="580" font-size="1.1em" text-anchor="middle"> 7</text>
+            <text class="name_text" id="text_8" x="280" y="290" font-size="1.1em" text-anchor="middle"> 北部</text>
+            <text class="name_text" id="text_9" x="710" y="450" font-size="1.1em" text-anchor="middle"> 東部</text>
+            <text class="name_text" id="text_10" x="140" y="580" font-size="1.1em" text-anchor="middle">中部</text>
+            <text class="name_text" id="text_11" x="510" y="730" font-size="1.1em" text-anchor="middle">南部</text>
+            <text class="data_text" id="dataText_0" x="425" y="520" text-anchor="middle">0</text>
+            <text class="data_text" id="dataText_1" x="200" y="280" text-anchor="middle">1</text>
+            <text class="data_text" id="dataText_2" x="650" y="280" text-anchor="middle">2</text>
+            <text class="data_text" id="dataText_3" x="200" y="630" text-anchor="middle">3</text>
+            <text class="data_text" id="dataText_4" x="650" y="630" text-anchor="middle">4</text>
+            <text class="data_text" id="dataText_5" x="280" y="200" text-anchor="middle">北1</text>
+            <text class="data_text" id="dataText_6" x="710" y="370" text-anchor="middle">東2</text>
+            <text class="data_text" id="dataText_7" x="140" y="500" text-anchor="middle">中3</text>
+            <text class="data_text" id="dataText_8" x="510" y="650" text-anchor="middle">南4</text>
+            <circle class = "face_eye" id = "eye1" cx="360" cy="175" r="7" stroke="black" stroke-width="2"></circle>
+			<circle class = "face_eye" id = "eye2" cx="460" cy="175" r="7" stroke="black" stroke-width="2"></circle>
+			<circle class = "face_outEye" cx="360" cy="175" r="10" stroke="black" stroke-width="2" fill = "none"></circle>
+			<circle class = "face_outEye" cx="460" cy="175" r="10" stroke="black" stroke-width="2" fill = "none"></circle>
+			<path class = "face_smile" id = "smile1" d="M360 230 C400 260,420 260,460,230" stroke="black" stroke-width ="4px" fill="none"></path> 
+			<path class = "face_smile" id = "smile2" d="M360 230 C405 280,415 280,460,230" stroke="black" stroke-width ="4px" fill="none"></path> 
+			<!--<path d = "M 50 140 A 60 60 0 0 0 150 140" stroke = "white" stroke-width = "3" fill = "black"></path> -->
+        </svg>
+    </div>
+</body>
+<script src="index.js" charset="utf-8"></script>
+
+</html>

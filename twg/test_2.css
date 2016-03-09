@@ -1,0 +1,63 @@
+html {
+  height: 100vh;
+  background-image: url("http://canner-qa.s3-website-ap-northeast-1.amazonaws.com/background/pink.png");
+  background-position: center center;
+  background-size: cover;
+  font-family: Helvetica, "Helvetica Neue", Arial, "Heiti SC", "Microsoft JhengHei", "微軟正黑體", "Microsoft Yahei", "微軟雅黑", sans-serif; 
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+
+}
+
+body{
+  padding:0;
+  margin:0;
+}
+#logo{
+  margin: 60px auto;
+  line-height: 35px;
+}
+#logo_chinese{
+  font-weight: 900;
+  color:#FD5275;
+  font-size: 55px;
+}
+#logo_english{
+  font-size: 25px;
+}
+form {
+  padding: 15px;
+  border: 1px solid #eee;
+  width: 50%;
+  margin: 20px auto;
+}
+.ui.input {
+  font-size: 14px;
+  display: block;
+  margin: 15px 0px 20px;
+}
+input {
+  padding: 8px 10px;
+}
+.test {
+  margin: 50px 10px 60px;
+  border: 1px dashed #909090;
+  padding: 10px;
+}
+label {
+  color: #FD5275;
+  font-weight: 600;
+}
+select.ui {
+  width: 268px;
+  padding: 5px;
+  font-size: 16px;
+  line-height: 1;
+  border: 0;
+  border-radius: 0;
+  height: 34px;
+  color: #AEAEAE;
+}
+.ui.button {
+  margin-top: 5px;
+}

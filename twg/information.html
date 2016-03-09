@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html lan="en">
+<!-- 圓形測試未完成版XD -->
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Firebase -->
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <!-- jquery -->
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <!-- d3 -->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <!-- css -->
+    <link type="text/css" rel="stylesheet" href="information.css">
+
+    <body>
+    	<div id='messagesDiv'></div>
+        <form>
+            <input type='text' id='nameInput' placeholder='大帥哥(暱稱也可)'>
+            <select id="sexualInput">
+                <option value="man">I'm a handsome man.</option>
+                <option value="woman">I'm a sexy girl.</option>
+            </select>
+            <select id="whereInput">
+                <option value="北部">北部人</option>
+                <option value="中部">中部人</option>
+                <option value="東部">東部人</option>
+                <option value="南部">南部人</option>
+            </select>
+            <select id="schoolInput">
+                <option value="文學院">文學院</option>
+                <option value="管理學院">管理學院</option>
+                <option value="社會科學院">社會科學院</option>
+                <option value="理學院">理學院</option>
+                <option value="工學院">工學院</option>
+                <option value="生物科學與科技學院">生物科學與科技學院</option>
+                <option value="電機資訊學院">電機資訊學院</option>
+                <option value="規劃與設計學院">規劃與設計學院</option>
+                <option value="醫學院">醫學院</option>
+            </select>
+            <select id="ageInput">
+                <option value="大一">大一新鮮人</option>
+                <option value="大二">大二過來人</option>
+                <option value="大三">大三老Ｐ股</option>
+                <option value="大四">大四ＱＱＱ</option>
+                <option value="碩博">碩/博 研究生</option>
+                <option value="老師級">以上皆非</option>
+            </select>
+            <input type='text' id='departmentInput' placeholder='xxxx系'>
+            <br>
+            <select id="starInput">
+                <option value="牡羊座">牡羊座</option>
+                <option value="獅子座">獅子座</option>
+                <option value="射手座">射手座</option>
+                <option value="金牛座">金牛座</option>
+                <option value="處女座">處女座</option>
+                <option value="摩羯座">摩羯座</option>
+                <option value="雙子座">雙子座</option>
+                <option value="天秤座">天秤座</option>
+                <option value="水瓶座">水瓶座</option>
+                <option value="雙魚座">雙魚座</option>
+                <option value="巨蟹座">巨蟹座</option>
+                <option value="天蠍座">天蠍座</option>
+            </select>
+            <input type='text' id='messageInput' placeholder='想說的話～' size="100">
+        </form>
+    </body>
+    <script type="text/javascript" src = "information.js"></script>
+
+</html>
