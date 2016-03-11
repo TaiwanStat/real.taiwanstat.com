@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html lan="en">
+<!-- 圓形測試未完成版XD -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Firebase -->
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <!-- jquery -->
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <!-- d3 -->
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <!-- css -->
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/input.min.css">
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.8/components/button.min.css">
+    <link type="text/css" rel="stylesheet" href="test_2.css">
+
+    <body>
+    <div id = "logo_div" style = "text-align:center;">
+    	<p id = "logo"><span id = "logo_chinese">用數聚</span><br><span id = "logo_english">TAIWANSTATG</span></p>
+    </div>
+      <form>
+            <label>姓名：</label>
+            <input class="ui input" type='text' id='nameInput' placeholder='您的回答'>
+            <label>性別：</label>
+            <div class="ui action input">
+              <select id="sexualInput" class="ui compact selection dropdown">
+                <option value="man">男性</option>
+                <option value="woman">女性</option>
+              </select>
+            </div>
+            <label>哪裡人？</label>
+            <div class="ui action input">
+            <select id="whereInput" class="ui compact selection dropdown">
+                <option value="北部">北部人</option>
+                <option value="中部">中部人</option>
+                <option value="東部">東部人</option>
+                <option value="南部">南部人</option>
+              </select>
+            </div>
+            <label>大學學院</label>
+            <div class="ui action input">
+            <select id="schoolInput" class="ui compact selection dropdown">
+                <option value="文學院">文學院</option>
+                <option value="管理學院">管理學院</option>
+                <option value="社會科學院">社會科學院</option>
+                <option value="理學院">理學院</option>
+                <option value="工學院">工學院</option>
+                <option value="生物科學與科技學院">生物科學與科技學院</option>
+                <option value="電機資訊學院">電機資訊學院</option>
+                <option value="規劃與設計學院">規劃與設計學院</option>
+                <option value="醫學院">醫學院</option>
+              </select>
+            </div>
+            <label>身份</label>
+            <div class="ui action input">
+            <select id="ageInput" class="ui compact selection dropdown">
+                <option value="大一">大一</option>
+                <option value="大二">大二</option>
+                <option value="大三">大三</option>
+                <option value="大四">大四</option>
+                <option value="碩博">碩/博 研究生</option>
+                <option value="老師級">以上皆非</option>
+              </select>
+            </div>
+            <label>科系</label>
+            <input class="ui input" type='text' id='departmentInput' placeholder='您的回答'>
+            <div class="test">
+              <h5>簡單的心理測驗，我們會在稍後公佈結果唷 :) </h5>
+            <p>
+              想像你面前有一扇木製大門，當你打開門時，傳來一陣陣的香味，你覺得這一陣陣的香味，是屬於下列哪一種香味呢？
+            </p>
+            <input type="radio" name="mentalInput_1" value="A">A. 像剛洗完澡後的清爽肥皂香<br>
+            <input type="radio" name="mentalInput_1" value="B">B. 像剛出爐的帶有濃濃奶味的蛋糕香<br>
+            <input type="radio" name="mentalInput_1" value="C">C. 花園百花齊放的甜甜花香<br>
+            <input type="radio" name="mentalInput_1" value="D">D. 像剛泡好的義大利濃縮咖啡香<br>
+
+            <br>
+            <p>
+            如果有五個男人跟你相親，會選哪一個？（限女性回答，男性選F）
+            </p>
+            <input type="radio" name="mentalInput_2" value="A">A. 胖子加臉呆。<br>
+            <input type="radio" name="mentalInput_2" value="B">B. 小氣又沒膽子。<br>
+            <input type="radio" name="mentalInput_2" value="C">C. 矮子加秃頭。<br>
+            <input type="radio" name="mentalInput_2" value="D">D. 瘦子加長青春痘。<br>
+            <input type="radio" name="mentalInput_2" value="E">E. 一板一眼死硬派。<br>
+            <input type="radio" name="mentalInput_2" value="F">F. 我是男性<br>
+            </div>
+
+            <label>想說的話</label>
+            <input type='text' id='messageInput' placeholder='按下ENTER自動送出唷！' size="100">
+            <button class="ui red button" id = "submit" type="button" >送出</button>
+        </form>
+    </body>
+    <script type="text/javascript" src = "test_2.js"></script>
+</html>

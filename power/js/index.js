@@ -110,6 +110,9 @@
   }
 
   function visualBattery (id, percentage, color) {
+    if (percentage > 1) {
+      percentage = 1;
+    }
     
     // container
     d3.select(id)
