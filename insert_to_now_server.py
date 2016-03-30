@@ -9,7 +9,7 @@ tomorrow_str = tomorrow.strftime("%Y-%m-%d")
 
 domain = 'http://localhost:8000/'
 #if 'instants' in os.environ and os.environ['instants'] == 'prod':
-domain = 'http://api.instants.xyz/'
+#domain = 'http://api.instants.xyz/'
 headers = {'content-type': 'application/json'}
 
 """Utils"""

@@ -4,7 +4,7 @@ import csv
 import os
 domain = 'http://localhost:8000/'
 #if os.environ['instants'] == 'prod':
-domain = 'http://www.instants.xyz/'
+#domain = 'http://www.instants.xyz/'
 headers = {'content-type': 'application/json'}
 
 """Utils"""
