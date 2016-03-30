@@ -57,9 +57,9 @@
     a.click();
 
   };
-  var scrollup = $('.footer-mobile');
+  //var scrollup = $('.footer-mobile');
 
-  scrollup.click(function () {
+  /*scrollup.click(function () {
       $("main").animate({
           scrollTop: 0
       }, 600);
@@ -68,15 +68,18 @@
           scrollTop: 0
       }, 600);
       return false;
-  });
+  });*/
+  
+  /*
   $('#layout-header').scroll(function() {
     var scroll = $(this).scrollTop();
+    
     if (scroll > 200) {
       scrollup.fadeIn(500);
     } else {
       scrollup.fadeOut(500);
     }
-   }); 
+   }); */
 
    var rootPath = window.location.pathname.split('/')[1];
    if (hostname == 'real.taiwanstat.com' || hostname == 'water.taiwanstat.com' || hostname == "localhost") {
