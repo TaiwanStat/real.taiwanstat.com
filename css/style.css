@@ -214,7 +214,6 @@ discussion {
 @media all and (max-width: 650px) {
   .footer-mobile {
     bottom: 30px;
-    display: block;
  }
  #main-content {
    width: 100%;
