@@ -1,0 +1,126 @@
+<!--web module Reference from: http://bl.ocks.org/mbostock/3883245 -->
+<html>
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+</head>
+<style>
+
+body {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+</style>
+<body>
+</body>
+<script>
+
+//var parseDate = d3.time.format("Y%-m%-%d").parse;
+
+var margin = {top: 20, right: 20, bottom: 30, left: 50},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var x = d3.time.scale()
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+	.ticks(5,"$")
+    .orient("left");
+
+var line = d3.svg.line()
+    .x(function(d) { return x(d.date_spec); })
+    .y(function(d) { return y(d.price); });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var firebaseRef = new Firebase("https://ikdde-team6.firebaseio.com/vegetable_data/");
+	
+var name = "";
+
+firebaseRef.on("value", function(snapshot) {
+
+	var data = [];
+	var dates;
+	//debug
+	//console.log( snapshot.hasChild("葉菜類/小白菜") );
+	if ( snapshot.hasChild("葉菜類/小白菜") ) {
+		data = snapshot.child("葉菜類/小白菜").val();
+	}
+	
+	//console.log(data);
+
+
+	// extract 'date':Object to Object
+	data = d3.values(data);
+	
+	data.forEach( function(d) {
+
+		// new a dictionary key/value pair
+		d.date_spec = new Date(d.date.year,d.date.month-1,d.date.day);
+	});
+
+	// debug
+	//console.log(data);
+
+
+	// x, y axis domain
+	x.domain(d3.extent(data, function(d) { return d.date_spec; }));
+	y.domain(d3.extent(data, function(d) { return d.price; }));
+
+	svg.append("g")
+		.attr("class", "x axis")
+		.attr("transform", "translate(0," + height + ")")
+		.call(xAxis);
+
+	svg.append("g")
+		.attr("class", "y axis")
+		.call(yAxis)
+	.append("text")
+		.attr("transform", "rotate(-90)")
+		.attr("y", 6)
+		.attr("dy", ".71em")
+		.style("text-anchor", "end")
+		.text("Price ($)");
+
+	svg.append("path")
+		.datum(data)
+		.attr("class", "line")
+		.attr("d", line);
+});
+
+
+</script>
+</html>

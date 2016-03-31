@@ -1,0 +1,128 @@
+<html>
+
+<head>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+
+	<script>
+
+		$().ready(function (){
+
+			var svgSection = d3
+					.select("body")
+					.append("svg")
+					.attr("width", 1200)
+					.attr("height", 900);
+
+			var color = d3.scale.category20();
+
+			var firebaseRef = new Firebase("https://ikdde-team6.firebaseio.com/");
+
+			firebaseRef.child("agriculturePrice").on("value", function(snapshot) {
+
+				var data = snapshot.val();
+				data = data.filter(function (it){return it.pricelist;});
+
+				var timedPadding = {}
+				data[0].pricelist.forEach(function (it){
+					timedPadding[it.item] = {x:[], y:[], r:[], value:[]};
+				});
+
+				data.forEach(function (iter){
+
+					var list = iter.pricelist;
+
+					list.forEach(function (e) {
+						e["value"] = e.price;
+						return e;
+					});
+
+					var node = d3.layout.pack()
+						.padding(2)
+						.size([1200,900])
+						.sort(function(a,b) { b.value - a.value; })
+						.nodes({ children: list })
+						.filter(function(it) { 
+							return (it.parent); 
+						});
+
+					node.forEach(function (e){
+						timedPadding[e.item].x.push(e.x);
+						timedPadding[e.item].y.push(e.y);
+						timedPadding[e.item].r.push(e.r);
+						timedPadding[e.item].value.push(e.value);
+					});
+
+				});
+
+				var timedNode = [];
+				for(var i in timedPadding){
+					timedNode.push({
+						item: i,
+						x: timedPadding[i].x, 
+						y: timedPadding[i].y, 
+						r: timedPadding[i].r, 
+						value: timedPadding[i].value
+					});
+				}
+
+				var groupSections = svgSection
+					.selectAll("g")
+					.data(timedNode)
+					.enter() 
+					.append("g")
+					.attr("transform", function (d) {
+						return "translate(" + d.x[0] + ", " + d.y[0] + ")";
+					});
+
+				var circleInGroup = groupSections
+					.append("circle")
+					.attr("cx", 0)
+					.attr("cy", 0)
+					.attr("r",  function (d) {
+						return d.r[0];
+					})
+					.style("fill", function(d) {
+						return color(d.value[0]);
+					});
+
+				var textInGroup = groupSections.append("text")
+					.text(function (d) {
+						return d.item;//(d.value[0] > 50 ? d.item : "");
+					})
+					.attr("x", -20)
+					.attr("y", 5);
+
+				var len = timedNode[0].x.length;
+				var i = 0;
+				setInterval(function () {
+				    groupSections
+						.transition()
+						.attr("transform", function (d) {
+							return "translate(" + d.x[i] + ", " + d.y[i] + ")";
+						})
+						.duration(500)
+					circleInGroup
+						.transition()
+						.attr("r", function (d) {
+							return d.r[i];
+						})
+						.duration(500)
+					if(i < len-1) i++;
+					console.log(len - i);
+				}, 600);
+				
+			});
+
+		});
+
+	</script>
+</head>
+
+<body>
+date <span id="date"></span>
+</body>
+
+</html>

@@ -3,6 +3,13 @@
     "title": "用數據看台灣 - 即時資料",
     "page": [
        {
+         "title": "即時與長期菜價變化資訊",
+         "url": "vegetable-price",
+         "img": "./images/fruit.jpg",
+         "description": "連年菜價高漲，到底變化是如何呢？",
+          "author": "胡家偉, 陳昱文, 林建宏"
+       },
+       {
         "title": "Instants 即時生活資訊",
         "url": "http://life.instants.io/",
         "img": "./images/instants.jpg",

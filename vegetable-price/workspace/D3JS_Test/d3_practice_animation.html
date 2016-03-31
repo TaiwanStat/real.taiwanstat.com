@@ -1,0 +1,70 @@
+<html>
+
+<head>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+
+	<script>
+
+		function getPriceDiff(index, time){
+			return Math.sin((index * index + 1) * time / 6) * 10 + 11;
+		}
+
+		$().ready(function (){
+
+			var svgSection = d3
+				.select(".datavis")
+				.append("svg")
+				.attr("width", 1200)
+				.attr("height", 900);
+
+			var color = d3.scale.category20();
+
+			var index = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
+
+			var groupSections = svgSection
+				.selectAll("g")
+				.data(index)
+				.enter() 
+				.append("g")
+				.attr("transform", function (d) {
+					return "translate(" + (d*60 + 25) + ", " + 50 + ")";
+				});
+
+			var circleInGroup = groupSections
+				.append("circle")
+				.attr("cx", 0)
+				.attr("cy", 0)
+				.attr("r",  function (d) {
+					console.log(getPriceDiff(d, 0));
+					return getPriceDiff(d, 0);
+				})
+				.style("fill", function(d) {
+					return color(d, 0);
+				});
+
+			var time = 0;
+			setInterval(function () {
+				circleInGroup
+					.transition()
+					.attr("r", function (d) {
+						return getPriceDiff(d, time);
+					})
+					.duration(300)
+				time++;
+				$("#date").html(time);
+			}, 300);
+
+		});
+
+	</script>
+</head>
+
+<body>
+date <span id="date"></span><br>
+<div class="datavis"></div>
+</body>
+
+</html>

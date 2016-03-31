@@ -1,0 +1,209 @@
+<html>
+
+<head>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+
+	<script>
+
+		var len = 0;
+		var indice = [];
+		var mapIndex_Itemname = []; 
+		var mapIndex_DatePrice = []; 
+
+		Date.prototype.yyyymmdd = function() {
+			var yyyy = this.getFullYear().toString();
+			var mm = (this.getMonth()+1).toString();
+			var dd  = this.getDate().toString();
+			return yyyy + "-" + (mm[1]?mm:"0"+mm[0]) + "-" + (dd[1]?dd:"0"+dd[0]);
+		};
+
+		function getPrice(index, time){
+			return mapIndex_DatePrice[index][time]["price"];
+		}
+
+		var cenX = 200;
+		var cenY = 400;
+		var dX = 8;
+		var dY = 4;
+		var dzY = -40;
+		var sclX = 13;
+
+		function XrG(index, time){
+			return index * sclX + time * dX + cenX;
+		}
+
+		function YrG(val, time){
+			return time * dY + cenY - val;
+		}
+
+		function XG(index, time){
+			return index * sclX - time * dX + cenX;
+		}
+
+		function YG(index, time){
+			return (- time * dY + cenY) + initShiftY(index);
+		}
+
+		function initShiftY(index){
+			return dzY * index;
+		}
+
+		$().ready(function (){
+
+			var svgSection = d3
+				.select(".datavis")
+				.append("svg")
+				.attr("width", 1200)
+				.attr("height", 900);
+
+			var firebaseRef = new Firebase("https://ikdde-team6.firebaseio.com/");
+
+			firebaseRef.child("vegetable_data").on("value", function(snapshot) {
+
+				var data = snapshot.val();
+
+				for(var cate in data){
+					for(var vege in data[cate]){
+						//if(len != 2){
+							indice.push(len);
+							mapIndex_DatePrice.push(data[cate][vege]);
+							mapIndex_Itemname.push(vege);
+						//}
+						len++;
+					}
+				}
+
+				len = len - 1;
+
+				console.log(mapIndex_DatePrice);
+
+				var color = d3.scale.category20();
+				svgSection
+				.append("line")
+				.attr("x1", function (d) { return XG(-1, 0) + XrG(-1, 0); })
+				.attr("y1", function (d) { return YG(-1, 0) + YrG(0, 0); })
+				.attr("x2", function (d) { return XG(len+2, 0) + XrG(len+2, 0); })
+				.attr("y2", function (d) { return YG(len+2, 0) + YrG(0, 0); })
+				.style("stroke-width", 2)
+				.style("stroke", function(d) {
+					return color(len, 0);
+				});
+
+				var groupLines = svgSection
+					.selectAll("g")
+					.data(indice)
+					.enter() 
+					.append("g");
+
+				var linesegInGroup = groupLines
+					.append("line")
+					.style("stroke", function(d) {
+						return color(d, 0);
+					})
+					.style("stroke-width", 2)
+					.style("stroke-opacity", 0.9);
+
+				var groupIndicators = svgSection
+					.selectAll(".h")
+					.data(indice)
+					.enter() 
+					.append("g")
+					.attr("class", "h");
+
+				groupIndicators
+					.attr("transform", function (d) {
+						return "translate(" + XG(len-d, 0) + ", " + YG(len-d, 0) + ")";
+					});
+
+				var indicatorLine = groupIndicators
+					.append("line")
+					.style("stroke", function(d) {
+						return color(d, 0);
+					})
+					.style("stroke-width", 5);
+
+				var itemName = groupIndicators
+					.append("text")
+					.attr("x", function (d) { return XrG(len-d, 0) + dX; })
+					.attr("y", function (d) { return YrG(0, 0) + dY; })
+					.text(function (d){ return mapIndex_Itemname[d]; });
+					
+
+				var to = new Date(2015, 9, 27);
+				var dat = new Date(2015, 0, 1);
+				var count = 0;
+				var dur = 300;
+
+				setInterval(function () {
+
+					if (dat < to) dat.setDate(dat.getDate() + 1);
+					$("#date").html(datestr);
+					count++;
+
+					var yesterday = new Date(dat.toString()); yesterday.setDate(yesterday.getDate() - 1);
+					var yesterdaystr = yesterday.yyyymmdd();
+					var datestr = dat.yyyymmdd();
+
+					groupLines
+						.append("line")
+						.attr("x1", function (d) { return XrG(len-d, count - 1); })
+						.attr("y1", function (d) { return YrG(mapIndex_DatePrice[len-d][yesterdaystr]["price"], count-1); })
+						.attr("x2", function (d) { return XrG(len-d, count); })
+						.attr("y2", function (d) { return YrG(mapIndex_DatePrice[len-d][datestr]["price"], count); })
+						.style("stroke", function(d) {
+								return color(d, 0);
+						});
+
+					groupLines
+						.append("line")
+						.attr("x1", function (d) { return XrG(len-d, count - 1); })
+						.attr("y1", function (d) { return YrG(0, count-1); })
+						.attr("x2", function (d) { return XrG(len-d, count); })
+						.attr("y2", function (d) { return YrG(0, count); })
+						.style("stroke", function(d) {
+								return color(d, 0);
+						});
+
+					groupLines
+						.append("line")
+						.attr("x1", function (d) { return XrG(len-d, count); })
+						.attr("y1", function (d) { return YrG(0, count); })
+						.attr("x2", function (d) { return XrG(len-d, count); })
+						.attr("y2", function (d) { return YrG(mapIndex_DatePrice[len-d][datestr]["price"], count); })
+						.style("stroke", function(d) {
+								return color(d, 0);
+						});
+
+					groupLines
+						.transition()
+						.attr("transform", function (d) {
+							return "translate(" + XG(len-d, count) + ", " + YG(len-d, count) + ")";
+						})
+						.duration(dur);
+
+					indicatorLine
+						.transition()
+						.attr("x1", function (d) { return XrG(len-d, 0) + dX/2; })
+						.attr("y1", function (d) { return YrG(0, 0); })
+						.attr("x2", function (d) { return XrG(len-d, 0) + dX/2; })
+						.attr("y2", function (d) { return YrG(mapIndex_DatePrice[len-d][datestr]["price"], 0); })
+						.duration(dur);
+
+				}, dur);
+
+			});
+
+		});
+
+	</script>
+</head>
+
+<body>
+date <span id="date"></span><br>
+<div class="datavis"></div>
+</body>
+
+</html>

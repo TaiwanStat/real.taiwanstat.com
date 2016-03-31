@@ -1,0 +1,72 @@
+svg {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.tick line {
+	fill: none;
+	stroke: #fff;
+}
+
+rect.main_rect{
+	fill: #ddd;
+}
+
+div.tooltip{
+	position: fixed;
+	text-align: center;
+	width: 100px;
+	/*height: 28px;*/
+	padding: 2px;
+	font: 12px sans-serif;
+	background: white;
+	border: 1px;
+	border-radius: 8px;
+	pointer-events: none;
+}
+
+div.tip{
+	font: 15px sans-serif;
+}
+
+.typhoon{
+	font: 15px sans-serif;
+}
+
+.raintip{
+	font: 12px sans-serif;
+}
+
+.vgInfo{
+	padding-left: 100px;
+}
+
+.area {
+  clip-path: url(#clip);
+}
+
+.brush .extent {
+  stroke: #fff;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}
+a.ui.label.blue,
+a.ui.label.updownprice.tag {
+ color: #fff !important;
+}

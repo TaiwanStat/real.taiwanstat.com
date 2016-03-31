@@ -1,0 +1,195 @@
+<html><head>
+  <meta charset="utf-8"><link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"><link rel="icon" type="image/png" href="/favicon.ico"><meta property="og:title" content="用數據看台灣 - 即時與長期菜價變化資訊"><meta property="og:site_name" content="用數據看台灣 - 即時與長期菜價變化資訊"><meta property="og:description" content="連年菜價高漲，到底變化是如何呢？"><title>用數據看台灣 - 即時與長期菜價變化資訊</title><meta http-equiv="Content-Type" content="text/html" charset="utf-8"><meta property="og:image" content="http://real.taiwanstat.com/./images/fruit.jpg"><meta property="og:image:type" content="image/png">  <meta name="author" content="胡家偉, 陳昱文, 林建宏">  <meta name="citation_authors" content="胡家偉, 陳昱文, 林建宏">  <meta name="description" content="連年菜價高漲，到底變化是如何呢？ Author: 胡家偉, 陳昱文, 林建宏"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="http://real.taiwanstat.com/css/style.min.css" type="text/css" media="all"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.amber-orange.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><link rel="stylesheet" href="/bower_components/semantic/dist/semantic.min.css" type="text/css"><script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js" async=""></script>	<link href="css/mobile.css" rel="stylesheet" type="text/css">
+	<link href="css/multiline.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header" id="layout-header"><header class="mdl-layout__header">  <div class="mdl-layout__header-row">  <span class="mdl-layout-title"><a href="http://real.taiwanstat.com/"><img src="/images/assert/round-logo.png" id="round-logo">用數據看台灣</a></span>  <div class="mdl-layout-spacer"></div>  <nav class="mdl-navigation mdl-layout--large-screen-only">    <a class="mdl-navigation__link" href="http://real.taiwanstat.com/">台灣開放即時資料</a>    <a class="mdl-navigation__link" href="http://long.taiwanstat.com">台灣開放統計資料</a>    <a class="mdl-navigation__link" href="http://global.taiwanstat.com/r/">世界即時資訊</a>    <a class="mdl-navigation__link" href="http://global.taiwanstat.com/l/">世界統計資訊</a>    <a class="mdl-navigation__link" href="http://taiwanstat.com/opendata">開放資料分析部落格</a>    <a class="mdl-navigation__link" href="http://taiwanstat-about-us.cannerapp.com/">關於我們</a>  </nav>  <div></div></div></header><div class="mdl-layout__drawer">  <span class="mdl-layout-title"><a href="http://real.taiwanstat.com/"><img src="/images/assert/round-logo.png" id="round-logo">用數據看台灣</a></span>  <nav class="mdl-navigation">    <a class="mdl-navigation__link" href="http://real.taiwanstat.com/">台灣開放即時資料</a>    <a class="mdl-navigation__link" href="http://long.taiwanstat.com">台灣開放統計資料</a>    <a class="mdl-navigation__link" href="http://global.taiwanstat.com/r/">世界即時資訊</a>    <a class="mdl-navigation__link" href="http://global.taiwanstat.com/l/">世界統計資訊</a>    <a class="mdl-navigation__link" href="http://taiwanstat.com/opendata">開放資料分析部落格</a>    <a class="mdl-navigation__link" href="http://taiwanstat-about-us.cannerapp.com/">關於我們</a>  </nav></div>  <main class="mdl-layout__content" id="main-content"><div class="title__wrapper">  <h1 id="title">    即時與長期菜價變化資訊  </h1>  <div class="fb-plugin">    <div class="fb-like" data-href="http://real.taiwanstat.com/vegetable-price" data-width="300px" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>  </div></div>  <ul <li="">資訊：今日菜價、漲幅<br>平均(2015-1-1至今)<br>游標指定日期的價格
+    
+    <li>
+    資料來源：農產品交易行情站、中央氣象局
+    </li>
+  </ul>
+  <!-- my charts -->
+<div class="top-container">
+	<div class="ui segment pc-container" style="display:none;">
+
+		<div class="ui active inverted dimmer" id="wait">
+			<div class="ui large text loader">Loading</div>
+		</div>
+
+		<div class="ui segment">
+			<div class="vgInfo">
+
+				<div class="ui  horizontal list">
+
+					<div class="item">
+						<div class="ui header" id="vgName">蔬果</div>
+					</div>
+
+  					<div class="item">
+						<a>今日價格</a><a class="ui label todayprice blue tag">-</a><a>$NT/kg</a>
+  					</div>
+
+  					<div class="item">
+						<a>今日漲幅</a><a class="ui label updownprice tag">-</a><a>$NT/kg</a>
+  					</div>
+
+	  				<div class="item">
+	  					<a>長期平均價格</a><a class="ui label averageprice tag">-</a><a>$NT/kg</a>
+  					</div>
+
+  					<div class="item">
+						<a>游標選取價格</a><a class="ui label mouseprice tag">-</a><a>$NT/kg</a>
+  					</div>
+
+  				</div>
+
+  			</div>
+		</div>
+
+		<div class="ui grid">
+
+			<div class="ui twelve wide column">
+				<div class="ui segment multilineChart"></div>
+			</div>
+				
+			<div class="ui four wide column ">
+
+				<div class=" ui segments multilineChartSelectorTop">
+
+					<div class="ui segment">
+						<div class="ui header">類別</div>
+						<select class="ui dropdown cate"></select>
+					</div>
+
+					<div class="ui segment">
+						<div class="ui header">種類</div>
+						<select class="ui dropdown eachVG"></select>
+					</div>
+
+					<div class="ui segment">
+						<div class="ui header">颱風資訊</div>
+						<div class="typhoonbutton blue">
+							<button class="ui active blue button typhoonbutton">不顯示</button>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
+	<div class="outerborder mobile-container" style="display:none;">
+
+		<div class="sliderM">
+
+			<div class="panel">
+
+				<div class="menuM">
+					<div class="menuitem mainmenu" data-index="0" style="width: 35%">
+						改為以漲幅排序
+					</div>
+					<div class="menuitem mainmenu" data-index="1" style="width: 35%">
+						降序升序
+					</div>
+					<div class="menuitem mainmenu" data-index="2" style="width: 30%">
+						設定
+					</div>
+				</div>
+
+				<svg id="vaglist"></svg>
+
+			</div>
+
+			<div class="panel">
+				
+				<div class="menuitem settingmenu" data-index="2">
+					<img src="img/back.png">
+				</div>
+
+				<div id="setIntreaseTag">
+					<div class="stItem stTitle"> 與什麼比較漲跌幅？ </div>
+					<div class="stItem sitItem" data-mode="yesterday">昨日價格</div>
+					<div class="stItem sitItem" data-mode="smallavg">近十日價格平均</div>
+					<div class="stItem sitItem" data-mode="avg">近三十日價格平均</div>
+				</div>
+				<div id="chooseVagetable">
+					<div class="stItem stTitle"> 選擇蔬菜 </div>
+					<div class="stItem cvItem" onclick="MobilePage.vagSelectAllEvent();"> 選擇全部 </div>
+					<div class="stItem cvItem" onclick="MobilePage.vagDeselectAllEvent();"> 清除全部 </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+   <div class="mdl-card author"><h4><a href="http://taiwanstat_members.cannerapp.com/">About Author</a></h4>  <div class="author-wrapper">    <img class="ui circular image" src="/images/assert/background.png">    <div class="author-info"><h5>胡家偉, 陳昱文, 林建宏            </h5></div>  </div></div><div class="license__wrapper"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="創用 CC 授權條款" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>本著作由<a xmlns:cc="http://creativecommons.org/ns#" href="http://www.taiwanstat.com" property="cc:attributionName" rel="cc:attributionURL">用數據看台灣團隊</a>製作，以<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">創用CC 姓名標示-非商業性-相同方式分享 4.0 國際 授權條款</a>釋出。</div></main></div><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.9/d3.min.js"></script><script src="/bower_components/semantic/dist/semantic.min.js"></script><script>  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');    ga('create', 'UA-61023469-1', 'auto');    ga('send', 'pageview');  </script>   <div id="fb-root"></div>  <script>(function(d, s, id) {    var js, fjs = d.getElementsByTagName(s)[0];    if (d.getElementById(id)) return;    js = d.createElement(s); js.id = id;    js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.5";    fjs.parentNode.insertBefore(js, fjs);    }(document, 'script', 'facebook-jssdk'));</script>    <!-- my js & css -->
+    <div class="footer-mobile">  <button class="scrollup mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--2dp" id="set">    <i class="material-icons">keyboard_arrow_up</i>  </button></div><footer class="mdl-mini-footer">  <div class="mdl-mini-footer__left-section">© 2015 <a href="http://taiwanstat-about-us.cannerapp.com">用數據看台灣</a> ·    <a href="http://netdb.csie.ncku.edu.tw">NCKU-NetDB</a>        · <a href="https://www.facebook.com/taiwanstat/?fref=ts"><i class="facebook icon"></i></a>  </div>  <div class="mdl-mini-footer__right-section">    <span class="footer_msg">合作提案、客製化圖表製作、意見回饋  </span>    歡迎來信: <a href="mailto:contact@taiwanstat.com">contact@taiwanstat.com</a>  </div>  </footer> <script src="http://real.taiwanstat.com/js/main.min.js" async=""></script>   
+    <script src="js/multiline.js"></script>
+	<script src="js/DataLoadM.js"></script>
+	<script src="js/DataProcessM.js"></script>
+	<script src="js/VagListM.js"></script>
+	<script src="js/MobilePage.js"></script>
+    <script>
+		/* global variable */
+		var WIDTH_BOUNDARY = 700;
+
+		/* mobile variable*/
+		var list;
+		var isInSettingMode = false;
+		var increaseTag = "yesterday";
+
+    	$(document).ready(function (){
+    		rerender();
+    	});//$(document).ready(function(){...});
+
+
+    	function rerender() {
+			var $window = $(window);
+			var width = $window.width();
+
+			if ( width > WIDTH_BOUNDARY ) {
+				$('div.pc-container')
+					.css('display','block');
+
+            	drawMultilineChart(d3.select(".multilineChart"),
+					d3.select(".multilineChartSelector"),
+					$(".multilineChart").width(),
+					$(".multilineChart").height());
+			}
+			else {
+				$('div.mobile-container')
+					.css('display','block');
+
+				DataLoadM.loadRawText("data/merge.csv", function(a){
+					DataProcessM.processData(a, function(){}, function(){
+
+						list = new VagListM(d3.select("#vaglist"), DataProcessM.priceList);
+						list.show(increaseTag);
+						list.sortByOptionAndAnimate(true, "price");
+
+						MobilePage.appendCvItem();
+
+					});
+				});
+				$(".menuitem").click(MobilePage.menuItemEvent);
+				$(".sitItem").click(MobilePage.sitItemEvent);
+				menuheight = parseInt($(".menuM").css("height"));
+				$("img").css("width", menuheight*0.6);
+				$("img").css("height", menuheight*0.6);
+				$(".settingmenu").children("img").css("margin-top", "2%");
+				$(".settingmenu").css("height", menuheight);
+				$("#title").css("margin-top", 0);
+				$("#title").css("margin-bottom", 0);
+				var itemWidth = parseInt($(".cvItemVag").css("width"));
+				var itemHeight = itemWidth/6 > 80 ? 80 : itemWidth/6;
+				$(".stItem").css("height", itemHeight);
+				$(".stItem").css("padding-top", itemHeight/4);
+			}// if ( width > WIDTH_BOUNDARY) else ...
+		}
+    </script>
+  
+  
+</body></html>

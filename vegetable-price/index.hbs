@@ -1,0 +1,202 @@
+<html>
+<!DOCTYPE html>
+<head>
+  {{> head}}
+	<link href='css/mobile.css' rel='stylesheet' type='text/css'>
+	<link href='css/multiline.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  {{> header}}
+  {{> start}}
+  <ul
+    <li>資訊：今日菜價、漲幅<br/>平均(2015-1-1至今)<br/>游標指定日期的價格
+    </li>
+    <li>
+    資料來源：農產品交易行情站、中央氣象局
+    </li>
+  </ul>
+  <!-- my charts -->
+<div class="top-container">
+	<div class="ui segment pc-container" style='display:none;'>
+
+		<div class="ui active inverted dimmer" id="wait">
+			<div class="ui large text loader">Loading</div>
+		</div>
+
+		<div class="ui segment">
+			<div class="vgInfo">
+
+				<div class="ui  horizontal list">
+
+					<div class="item">
+						<div class="ui header" id="vgName">蔬果</div>
+					</div>
+
+  					<div class="item">
+						<a>今日價格</a><a class="ui label todayprice blue tag">-</a><a>$NT/kg</a>
+  					</div>
+
+  					<div class="item">
+						<a>今日漲幅</a><a class="ui label updownprice tag">-</a><a>$NT/kg</a>
+  					</div>
+
+	  				<div class="item">
+	  					<a>長期平均價格</a><a class="ui label averageprice tag">-</a><a>$NT/kg</a>
+  					</div>
+
+  					<div class="item">
+						<a>游標選取價格</a><a class="ui label mouseprice tag">-</a><a>$NT/kg</a>
+  					</div>
+
+  				</div>
+
+  			</div>
+		</div>
+
+		<div class='ui grid'>
+
+			<div class="ui twelve wide column">
+				<div class='ui segment multilineChart'></div>
+			</div>
+				
+			<div class="ui four wide column ">
+
+				<div class=' ui segments multilineChartSelectorTop'>
+
+					<div class="ui segment">
+						<div class='ui header'>類別</div>
+						<select class="ui dropdown cate"></select>
+					</div>
+
+					<div class='ui segment'>
+						<div class='ui header'>種類</div>
+						<select class="ui dropdown eachVG"></select>
+					</div>
+
+					<div class="ui segment">
+						<div class='ui header'>颱風資訊</div>
+						<div class="typhoonbutton blue">
+							<button class="ui active blue button typhoonbutton">不顯示</button>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
+	<div class="outerborder mobile-container" style='display:none;'>
+
+		<div class="sliderM">
+
+			<div class="panel">
+
+				<div class="menuM">
+					<div class="menuitem mainmenu" data-index="0" style="width: 35%">
+						改為以漲幅排序
+					</div>
+					<div class="menuitem mainmenu" data-index="1" style="width: 35%">
+						降序升序
+					</div>
+					<div class="menuitem mainmenu" data-index="2" style="width: 30%">
+						設定
+					</div>
+				</div>
+
+				<svg id="vaglist"></svg>
+
+			</div>
+
+			<div class="panel">
+				
+				<div class="menuitem settingmenu" data-index="2">
+					<img src="img/back.png">
+				</div>
+
+				<div id="setIntreaseTag">
+					<div class="stItem stTitle"> 與什麼比較漲跌幅？ </div>
+					<div class="stItem sitItem" data-mode="yesterday">昨日價格</div>
+					<div class="stItem sitItem" data-mode="smallavg">近十日價格平均</div>
+					<div class="stItem sitItem" data-mode="avg">近三十日價格平均</div>
+				</div>
+				<div id="chooseVagetable">
+					<div class="stItem stTitle"> 選擇蔬菜 </div>
+					<div class="stItem cvItem" onclick="MobilePage.vagSelectAllEvent();"> 選擇全部 </div>
+					<div class="stItem cvItem" onclick="MobilePage.vagDeselectAllEvent();"> 清除全部 </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+  {{> end}}
+    <!-- my js & css -->
+    {{> footer}}
+   
+    <script src="js/multiline.js"></script>
+	<script src="js/DataLoadM.js"></script>
+	<script src="js/DataProcessM.js"></script>
+	<script src="js/VagListM.js"></script>
+	<script src="js/MobilePage.js"></script>
+    <script>
+		/* global variable */
+		var WIDTH_BOUNDARY = 700;
+
+		/* mobile variable*/
+		var list;
+		var isInSettingMode = false;
+		var increaseTag = "yesterday";
+
+    	$(document).ready(function (){
+    		rerender();
+    	});//$(document).ready(function(){...});
+
+
+    	function rerender() {
+			var $window = $(window);
+			var width = $window.width();
+
+			if ( width > WIDTH_BOUNDARY ) {
+				$('div.pc-container')
+					.css('display','block');
+
+            	drawMultilineChart(d3.select(".multilineChart"),
+					d3.select(".multilineChartSelector"),
+					$(".multilineChart").width(),
+					$(".multilineChart").height());
+			}
+			else {
+				$('div.mobile-container')
+					.css('display','block');
+
+				DataLoadM.loadRawText("data/merge.csv", function(a){
+					DataProcessM.processData(a, function(){}, function(){
+
+						list = new VagListM(d3.select("#vaglist"), DataProcessM.priceList);
+						list.show(increaseTag);
+						list.sortByOptionAndAnimate(true, "price");
+
+						MobilePage.appendCvItem();
+
+					});
+				});
+				$(".menuitem").click(MobilePage.menuItemEvent);
+				$(".sitItem").click(MobilePage.sitItemEvent);
+				menuheight = parseInt($(".menuM").css("height"));
+				$("img").css("width", menuheight*0.6);
+				$("img").css("height", menuheight*0.6);
+				$(".settingmenu").children("img").css("margin-top", "2%");
+				$(".settingmenu").css("height", menuheight);
+				$("#title").css("margin-top", 0);
+				$("#title").css("margin-bottom", 0);
+				var itemWidth = parseInt($(".cvItemVag").css("width"));
+				var itemHeight = itemWidth/6 > 80 ? 80 : itemWidth/6;
+				$(".stItem").css("height", itemHeight);
+				$(".stItem").css("padding-top", itemHeight/4);
+			}// if ( width > WIDTH_BOUNDARY) else ...
+		}
+    </script>
+  </body>
+  </html>

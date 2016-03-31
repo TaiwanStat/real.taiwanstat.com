@@ -1,0 +1,290 @@
+<!--web module Reference from: http://bl.ocks.org/mbostock/3883245 -->
+<!--web module Reference from: http://bl.ocks.org/mbostock/3884955#index.html -->
+<!--show/hide line Reference from: http://bl.ocks.org/d3noob/e99a762017060ce81c76 -->
+<html>
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+	<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+</head>
+<style>
+
+body {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+</style>
+<body>
+</body>
+<script>
+
+//begin--line chart feature setting
+
+var margin = {top: 20, right: 20, bottom: 30, left: 50},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+// reserve for expressing
+//     label of each line
+var reserv_w = 30;
+
+var x = d3.time.scale()
+    .range([0, width - reserv_w]);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var color = d3.scale.category20();
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+	.ticks(5,"$")
+    .orient("left");
+
+var line = d3.svg.line()
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d.price); });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", 700 + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var firebaseRef = new Firebase("https://ikdde-team6.firebaseio.com/vegetable_data/");
+
+var query = ["葉菜類/小白菜","葉菜類/包心白菜","葉菜類/青江菜","葉菜類/香菜","葉菜類/莧菜"];
+
+firebaseRef.on("value", function(snapshot) {
+
+	var data = [];
+
+	var name = d3.keys(snapshot.val()).filter(function(name) { return name != 'default'});
+
+	console.log(name);
+
+	snapshot.forEach( function(child) {
+		child.forEach( function(grandChild) {
+			data.push( {
+				cate: child.key(),
+				name: grandChild.key(),
+				value: grandChild.val(),
+				opacity: +1
+			});
+		});
+	});
+
+	data.forEach( function(v) {
+		v.value = d3.values(v.value);
+		v.value.forEach( function(e) {
+			e.date = new Date(e.date.year,e.date.month,e.date.day);
+		});
+	});
+
+	color.domain(data.map(function(v) { return v.name}));
+
+	x.domain([
+		d3.min(data, function(v) { return d3.min(v.value, function(d) { return d.date});}),
+		d3.max(data, function(v) { return d3.max(v.value, function(d) { return d.date});})
+	]);
+
+	y.domain([
+		d3.min(data.filter(function(v) { return v.opacity;}), function(v) { return d3.min(v.value, function(d) { return d.price});}),
+		d3.max(data.filter(function(v) { return v.opacity;}), function(v) { return d3.max(v.value, function(d) { return d.price});})
+	]);
+
+
+	var gxAxis = svg.append("g")
+					.attr("class","x axis")
+					.attr("transform","translate(0," + height + ")")
+					.call(xAxis);
+	
+	var gyAxis = svg.append("g")
+					.attr("class","y axis")
+					.call(yAxis)
+
+	.append("text")
+
+		.attr("transform","rotate(-90)")
+		.attr("y",6)
+		.attr("dy", ".71em")
+		.style("text-anchor", "end")
+		.text("Price/Weight ($/kg)");
+
+
+	// add all g
+	var vg = svg.selectAll(".city")
+				.data(data)
+				.enter()
+			.append("g")
+				.attr("class","city")
+				.attr("id", function(v) { return 'tag_'+v.name; });
+
+	var graph = vg.append("path")
+		.attr("class","line")
+		.attr("id", function(v) { return "tag_"+v.name; })
+		.attr("d", function(v) { return line(v.value); })
+		.style("stroke", function(v) { return color(v.name); })
+		.style("opacity", function(v) { return v.opacity; });
+
+	vg.append("text")
+		.datum(function(d) { return {name: d.name, value: d.value[d.value.length - 1]}; })
+		.attr("class","vglabel")
+		.attr("id", function(v) { return "tag_"+v.name; })
+		.attr("transform", function(d) { return "translate(" + x(d.value.date) + "," + y(d.value.price) + ")"; })
+		.attr("x", 3)
+		.attr("dy", ".35em")
+		.text(function(d) { return d.name; })
+
+		// can be modiy by css
+		.style("font-size","20px")
+		.style("font-weight","bold")
+		.style("stroke", "#000")
+		.style("fill", function(v) { return color(v.name); });
+
+	var label_W = width/data.length; 
+
+	d3.select("body")
+	.append("div")
+		.selectAll(".vginput")
+		.data(data)
+	.enter()
+	.append("label")
+		.style("color", function(v) { return color(v.name); })
+		.text(function(v) { return " |" + v.name; })
+	.append("input")
+		.attr("type","checkbox")
+		.attr("checked",true)
+		.property("position", "absolute")
+		.property("left", function(v) { return v.id*10+"px"; })
+		//.property("textContent", function(v) { return v.name;})
+		.on("change", function(v) {
+			this.checked ^ true;
+			click(v);
+		})
+	;
+
+	// for toggle event
+	function click(v) {
+
+		var duration_time = 800;
+
+		v.opacity ^= 1;
+
+		y.domain([
+			d3.min(data.filter(function(v) { return v.opacity;}), function(v) { return d3.min(v.value, function(d) { return d.price});}),
+			d3.max(data.filter(function(v) { return v.opacity;}), function(v) { return d3.max(v.value, function(d) { return d.price});})
+		]);
+
+		d3.select(".y.axis")
+			.transition()
+			.duration(duration_time)
+			.call(yAxis);
+
+		data.forEach( function(v) {
+				d3.select(".line#tag_"+v.name)
+					.transition()
+					.duration(duration_time)
+					.attr("d", function(v) { return line(v.value); });
+
+				d3.select(".city#tag_"+v.name)
+					.transition()
+					.duration(duration_time)
+					.style("opacity", function(v) { return v.opacity; });
+
+				d3.select(".vglabel#tag_"+v.name)
+					.transition()
+					.duration(duration_time)
+					.attr("transform", function(v) { return "translate(" + x(v.value.date) + "," + y(v.value.price) + ")"; });
+
+		});
+	}
+
+////////////////
+
+var height2 = 50;
+
+var x2 = d3.time.scale()
+    .range([0, width - reserv_w]);
+
+x2.domain([
+	d3.min(data, function(v) { return d3.min(v.value, function(d) { return d.date});}),
+	d3.max(data, function(v) { return d3.max(v.value, function(d) { return d.date});})
+]);
+    var y2 = d3.scale.linear().range([height2, 0]);
+
+var xAxis2 = d3.svg.axis().scale(x2).orient("bottom");
+
+var brush = d3.svg.brush()
+    .x(x2)
+    .on("brush", brushed);
+
+var area2 = d3.svg.area()
+    .interpolate("monotone")
+    .x(function(d) { return x2(d.date); })
+    .y0(height2)
+    .y1(function(d) { return y2(d.price); });
+
+svg.append("defs").append("clipPath")
+    .attr("id", "clip")
+  .append("rect")
+    .attr("width", width)
+    .attr("height", height);
+
+var context = svg.append("g")
+    .attr("class", "context")
+    .attr("transform", "translate(" + margin.left + "," + 550 + ")");
+
+  context.append("path")
+      .data(data)
+      .attr("class", "area")
+      .attr("d", area2);
+
+  context.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height2 + ")")
+      .call(xAxis2);
+
+  context.append("g")
+      .attr("class", "x brush")
+      .call(brush)
+    .selectAll("rect")
+      .attr("y", -6)
+      .attr("height", height2 + 7);
+
+////////////////
+
+	function brushed() {
+		x.domain(brush.empty() ? x2.domain() : brush.extent());
+		graph
+			.attr("d", function(v) { return line(v.value); });
+		//vg.select(".x.axis").call(xAxis);
+	}
+
+});
+
+</script>
+</html>

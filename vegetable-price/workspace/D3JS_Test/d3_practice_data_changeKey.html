@@ -1,0 +1,131 @@
+<html>
+
+<head>
+
+	<style>
+
+		.bar {
+		  fill: "steelblue";
+		}
+
+		.bar:hover {
+		  fill: "brown";
+		}
+
+		.axis {
+		  font: 10px sans-serif;
+		}
+
+		.axis path,
+		.axis line {
+		  fill: none;
+		  stroke: #000;
+		  shape-rendering: crispEdges;
+		}
+
+		.x.axis path {
+		  display: none;
+		}
+
+	</style>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+
+	<script>
+
+		$().ready(function (){
+
+			var margin = {top: 20, right: 20, bottom: 30, left: 40},
+			width = 960 - margin.left - margin.right,
+			height = 500 - margin.top - margin.bottom;
+
+			var x = d3.scale.ordinal()
+				.rangeRoundBands([0, width], .1);
+
+			var y = d3.scale.linear()
+				.range([height, 0]);
+
+			var xAxis = d3.svg.axis()
+				.scale(x)
+				.orient("bottom");
+
+			var yAxis = d3.svg.axis()
+				.scale(y)
+				.orient("left")
+				.ticks(10, "%");
+
+			var svg = d3.select("body").append("svg")
+				.attr("width", width + margin.left + margin.right)
+				.attr("height", height + margin.top + margin.bottom)
+				.append("g")
+				.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+			var firebaseRef = new Firebase("https://ikdde-team6.firebaseio.com/");
+
+			firebaseRef.child("agriculturePriceReduced").on("value", function(snapshot) {
+
+				var data = snapshot.val();
+				var timedData = {};
+				data = data.filter(function (it){return it.pricelist;});
+				data.forEach(function (iter){
+					var list = iter.pricelist;
+					list = list.filter(function (e){return e.price;});
+					list.forEach(function (e) {
+						var k = iter.date;
+						var v = e.price;
+						var o = new Object();
+						o[k] = v;
+						o["price"] = v;
+						if(!timedData[e.item]) timedData[e.item] = [];
+						timedData[e.item].push(o);
+					});
+				});
+
+				histoData = timedData["蘿蔔"];
+
+				x.domain(histoData.map(function(d) { return Object.keys(d)[0]; }));
+				y.domain([0, d3.max(histoData, function(d) { return d.price; })]);
+
+				svg.append("g")
+					.attr("class", "x axis")
+					.attr("transform", "translate(0," + height + ")")
+					.call(xAxis);
+
+				svg.append("g")
+					.attr("class", "y axis")
+					.call(yAxis)
+					.append("text")
+					.attr("transform", "rotate(-90)")
+					.attr("y", 6)
+					.attr("dy", ".71em")
+					.style("text-anchor", "end")
+					.text("Frequency");
+
+				var i = 0;
+				svg.selectAll(".bar")
+					.data(histoData)
+					.enter().append("rect")
+					.attr("class", "bar")
+					.attr("x", function(d) { i++; return i*0.4; })
+					.attr("width", 0.4)
+					.attr("y", function(d) { 
+						return y(d.price);
+					})
+					.attr("height", function(d) {
+						return height - y(d.price);
+					});
+
+			});
+
+		});
+
+	</script>
+</head>
+
+<body>
+date <span id="date"></span>
+</body>
+
+</html>

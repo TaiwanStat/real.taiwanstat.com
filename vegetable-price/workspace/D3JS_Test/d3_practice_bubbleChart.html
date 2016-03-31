@@ -1,0 +1,81 @@
+<html>
+
+<head>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+
+	<script>
+
+		$().ready(function (){
+
+			var svgSection = d3
+					.select("body")
+					.append("svg")
+					.attr("width", 1200)
+					.attr("height", 900);
+
+			var firebaseRef = new Firebase("https://ikdde-team6.firebaseio.com/");
+
+			firebaseRef.child("agriculturePrice").on("value", function(snapshot) {
+
+				var data = snapshot.val();
+				var list = data[0].pricelist;
+				list.forEach(function (d) {
+					d["value"] = d.price;
+					return d;
+				});
+				console.log(list);
+
+				var packData = { children: list};
+
+				var packLayout = d3.layout.pack()
+					.padding(2).size([1200,900])
+					/*.sort(function(a,b) { b.value - a.value; })*/;
+
+				var nodes = packLayout.nodes(packData)
+					.filter(function(d) { return d.parent; });
+
+				var dataBind = svgSection
+					.selectAll("g")
+					.data(nodes);
+
+				var groupSections = dataBind
+					.enter() 
+					.append("g")
+					.attr("transform", function (d) {
+						return "translate(" + d.x + ", " + d.y + ")";
+					});
+
+				var color = d3.scale.category20();
+				var circleInGroup = groupSections
+					.append("circle")
+					.attr("cx", 0)
+					.attr("cy", 0)
+					.attr("r",  function (d) {
+						return d.r;
+					})
+					.style("fill", function(d) {
+						return color(d.value);
+					});
+
+				var textInGroup = groupSections.append("text")
+					.text(function (d) {
+						return (d.value > 50 ? d.item : "");
+					})
+					.attr("x", -20)
+					.attr("y", 5);
+
+			});
+
+		});
+
+	</script>
+</head>
+
+<body>
+
+</body>
+
+</html>

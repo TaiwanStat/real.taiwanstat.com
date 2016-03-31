@@ -1,0 +1,67 @@
+<html>
+
+<head>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+
+	<script>
+
+		$().ready(function (){
+
+			var svgSection = d3
+					.select("body")
+					.append("svg")
+					.attr("width", 1200)
+					.attr("height", 900);
+
+			var firebaseRef = new Firebase("https://ikdde-team6.firebaseio.com/");
+
+			firebaseRef.child("TyphonDB").on("value", function(snapshot) {
+
+				data = snapshot.val();
+
+				var index = 0;
+				var startTime = Date.parse(data[0].sea_start_datetime.split(" ")[0]);
+
+				var dataBind = svgSection
+					.selectAll("g")
+					.data(data);
+
+				var groupSections = dataBind
+					.enter() 
+					.append("g")
+					.attr("transform", function (d) {
+						index++;
+						time = Date.parse(d.sea_start_datetime.split(" ")[0])
+						scaledtime = (time - startTime) / 190000000 + 50;
+						return "translate(" + scaledtime + ", " + (index*20+25) + ")";
+					});
+
+				var circleInGroup = groupSections
+					.append("circle")
+					.attr("cx", 0)
+					.attr("cy", 0)
+					.attr("r",  function (d) {
+						return parseInt(d.max_range7) / 10;
+					})
+					.style("fill", "rgba(128, 40, 40, 0.3)");
+
+				var textInGroup = groupSections.append("text")
+					.text(function (d) {
+						return d.cht_name;
+					});
+
+			});
+
+		});
+
+	</script>
+</head>
+
+<body>
+
+</body>
+
+</html>

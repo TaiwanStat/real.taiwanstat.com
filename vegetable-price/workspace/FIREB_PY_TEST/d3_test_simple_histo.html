@@ -1,0 +1,75 @@
+<html>
+<head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+
+	<style>
+		div.bar {
+			display: inline-block;
+			width: 20px;
+			height: 75px;
+			background-color: teal;
+			margin-right: 2px;
+		}
+	</style>
+</head>
+
+<body>
+	<script>
+		
+		// link to firebase
+		var firebaseRef = new Firebase("https://ikdde-team6.firebaseio.com/vgDB/");
+
+		// read firebase
+		firebaseRef.on("value", function(snapshot) {
+
+			var dataset = [];
+			var price = [];
+			var year = 2015;
+			var month = 8;
+
+			// read each child under snapshot
+			snapshot.forEach( function(childSnapshot) {
+				dataset.push(childSnapshot.val());
+				/* debug
+				// show each object
+				console.log(childSnapshot.val());
+
+				// show date under each object
+				var _date = childSnapshot.child('date')
+				console.log("year:"+_date.child('0').val()+","+
+							"month:"+_date.child('1').val()+","+
+							"date:"+_date.child('2').val()
+							);
+				*/
+			});
+		
+			// filter
+			dataset = $.grep(dataset, function(elem) {
+				return elem['date'][0]==year && elem['date'][1]==month;
+			});
+
+			// extract price from dataset
+			$.each(dataset, function(key, value) {
+				price.push(value['price']);
+
+				// for debug
+				// console.log(value['price']);
+			});
+
+			// draw histogram
+			d3.select("body").selectAll("div")
+				.data(price)
+				.enter()
+				.append("div")
+				.attr("class", "bar")
+				.style("height", function(d) {
+					var barHeight = d ;
+					return barHeight + "px";
+				});
+		});
+	</script>
+</body>
+
+</html>

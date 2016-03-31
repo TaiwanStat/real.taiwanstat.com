@@ -1,0 +1,102 @@
+<html>
+
+<head>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
+
+	<script>
+
+		// jQuery Styled "onload()"
+		$().ready(function (){
+
+			// create <svg> tag by D3
+			var svgSection = d3
+					.select("body")
+					.append("svg")
+					.attr("width", 1200)
+					.attr("height", 900);
+
+			// define firebase connection
+			var firebaseRef = new Firebase("https://ikdde-team6.firebaseio.com/");
+
+			// define firebase "onload()"
+			firebaseRef.child("TyphonDB").on("value", function(snapshot) {
+
+				// from "http response" to "javascript object
+				data = snapshot.val();
+
+				/*
+				 * visualization is organized as following: 
+				 * 
+				 *	<svg>
+				 *
+				 *		<group>
+				 *			<circle> ... </circle>
+				 *			<text> ... </text>
+				 *		</group>
+				 *
+				 *		<group>
+				 *			<circle> ... </circle>
+				 *			<text> ... </text>
+				 *		</group>
+				 *
+				 *		...
+				 *
+				 *	</svg>
+				 */
+
+				var index = 0;
+				var startTime = Date.parse(data[0].sea_start_datetime.split(" ")[0]);
+
+				// bind data to svg group (although the group is not created yet)
+				var dataBind = svgSection
+					.selectAll("g")
+					.data(data);
+
+				// let's create "each group"
+				var groupSections = dataBind
+
+					// for each data...
+					.enter() 
+
+					// create <group>
+					.append("g")
+
+					// and transform drawing coordinate to desired position
+					.attr("transform", function (d) {
+						index++;
+						time = Date.parse(d.sea_start_datetime.split(" ")[0])
+						scaledtime = (time - startTime) / 190000000 + 50;
+						return "translate(" + scaledtime + ", " + (index*20+25) + ")";
+					});
+
+				// let's create a circle in "each group"
+				var circleInGroup = groupSections
+					.append("circle")
+					.attr("cx", 0)
+					.attr("cy", 0)
+					.attr("r",  function (d) {
+						return parseInt(d.max_range7) / 10;
+					})
+					.style("fill", "rgba(128, 40, 40, 0.3)");
+
+				// let's create a text in "each froup"
+				var textInGroup = groupSections.append("text")
+					.text(function (d) {
+						return d.cht_name;
+					});
+
+			});
+
+		});
+
+	</script>
+</head>
+
+<body>
+
+</body>
+
+</html>
