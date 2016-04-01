@@ -7,7 +7,8 @@
          "url": "vegetable-price",
          "img": "./images/fruit.jpg",
          "description": "連年菜價高漲，到底變化是如何呢？",
-          "author": "胡家偉, 陳昱文, 林建宏"
+         "author": "胡家偉, 陳昱文, 林建宏",
+         "collaborator": "Chi-Hsuan, Huang"
        },
        {
         "title": "Instants 即時生活資訊",
