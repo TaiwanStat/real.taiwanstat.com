@@ -26,7 +26,7 @@
     //myFirebaseRef.child("power_4").limitToLast(1).on("child_added", function(snapshot) {
     //  var text = snapshot.val();  
     //  var data = d3.csv.parseRows(text)[0];
-    var api = "http://52.69.145.204:3000/powers/latest";
+    var api = "http://api.taiwanstat.com:3000/powers/latest";
     d3.json(api, function(_data) {
       var regionData = _data.regionData;
       var data = [

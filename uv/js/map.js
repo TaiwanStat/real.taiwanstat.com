@@ -23,8 +23,8 @@
   $( document ).ready(function() {
     initMap();
 
-    var api = "http://52.69.145.204:3000/uvs/latest";
-    
+    var api = "http://api.taiwanstat.com:3000/uvs/latest";
+
     d3.json(api, function(data) {
       d3.json('./data/locations.json', function(sites) {
         addSiteToMap(data, sites);
