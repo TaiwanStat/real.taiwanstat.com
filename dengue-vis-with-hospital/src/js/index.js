@@ -102,7 +102,7 @@ else{
                 window.alert("此裝置不支援GPS");
             });
         })
-    },100);
+    },500);
 }
 // //set every circle
 
