@@ -109,7 +109,7 @@ else{
 let myIcon = L.icon({
     iconUrl: './hospital1.png',
     //iconRetinaUrl: 'my-icon@2x.png',
-    iconSize: [42, 42],
+    iconSize: [64, 64],
     //iconAnchor: [16, 16],
     //popupAnchor: [-3, -76],
     //shadowUrl: './hospital.png',

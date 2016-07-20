@@ -18,7 +18,8 @@ html, body{
 @media screen and (min-device-width: 500px) {
    
     #map {
-        height:300px;
+        height: 500px;    
+        height: 80vh;
     }
 	#GPS {
 		position: absolute;
