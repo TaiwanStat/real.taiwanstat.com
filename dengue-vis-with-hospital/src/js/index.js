@@ -1,4 +1,3 @@
-
 //create two promise;
 
 function getData(url) {
@@ -13,14 +12,16 @@ function getData(url) {
         });
     });
 }
+
 function getGPS() {
-    return new Promise((resolve, reject) => {
+		return new Promise((resolve, reject) => {
         if(navigator.geolocation)
-            navigator.geolocation.getCurrentPosition(position => {
+				navigator.geolocation.getCurrentPosition(position => {
                 resolve(position);
             })
-        else
-            reject();
+		else{
+			reject();
+		}
     });
 }
 
@@ -32,8 +33,9 @@ function urlParse( name, url ) {
     var results = regex.exec( url );
     return results == null ? null : results[1];
 }
-
-
+if(window.innerWidth <= 800 && window.innerHeight <= 600) {
+		window.alert('請開啟定位，才能正常瀏覽此網頁！');
+} 
 let map = L.map('map').setView([22.99,120.218],13),
     accessToken = 'pk.eyJ1IjoiYWJ6NTMzNzgiLCJhIjoiUkRleEgwVSJ9.rWFItANcHAZQ2U0ousK4cA',
     mapID = 'abz53378.0klc153h',
@@ -47,7 +49,8 @@ let map = L.map('map').setView([22.99,120.218],13),
 
 
 getGPS()
-    .then((position) => {
+		.then((position) => {
+				console.log(position);
         let lat = position.coords.latitude,
         lng = position.coords.longitude;
        
@@ -61,8 +64,9 @@ getGPS()
         }).addTo(map);
 
     })
-.catch(() => {
-    alert("Geolocation is not supported by this browser.");
+	.catch(() => {
+
+    window.alert("此裝置不支援GPS");
 });
 // //set every circle
 
