@@ -11,7 +11,7 @@ lists.data.page.forEach(function(p) {
   if(!url.parse(p.url).protocol) {
     post_arr.push({
       "data": {
-        "domain": "http://real.taiwanstat.com/",
+        "domain": "https://www.taiwanstat.com/realtime/",
         "chart_description": p
       },
       "partials": './include/partials.js',

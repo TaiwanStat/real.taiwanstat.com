@@ -19,7 +19,7 @@
   init();
   function init() {
     time = (now > 5 && now < 18) ? '白天' : '晚上';
-    var api = "http://api.taiwanstat.com:3000/rains/latest";
+    var api = "https://www.taiwanstat.com/rains/latest/";
     d3.json(api, function(_data) { 
       data = _data;
     //$.getJSON('./data/data.json').then(function(_data) {

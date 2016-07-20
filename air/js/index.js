@@ -1,6 +1,6 @@
 (function() {
 
-  var api = "http://api.taiwanstat.com:3000/airs/latest";
+  var api = "https://www.taiwanstat.com/airs/latest/";
   d3.json(api, function(data) { 
       $('.data-update-time').text('更新時間（每小時更新）：' + data[0]['PublishTime']);
 

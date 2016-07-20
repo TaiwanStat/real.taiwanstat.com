@@ -23,7 +23,7 @@
   $( document ).ready(function() {
     initMap();
 
-    var api = "http://api.taiwanstat.com:3000/uvs/latest";
+    var api = "https://www.taiwanstat.com/uvs/latest/";
 
     d3.json(api, function(data) {
       d3.json('./data/locations.json', function(sites) {

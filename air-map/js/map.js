@@ -32,7 +32,7 @@
   $( document ).ready(function() {
     initMap();
     d3.csv('./data/site.csv', function(sites) {
-      var api = "http://api.taiwanstat.com:3000/airs/latest";
+      var api = "https://www.taiwanstat.com/airs/latest/";
       d3.json(api, function(data) { 
         addSiteToMap(data, sites);
       });
