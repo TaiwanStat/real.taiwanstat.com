@@ -14,14 +14,14 @@ function getData(url) {
 }
 
 function getGPS() {
-		return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
         if(navigator.geolocation)
-				navigator.geolocation.getCurrentPosition(position => {
-                resolve(position);
-            })
-		else{
-			reject();
-		}
+        navigator.geolocation.getCurrentPosition(position => {
+            resolve(position);
+        })
+        else{
+            reject();
+        }
     });
 }
 
@@ -33,41 +33,77 @@ function urlParse( name, url ) {
     var results = regex.exec( url );
     return results == null ? null : results[1];
 }
-if(window.innerWidth <= 800 && window.innerHeight <= 600) {
-		window.alert('請開啟定位，才能正常瀏覽此網頁！');
-} 
 let map = L.map('map').setView([22.99,120.218],13),
-    accessToken = 'pk.eyJ1IjoiYWJ6NTMzNzgiLCJhIjoiUkRleEgwVSJ9.rWFItANcHAZQ2U0ousK4cA',
-    mapID = 'abz53378.0klc153h',
-    today = new Date();
+accessToken = 'pk.eyJ1IjoiYWJ6NTMzNzgiLCJhIjoiUkRleEgwVSJ9.rWFItANcHAZQ2U0ousK4cA',
+mapID = 'abz53378.0klc153h',
+today = new Date();
 
 // set marker and center
 //download map
- L.tileLayer(`https://api.tiles.mapbox.com/v4/${mapID}/{z}/{x}/{y}.png?access_token=${accessToken}`, {
-        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a><a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/nl/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/3.0/nl/80x15.png" /></a>.'
-        }).addTo(map);
+L.tileLayer(`https://api.tiles.mapbox.com/v4/${mapID}/{z}/{x}/{y}.png?access_token=${accessToken}`, {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a><a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/nl/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/3.0/nl/80x15.png" /></a>.'
+}).addTo(map);
 
 
-getGPS()
-		.then((position) => {
-				console.log(position);
+if(window.innerWidth <= 800 && window.innerHeight <= 600) {
+    window.alert('請開啟定位，才能正常瀏覽此網頁！');
+    getGPS()
+    .then((position) => {
         let lat = position.coords.latitude,
         lng = position.coords.longitude;
-       
+
         map.setView([lat, lng],15)
-            L.marker([lat,lng]).addTo(map)
-            .bindPopup('所在位置')
-            .openPopup();
+        L.marker([lat,lng]).addTo(map)
+        .bindPopup('所在位置')
+        .openPopup();
         L.circle([lat, lng], 500, {
             stroke: false,
             fillColor: 'blue',
         }).addTo(map);
 
     })
-	.catch(() => {
+    .catch(() => {
 
-    window.alert("此裝置不支援GPS");
-});
+        window.alert("此裝置不支援GPS");
+    });
+}
+else{
+    document.getElementsByClassName('leaflet-control-container')[0].innerHTML += `<button id="GPS" class="ui primary button">我的位置</button>`;
+    window.setTimeout(() => {
+
+        document.getElementById('GPS').addEventListener("click",function listener() {
+            console.log(123);
+            document.getElementById('GPS').className += ' loading';
+            getGPS()
+            .then((position) => {
+                let lat = position.coords.latitude,
+                lng = position.coords.longitude;
+
+                map.setView([lat, lng],15)
+                L.marker([lat,lng]).addTo(map)
+                .bindPopup('所在位置')
+                .openPopup();
+                L.circle([lat, lng], 500, {
+                    stroke: false,
+                    fillColor: 'blue',
+                }).addTo(map);
+                return {lat, lng};
+            })
+            .then(({lat, lng}) => {
+
+                let className = document.getElementById('GPS').className;
+                document.getElementById('GPS').innerText = `${parseInt(lat*100)/100},${parseInt(lng*100)/100}`;
+                document.getElementById('GPS').className = className.replace('loading','');
+                document.getElementById('GPS').removeEventListener('click',listener,false);
+
+            })
+            .catch(() => {
+
+                window.alert("此裝置不支援GPS");
+            });
+        })
+    },100);
+}
 // //set every circle
 
 let myIcon = L.icon({
@@ -106,7 +142,7 @@ getData('./data/eggs.csv').then(data => {
     let num = 0;
     data.forEach(d => {
         L.marker([d['緯度'], d['經度']],{icon:myIcon}).addTo(map)
-            .bindPopup(d['醫療院所名稱'] + '<br/>' + d['電話']);
+        .bindPopup(d['醫療院所名稱'] + '<br/>' + d['電話']);
     });
     return num;
 })

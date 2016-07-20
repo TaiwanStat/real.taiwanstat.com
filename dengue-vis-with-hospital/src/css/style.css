@@ -20,6 +20,12 @@ html, body{
     #map {
         height:300px;
     }
+	#GPS {
+		position: absolute;
+    	right: 20px;
+    	bottom: 30px;
+    	z-index: 1000;
+	}	
 }
 @media screen and (max-width: 500px){
     #map {
