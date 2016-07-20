@@ -1,0 +1,108 @@
+
+//create two promise;
+
+function getData(url) {
+    return new Promise((resolve, reject) => {
+        d3.csv(url, data => {
+            if(data) {
+                resolve(data);
+            }
+            else{
+                reject(new Error('get data error'));
+            }
+        });
+    });
+}
+function getGPS() {
+    return new Promise((resolve, reject) => {
+        if(navigator.geolocation)
+            navigator.geolocation.getCurrentPosition(position => {
+                resolve(position);
+            })
+        else
+            reject();
+    });
+}
+
+function urlParse( name, url ) {
+    if (!url) url = location.href;
+    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+    var regexS = "[\\?&]"+name+"=([^&#]*)";
+    var regex = new RegExp( regexS );
+    var results = regex.exec( url );
+    return results == null ? null : results[1];
+}
+
+
+let map = L.map('map').setView([22.99,120.218],13),
+    accessToken = 'pk.eyJ1IjoiYWJ6NTMzNzgiLCJhIjoiUkRleEgwVSJ9.rWFItANcHAZQ2U0ousK4cA',
+    mapID = 'abz53378.0klc153h',
+    today = new Date();
+
+// set marker and center
+//download map
+ L.tileLayer(`https://api.tiles.mapbox.com/v4/${mapID}/{z}/{x}/{y}.png?access_token=${accessToken}`, {
+        attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a><a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/nl/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/3.0/nl/80x15.png" /></a>.'
+        }).addTo(map);
+
+
+getGPS()
+    .then((position) => {
+        let lat = position.coords.latitude,
+        lng = position.coords.longitude;
+       
+        map.setView([lat, lng],15)
+            L.marker([lat,lng]).addTo(map)
+            .bindPopup('所在位置')
+            .openPopup();
+        L.circle([lat, lng], 500, {
+            stroke: false,
+            fillColor: 'blue',
+        }).addTo(map);
+
+    })
+.catch(() => {
+    alert("Geolocation is not supported by this browser.");
+});
+// //set every circle
+
+let myIcon = L.icon({
+    iconUrl: './hospital1.png',
+    //iconRetinaUrl: 'my-icon@2x.png',
+    iconSize: [42, 42],
+    //iconAnchor: [16, 16],
+    //popupAnchor: [-3, -76],
+    //shadowUrl: './hospital.png',
+    //shadowRetinaUrl: 'my-icon-shadow@2x.png',
+    //shadowSize: [23, 23],
+    //shadowAnchor: [22, 94]
+});
+getData('./data/dengue105.csv').then(data => {
+    let num = 0;
+    data.forEach(d => {
+        let date = new Date(d['確診日']),
+        times = 432000000;
+        if(today - date < times) {
+            num ++;
+            L.circle([d['緯度座標'], d['經度座標']], 200, {
+                stroke: false,
+                fillColor: 'red',
+            }).addTo(map);
+        }
+
+    });
+    return num;
+})
+.then(num => {
+    document.getElementsByClassName('leaflet-control-container')[0].innerHTML += `<div id="info">近五日內共有${num}個確診病例數</div>`;
+})
+.catch(err => {console.error(err);});
+
+getData('./data/eggs.csv').then(data => {
+    let num = 0;
+    data.forEach(d => {
+        L.marker([d['緯度'], d['經度']],{icon:myIcon}).addTo(map)
+            .bindPopup(d['醫療院所名稱'] + '<br/>' + d['電話']);
+    });
+    return num;
+})

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{> head}}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.1/dist/leaflet.css" />
+        <link rel="stylesheet" href="dist/css/style.min.css" media="screen" title="no title" charset="utf-8">
+        <script src="https://npmcdn.com/leaflet@1.0.0-rc.1/dist/leaflet.js"></script>
+
+        <title></title>
+    </head>
+    <body>
+        {{>header}}
+        {{> start}}
+
+        <div id="map">
+        </div>
+        {{> end}}
+
+        <script src='https://d3js.org/d3.v4.min.js'></script>
+        <script type="text/javascript" src='dist/js/index.js'></script>
+        {{> footer}}
+    </body>
+    <!--><div>Icons made by <a href="http://www.flaticon.com/authors/freepik"
+        title="Freepik">Freepik</a> from <a href="http://www.flaticon.com"
+        title="Flaticon">www.flaticon.com</a>
+        is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"
+        title="Creative Commons BY 3.0" target="_blank">CC 3.0
+        BY</a></div></-->
+
+</html>
+
