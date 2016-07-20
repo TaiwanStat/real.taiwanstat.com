@@ -7,7 +7,7 @@
 	window.resetView = resetView;
 	window.toogleInfo = toogleInfo;
 
-  var api = "http://api.taiwanstat.com:3000/gammas/latest";
+  var api = "https://www.taiwanstat.com/gammas/latest/";
     
   d3.json(api, function(data) {
 
