@@ -117,7 +117,7 @@
     /*url = 'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png';
     attrib = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';*/
 
-    url = 'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png';
+    url = 'https://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png';
     attrib = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
    /*url = 'http://openmapsurfer.uni-hd.de/tiles/roads/x={x}&y={y}&z={z}';
     attrib = 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';*/

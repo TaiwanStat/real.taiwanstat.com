@@ -32,7 +32,7 @@
     defaultZoom = _defaultZoom;
     map = new L.Map('map');
 
-    var url = 'http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
+    var url = 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
     var attrib = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>';
     var osm = new L.TileLayer(url, {minZoom: 10,  maxZoom: 19, attribution: attrib});   
 

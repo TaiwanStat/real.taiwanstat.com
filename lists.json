@@ -5,7 +5,7 @@
          {
          "title": "台南登革熱及快篩診所地圖",
          "url": "dengue-vis-with-hospital",
-         "img": "./images/dengue-vis-with-hospital.png",
+         "img": "./images/dengue-vis-with-hospital.jpg",
          "description": "利用地圖顯示使用者當地位置、五日內登革熱確診病例、快篩診所",
          "author": "Fu-Siou Li"
        },

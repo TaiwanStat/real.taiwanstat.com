@@ -3,12 +3,11 @@
   <head>
     {{> head}}
     <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
   </head>
   <body>
     {{> header}}
     {{> start}}
-    <script src="http://d3js.org/topojson.v1.min.js"></script>
       <a href="http://real.taiwanstat.com/earthquake">
           <div class="ui red button">全球過去 30 日規模大於 4.5 的地震地圖</div>
       </a>
@@ -39,6 +38,7 @@
       <div id="content">
       </div>
     {{> end}}
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
     <script src="./index.js" type="text/javascript"></script>
     {{> footer}}
   </body>

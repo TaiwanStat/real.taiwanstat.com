@@ -82,10 +82,10 @@
    }); */
 
    var rootPath = window.location.pathname.split('/')[1];
-   if (hostname == 'real.taiwanstat.com' || hostname == 'water.taiwanstat.com' || hostname == "localhost") {
+   if (rootPath === 'realtime' || hostname == 'water.taiwanstat.com' || hostname == "localhost") {
      $('.mdl-layout--large-screen-only a:nth-child(1)').addClass('active');   
    }
-   else if (hostname == 'long.taiwanstat.com') {
+   else if (hostname == 'long.taiwanstat.com' || rootPath === 'statistics') {
      $('.mdl-layout--large-screen-only a:nth-child(2)').addClass('active');   
    }
    else if (hostname == 'global.taiwanstat.com') {

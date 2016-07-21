@@ -128,7 +128,7 @@
   function initMap() {
     map = new L.Map('map');
 
-    var url = 'http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png';
+    var url = 'https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png';
     var attrib = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
     var osm = new L.TileLayer(url, {minZoom: 1,  maxZoom: 16, attribution: attrib});   
 
