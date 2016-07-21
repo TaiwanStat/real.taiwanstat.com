@@ -53,7 +53,7 @@ if(window.innerWidth <= 800 && window.innerHeight <= 600) {
         let lat = position.coords.latitude,
         lng = position.coords.longitude;
 
-    //        map.setView([lat, lng],15)
+        map.setView([lat, lng],15)
         L.marker([lat,lng]).addTo(map)
         .bindPopup('所在位置')
         .openPopup();
@@ -80,7 +80,7 @@ else{
                 let lat = position.coords.latitude,
                 lng = position.coords.longitude;
 
-            //          map.setView([lat, lng],15)
+                map.setView([lat, lng],15)
                 L.marker([lat,lng]).addTo(map)
                 .bindPopup('所在位置')
                 .openPopup();
@@ -103,6 +103,9 @@ else{
                 window.alert("此裝置不支援GPS");
             });
         })
+        document.getElementsByClassName('leaflet-control-zoom-out')[0].addEventListener('click',() => {map.zoomOut()},false);
+        document.getElementsByClassName('leaflet-control-zoom-in')[0].addEventListener('click',() => {map.zoomIn()},false);
+
     },1000);
 }
 // //set every circle
@@ -143,7 +146,7 @@ getData('./data/eggs.csv').then(data => {
     let num = 0;
     data.forEach(d => {
         L.marker([d['緯度'], d['經度']],{icon:myIcon}).addTo(map)
-        .bindPopup(d['醫療院所名稱'] + '<br/>' + d['電話']);
+            .bindPopup(`${d['醫療院所名稱']}<br/>${d['電話']}<br/>${d['區別']}${d['里別']}${d['地址']}`);
     });
     return num;
 })
