@@ -41,6 +41,7 @@ today = new Date();
 // set marker and center
 //download map
 L.tileLayer(`https://api.tiles.mapbox.com/v4/${mapID}/{z}/{x}/{y}.png?access_token=${accessToken}`, {
+    maxZoom: 18,
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a><a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/nl/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/3.0/nl/80x15.png" /></a>.'
 }).addTo(map);
 
@@ -52,7 +53,7 @@ if(window.innerWidth <= 800 && window.innerHeight <= 600) {
         let lat = position.coords.latitude,
         lng = position.coords.longitude;
 
-        map.setView([lat, lng],15)
+    //        map.setView([lat, lng],15)
         L.marker([lat,lng]).addTo(map)
         .bindPopup('所在位置')
         .openPopup();
@@ -79,7 +80,7 @@ else{
                 let lat = position.coords.latitude,
                 lng = position.coords.longitude;
 
-                map.setView([lat, lng],15)
+            //          map.setView([lat, lng],15)
                 L.marker([lat,lng]).addTo(map)
                 .bindPopup('所在位置')
                 .openPopup();
@@ -102,7 +103,7 @@ else{
                 window.alert("此裝置不支援GPS");
             });
         })
-    },500);
+    },1000);
 }
 // //set every circle
 
