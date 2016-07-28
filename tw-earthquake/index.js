@@ -27,7 +27,7 @@ var svg = d3.select('#content')
 var focus = svg.append("text")
   .attr("class", "focus");
 
-d3.json("http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_month.geojson", function(error, earth_data) {
+d3.json("/data/2.5_month.geojson", function(error, earth_data) {
 
   var e_arr = [];
   var t_eq = [];

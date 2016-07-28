@@ -7,6 +7,7 @@ module.exports= function (hbs) {
   hbs.registerPartial('start', getTemplate('start'));
   hbs.registerPartial('end', getTemplate('end'));
   hbs.registerPartial('footer', getTemplate('footer'));
+  hbs.registerPartial('style', getTemplate('style'));
 };
 
 function getTemplate(filename) {

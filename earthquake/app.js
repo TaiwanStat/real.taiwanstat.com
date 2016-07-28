@@ -57,7 +57,7 @@ d3.json('tectonics.json', function(err, data) {
 
 });
 
-d3.json('http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_month.geojson', function(err, data) {
+d3.json("/data/4.5_month.geojson", function(error, data) {
   
   var e_arr = [];
 

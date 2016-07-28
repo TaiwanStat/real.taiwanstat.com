@@ -26,15 +26,14 @@ function addMarker(map, site) {
 	}
 	else {
 		icon = L.icon({
-			iconUrl: "http://cdn.leafletjs.com/leaflet-0.7.3/images/marker-icon.png",
+			iconUrl: "/marker-icon.png",
 			iconSize: [25, 41],
 			iconAnchor: [13, 42],
 			popupAnchor: [0, -35]
 		});
 	}
 
-	L
-	  .marker([ site.GPS緯度, site.GPS經度 ], {
+	L.marker([ site.GPS緯度, site.GPS經度 ], {
 		icon: icon,
 		opscity: 0.9
 	  })

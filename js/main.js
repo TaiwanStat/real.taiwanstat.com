@@ -5,20 +5,15 @@
   var window_width = $(window).width();
   var hostname = window.location.hostname;
   var path = window.location.pathname;
+  var rootPath = path.split('/')[1];
 
-  if (path != '/' && path != '/r/' && path != '/l/' || 
+  if (path != '/' && path != '/r/' && path != '/l/' && path != '/realtime/'
+			&& path !== '/statistics/' || 
       hostname == 'water.taiwanstat.com') {
 
     discussion = 
       '<discussion>' + 
       '<h3 id="discussion_title" style="margin-left: 20px;">數據討論區</h3>' + 
-      '<div id="fb-root"></div>' + 
-      '<script>' + 
-      '(function(d, s, id) {var js, fjs = d.getElementsByTagName(s)[0];if (d.getElementById(id))' + 
-      'return;js = d.createElement(s); js.id = id;js.src = ' + 
-      '"//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.3&appId=1659889874241396";' + 
-      'fjs.parentNode.insertBefore(js, fjs);}(document, "script", "facebook-jssdk"));' + 
-      '</script>' + 
       '<div class="fb-comments" data-href="' + 
       document.location.href  + 
       '" data-width="100%" data-numposts="8"></div></discussion>';
@@ -81,11 +76,10 @@
     }
    }); */
 
-   var rootPath = window.location.pathname.split('/')[1];
-   if (hostname == 'real.taiwanstat.com' || hostname == 'water.taiwanstat.com' || hostname == "localhost") {
+   if (rootPath === 'realtime' || hostname == 'water.taiwanstat.com' || hostname == "localhost") {
      $('.mdl-layout--large-screen-only a:nth-child(1)').addClass('active');   
    }
-   else if (hostname == 'long.taiwanstat.com') {
+   else if (hostname == 'long.taiwanstat.com' || rootPath === 'statistics') {
      $('.mdl-layout--large-screen-only a:nth-child(2)').addClass('active');   
    }
    else if (hostname == 'global.taiwanstat.com') {
