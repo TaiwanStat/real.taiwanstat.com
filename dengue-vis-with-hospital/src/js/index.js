@@ -16,7 +16,7 @@ function getData(url) {
 function getGPS() {
   return new Promise((resolve, reject) => {
     if(navigator.geolocation)
-      navigator.geolocation.getCurrentPosition(position => {
+      navigator.geolocation.watchPosition(position => {
         resolve(position);
       })
     else{
