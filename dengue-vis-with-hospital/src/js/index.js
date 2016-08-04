@@ -60,6 +60,7 @@ if(window.innerWidth <= 800) {
     document.getElementById('QA').addEventListener('click', () => {
       $("#hint").addClass('show');
     }, false) ;
+    $("#QA").click();
   }, 1000);
   window.alert('請開啟定位，才能正常瀏覽此網頁！');
   getGPS()
