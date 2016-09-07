@@ -2,7 +2,7 @@
 $(document).ready(function(){
 function getData(url) {
   return new Promise((resolve, reject) => {
-    d3.csv(url, data => {
+    d3.tsv(url, data => {
       if(data) {
         resolve(data);
       }
@@ -157,13 +157,14 @@ getData('./data/dengue105.csv').then(data => {
   })
   .catch(err => {console.error(err);});
 
-getData('./data/eggs.csv').then(data => {
+getData('./data/hospital_combine.tsv').then(data => {
 
 
   let num = 0;
+  console.log(data);
   data.forEach(d => {
     L.marker([d['緯度'], d['經度']],{icon:myIcon}).addTo(map)
-      .bindPopup(`${d['醫療院所名稱']}<br/>${d['電話']}<br/>${d['區別']}${d['里別']}${d['地址']}`);
+      .bindPopup(`${d['名稱']}<br/>${d['電話']}<br/>${d['地址']}`);
   });
   return num;
 })
