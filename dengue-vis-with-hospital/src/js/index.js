@@ -128,7 +128,7 @@ else{
 let myIcon = L.icon({
   iconUrl: './hospital1.png',
   //iconRetinaUrl: 'my-icon@2x.png',
-  iconSize: [64, 64],
+  iconSize: [32, 32],
   //iconAnchor: [16, 16],
   //popupAnchor: [-3, -76],
   //shadowUrl: './hospital.png',
@@ -160,12 +160,25 @@ getData('./data/dengue105.csv').then(data => {
 getData('./data/hospital_combine.tsv').then(data => {
 
 
-  let num = 0;
-  console.log(data);
-  data.forEach(d => {
-    L.marker([d['緯度'], d['經度']],{icon:myIcon}).addTo(map)
+  let num = 0, markerArr = [];
+  markerArr = data.map(d => {
+    return L.marker([d['緯度'], d['經度']],{icon:myIcon}).addTo(map)
       .bindPopup(`${d['名稱']}<br/>${d['電話']}<br/>${d['地址']}`);
+  });
+
+  map.on('zoomend', function() {
+    let currentZoom = map.getZoom(),
+      deltaZoom = currentZoom - 12;
+    let newIcon = L.icon({
+      iconUrl: './hospital1.png',
+      iconSize: [(deltaZoom)*6 + 32, (deltaZoom)*6 + 32]
+    });
+    markerArr.forEach(marker => marker.setIcon(newIcon));
   });
   return num;
 })
+
+
 });
+
+
