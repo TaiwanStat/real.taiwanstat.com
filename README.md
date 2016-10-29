@@ -1,7 +1,5 @@
 # TaiwanStat realtime data
 
-Please only use `gh-pages` for main html page
-
 ## Table of content
 
 - [Develop](#develop)
@@ -14,7 +12,7 @@ Please only use `gh-pages` for main html page
 
 ## Develop
 
-Install `canner-core`
+Install `twstat-cli`
 
 #### Prerequisite
 
@@ -220,7 +218,3 @@ footer:
 </footer>
 <script src="/js/main.js"></script>
 ```
-
-## Open Data
-[hackpad](https://hackpad.com/open-data-NfBKJugHykJ)
-
