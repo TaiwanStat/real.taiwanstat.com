@@ -1,8 +1,8 @@
-# TaiwanStat realtime data
+# TaiwanStat realtime data visualization
 
 ## Table of content
 
-- [Develop](#develop)
+- [Contributing](#contributing)
   - [Prerequisite](#prerequisite)
   - [Twstat cli tool](#twstat-cli)
   - [Run canner -core](#run)
@@ -10,9 +10,9 @@
   - [Open a new project](#open-a-new-project)
   - [Setup new project](#setup-new-project)
 
-## Develop
+## Contributing
 
-Install `twstat-cli`
+Please use the `develop` branch.
 
 #### Prerequisite
 
@@ -218,3 +218,7 @@ footer:
 </footer>
 <script src="/js/main.js"></script>
 ```
+
+## License
+MIT License
+
