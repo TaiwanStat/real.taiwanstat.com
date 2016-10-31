@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang='zh-Hant-TW'>
-<head>
-    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta property="og:title" content="{{title}}">
     <meta property="og:site_name" content="{{title}}">
     <meta property="og:description" content="生長在台灣的我們，很少從一個宏觀的角度看整個台灣的經濟、法律、交通、教育... ，而我們相信數據可以幫我們更了解我們身長在的這片土地上的一切。">
@@ -12,30 +12,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
     <link rel="icon" type="image/png" href="https://s3-ap-northeast-1.amazonaws.com/static.twstat.com/favicon.ico">
-    <link rel="shortcut icon" href="https://s3-ap-northeast-1.amazonaws.com/static.twstat.com/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.amber-orange.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.css" type="text/css" media="all">
-    <link rel="stylesheet" href="https://s3-ap-northeast-1.amazonaws.com/static.twstat.com/css/style.min.css">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-</head>
-<body>
-  {{> header}}
-  {{> start}}
-      {{# each page }}
-        <a class="image {{class}}" href="{{url}}" target="_parent">
-          <div class="mdl-card mdl-shadow--2dp demo-card-wide">
-            <div class="mdl-card__title" style="background: url(https://s3-ap-northeast-1.amazonaws.com/static.twstat.com/realtime/{{img}}) center / cover;">
-              <h2 class="mdl-card__title-text">{{title}}</h2>
-            </div>
-            <div class="mdl-card__supporting-text">
-              {{description}}
-            </div>
-          </div>
-        </a>
-      {{/each}}
-  {{> end}}
-  {{> footer}}
-  <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js" async></script>
-  <script src="https://s3-ap-northeast-1.amazonaws.com/static.twstat.com/js/main.min.js" async></script>
-</body>
+    <link rel="shortcut icon" href="//s3-ap-northeast-1.amazonaws.com/static.twstat.com/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="//storage.googleapis.com/code.getmdl.io/1.0.6/material.amber-orange.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.1.6/semantic.min.css">
+    <link rel="stylesheet" href="//s3-ap-northeast-1.amazonaws.com/static.twstat.com/css/style.min.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  </head>
+  <body>
+    {{> header}}
+    {{> start}}
+    {{# each page }}
+    <a class="image {{class}}" href="{{url}}" target="_parent">
+      <div class="mdl-card mdl-shadow--2dp demo-card-wide">
+        <div class="mdl-card__title" style="background: url(//s3-ap-northeast-1.amazonaws.com/static.twstat.com/realtime/{{img}}) center / cover;">
+          <h2 class="mdl-card__title-text">{{title}}</h2>
+        </div>
+        <div class="mdl-card__supporting-text">
+          {{description}}
+        </div>
+      </div>
+    </a>
+    {{/each}}
+    {{> end}}
+    {{> footer}}
+    <script src="//storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+    <script src="//s3-ap-northeast-1.amazonaws.com/static.twstat.com/js/main.min.js"></script>
+  </body>
 </html>
