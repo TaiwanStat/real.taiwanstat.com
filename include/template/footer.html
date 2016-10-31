@@ -4,8 +4,8 @@
   </button>
 </div>
 <footer class="mdl-mini-footer">
-  <div class="mdl-mini-footer__left-section">© 2015 <a href="http://taiwanstat-about-us.cannerapp.com">用數據看台灣</a> ·
-    <a href="http://netdb.csie.ncku.edu.tw">NCKU-NetDB</a>
+  <div class="mdl-mini-footer__left-section">© 2015 <a href="http://taiwanstat-about-us.cannerapp.com">用數據看台灣</a> 
+  <!--<a href="http://netdb.csie.ncku.edu.tw">NCKU-NetDB</a>-->
     {{#if chart_description.collaborators}}{{#each chart_description.collaborators}} ·
     <a href="{{url}}">{{name}}</a>{{/each}}{{/if}}
     · <a href="https://www.facebook.com/taiwanstat/?fref=ts"><i class="facebook square icon"></i></a>
@@ -19,5 +19,5 @@
   </div>
   </footer> 
 {{#if chart_description.url}}
-<script src="https://s3-ap-northeast-1.amazonaws.com/static.twstat.com/js/main.min.js"></script>
+<script src="//s3-ap-northeast-1.amazonaws.com/static.twstat.com/js/main.min.js"></script>
 {{/if}}
