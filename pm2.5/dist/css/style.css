@@ -28,5 +28,5 @@ table.ui.celled.striped.table.mobile-top-info tr.desktop-only td{width:20% !impo
 }
 @media only screen and (max-width:650px){.site{width:100%;margin:auto;float:initial;text-align:center;}
 .status_img{margin:auto;display:block;}
-.county_name h3{font-size:1.5rem;text-align:center;background:#fff;padding:10px;}
+.county_name h3{font-size:1.5rem;text-align:center;background:#fff;padding:10px;}table.ui.celled.striped.table {display: none;}
 }
