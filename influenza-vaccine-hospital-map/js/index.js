@@ -88,7 +88,6 @@ $(document).ready(function() {
   });
   d3.json('./data/hospitals.json', function(err, data) {
     let num = 0, markerArr = [];
-    console.log(data)
     var markers = L.markerClusterGroup({
       iconCreateFunction: function(cluster) {
         return L.divIcon({html:
