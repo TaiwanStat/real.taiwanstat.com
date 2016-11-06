@@ -48,7 +48,6 @@ $(document).ready(function() {
     window.setTimeout(() => {
 
       document.getElementById('GPS').addEventListener("click",function listener() {
-        console.log(123);
         document.getElementById('GPS').className += ' loading';
         getGPS(function(position) {
           var lat = position.coords.latitude,
