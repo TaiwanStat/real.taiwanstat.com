@@ -39,11 +39,6 @@ $(document).ready(function() {
           stroke: false,
           fillColor: 'blue',
         }).addTo(map);
-      var className = document.getElementById('GPS').className;
-        document.getElementById('GPS').innerText = lat.toFixed(2) + ', ' + lng.toFixed(2);
-        document.getElementById('GPS').className = className.replace('loading','');
-        document.getElementById('GPS').removeEventListener('click',listener,false);
-
     }, function(){
       window.alert("此裝置不支援GPS");
     });
