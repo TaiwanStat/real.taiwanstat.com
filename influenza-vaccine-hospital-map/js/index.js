@@ -9,18 +9,18 @@ $(document).ready(function() {
 
   // set marker and center
   // download map
-  L.tileLayer(`https://api.tiles.mapbox.com/v4/${mapID}/{z}/{x}/{y}.png?access_token=${accessToken}`, {
+  L.tileLayer('https://api.tiles.mapbox.com/v4/' + mapID + '/{z}/{x}/{y}.png?access_token=' + accessToken, {
     maxZoom: 18,
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a><a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/nl/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/3.0/nl/80x15.png" /></a>.'
   }).addTo(map);
 
   if(window.innerWidth <= 800) {
     document.getElementsByClassName('leaflet-control-container')[0].innerHTML +=
-      `<button id="QA" class="circular primary ui icon button">
-        <i class="help icon"></i>
-    </button>`;
+      '<button id="QA" class="circular primary ui icon button">' +
+        '<i class="help icon"></i>' +
+    '</button>';
     window.setTimeout(function() {
-      document.getElementById('QA').addEventListener('click', () => {
+      document.getElementById('QA').addEventListener('click', function() {
         $("#hint").addClass('show');
       }, false) ;
       $("#QA").click();
@@ -44,7 +44,7 @@ $(document).ready(function() {
     });
   }
   else{
-    document.getElementsByClassName('leaflet-control-container')[0].innerHTML += `<button id="GPS" class="ui primary button">我的位置</button>`;
+    document.getElementsByClassName('leaflet-control-container')[0].innerHTML += '<button id="GPS" class="ui primary button">我的位置</button>';
     window.setTimeout(function() {
 
       document.getElementById('GPS').addEventListener("click",function listener() {
@@ -62,7 +62,7 @@ $(document).ready(function() {
               fillColor: 'blue',
             }).addTo(map);
           var className = document.getElementById('GPS').className;
-            document.getElementById('GPS').innerText = `${parseInt(lat*100)/100},${parseInt(lng*100)/100}`;
+            document.getElementById('GPS').innerText = parseInt(lat*100)/100+','+parseInt(lng*100)/100;
             document.getElementById('GPS').className = className.replace('loading','');
             document.getElementById('GPS').removeEventListener('click',listener,false);
 
@@ -70,8 +70,8 @@ $(document).ready(function() {
           window.alert("此裝置不支援GPS");
         });
       })
-      document.getElementsByClassName('leaflet-control-zoom-out')[0].addEventListener('click',() => {map.zoomOut()},false);
-      document.getElementsByClassName('leaflet-control-zoom-in')[0].addEventListener('click',() => {map.zoomIn()},false);
+      document.getElementsByClassName('leaflet-control-zoom-out')[0].addEventListener('click', function() {map.zoomOut()},false);
+      document.getElementsByClassName('leaflet-control-zoom-in')[0].addEventListener('click', function() {map.zoomIn()},false);
 
     },1000);
   }
@@ -82,7 +82,7 @@ $(document).ready(function() {
     iconSize: [32, 32],
   });
   d3.json('./data/hospitals.json', function(err, data) {
-    let num = 0, markerArr = [];
+    var num = 0, markerArr = [];
     var markers = L.markerClusterGroup({
       iconCreateFunction: function(cluster) {
         return L.divIcon({html:
