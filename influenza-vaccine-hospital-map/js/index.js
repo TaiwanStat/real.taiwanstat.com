@@ -52,7 +52,6 @@ $(document).ready(function() {
     window.setTimeout(() => {
 
       document.getElementById('GPS').addEventListener("click",function listener() {
-        console.log(123);
         document.getElementById('GPS').className += ' loading';
         getGPS(function(position) {
           var lat = position.coords.latitude,
@@ -88,7 +87,6 @@ $(document).ready(function() {
   });
   d3.json('./data/hospitals.json', function(err, data) {
     let num = 0, markerArr = [];
-    console.log(data)
     var markers = L.markerClusterGroup({
       iconCreateFunction: function(cluster) {
         return L.divIcon({html:
