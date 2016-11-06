@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('#hintButton').on('click', () => {
+  $('#hintButton').on('click', function() {
     $('#hint').removeClass('show');
   })
   var map = L.map('map').setView([22.99,120.218],13),
@@ -19,7 +19,7 @@ $(document).ready(function() {
       `<button id="QA" class="circular primary ui icon button">
         <i class="help icon"></i>
     </button>`;
-    window.setTimeout(() => {
+    window.setTimeout(function() {
       document.getElementById('QA').addEventListener('click', () => {
         $("#hint").addClass('show');
       }, false) ;
@@ -45,7 +45,7 @@ $(document).ready(function() {
   }
   else{
     document.getElementsByClassName('leaflet-control-container')[0].innerHTML += `<button id="GPS" class="ui primary button">我的位置</button>`;
-    window.setTimeout(() => {
+    window.setTimeout(function() {
 
       document.getElementById('GPS').addEventListener("click",function listener() {
         document.getElementById('GPS').className += ' loading';
@@ -92,7 +92,7 @@ $(document).ready(function() {
         });
       },
     });
-    markerArr = data.forEach(d => {
+    markerArr = data.forEach(function(d) {
       markers.addLayer(
       L.marker([d.lat, d.lng],{icon: myIcon})
         .bindPopup(d.hospital + '<br/>' + d.phone + '<br/>' + d.address));
@@ -104,7 +104,7 @@ $(document).ready(function() {
 
 function getGPS(resolve, reject) {
   if(navigator.geolocation)
-    navigator.geolocation.getCurrentPosition(position => {
+    navigator.geolocation.getCurrentPosition(function(position) {
       resolve(position);
     })
   else{
