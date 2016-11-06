@@ -39,7 +39,7 @@ html, body{
     height: 100%;
   }
   #map {
-    height: 100%;
+    height: calc(100% - 56px);
   }
   #info::before {
     content: '台南市登革熱及快篩診所地圖\A';

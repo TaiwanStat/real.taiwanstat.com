@@ -35,8 +35,10 @@ html, body{
   }
 }
 @media screen and (max-width: 800px){
+  #main-content {
+    height: 100%;
+  }
   #map {
-    height:100%;
     height: calc(100% - 56px);
 
   }
