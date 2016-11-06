@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+  {{> head}}
+  <!-- my js & css -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.0.0/dist/MarkerCluster.Default.css" />
+  <link rel="stylesheet" href="./css/style.css" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+  {{>header}}
+  {{> start}}
+    <div id="map"></div>
+    <div class='ui card' id='hint'>
+      <div class='content'>
+        <div class='header'>
+          小提醒
+        </div>
+      </div>
+      <div class="content">
+        <div class="ui small feed">
+          <div class="event">
+            <div class="content">
+              <div class="summary">
+                若無任何視窗彈出或是成功定位，請先將瀏覽器設定為
+                <span class='red'>允許彈出視窗</span>以及<span class='red'>同意取得地理資訊</span>
+                ，或是改用 <span class='red'>其他瀏覽器</span>，才可正常瀏覽：）
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="extra content">
+        <button class="ui primary button" id='hintButton' >知道了！</button>
+      </div>
+    </div>
+    <!-- my charts -->
+  {{> end}}
+    <!-- my js & css -->
+    <script src="https://npmcdn.com/leaflet@1.0.0-rc.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.0.0/dist/leaflet.markercluster.js"></script>
+    <script type="text/javascript" src='./js/index.js'></script>
+  {{> footer}}
+</body>

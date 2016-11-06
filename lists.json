@@ -2,7 +2,14 @@
   "data": {
     "title": "用數據看台灣 - 即時資料",
     "page": [
-         {
+        {
+         "title": "台南提供公費流感疫苗施打院所地圖",
+         "url": "influenza-vaccine-hospital-map",
+         "img": "./images/influenza-vaccine-hospital-map.png",
+         "description": "利用地圖顯示使用者當地位置、台南提供公費流感疫苗施打之院所",
+         "author": "Fu-Siou Li"
+        },
+        {
          "title": "登革熱及快篩診所地圖",
          "url": "dengue-vis-with-hospital",
          "img": "./images/dengue-vis-with-hospital.jpg",
