@@ -26,6 +26,7 @@ $(document).ready(function() {
       $("#QA").click();
     }, 1000);
     window.alert('請開啟定位，才能正常瀏覽此網頁！');
+    var had = 0;
     getGPS(function(position) {
       var lat = position.coords.latitude,
           lng = position.coords.longitude;
@@ -39,7 +40,7 @@ $(document).ready(function() {
           fillColor: 'blue',
         }).addTo(map);
       var className = document.getElementById('GPS').className;
-        document.getElementById('GPS').innerText = `${parseInt(lat*100)/100},${parseInt(lng*100)/100}`;
+        document.getElementById('GPS').innerText = lat.toFixed(2) + ', ' + lng.toFixed(2);
         document.getElementById('GPS').className = className.replace('loading','');
         document.getElementById('GPS').removeEventListener('click',listener,false);
 
@@ -109,7 +110,7 @@ $(document).ready(function() {
 
 function getGPS(resolve, reject) {
   if(navigator.geolocation)
-    navigator.geolocation.watchPosition(position => {
+    navigator.geolocation.getCurrentPosition(position => {
       resolve(position);
     })
   else{
