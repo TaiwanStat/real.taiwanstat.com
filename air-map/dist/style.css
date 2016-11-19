@@ -33,7 +33,7 @@ table td{text-align:left;padding:5px}
 .points path.selected,.points path:hover{fill:rgba(134,134,134,.69);stroke:#000;stroke-opacity:.6;stroke-width:2px}
 .points path.selected{stroke-opacity:1;stroke-width:3px}
 .legend{line-height:18px;color:#555}
-.legend i{width:18px;height:18px;float:left;margin-right:8px;opacity:.7}
+.legend i{width:18px;height:18px;display:inline-block;margin-right:8px;opacity:.7}
 @media only screen and (max-width:700px){span#stat-title{font-size:18px}
 .btn-sites .fb-like,.fb-like-box.fb_iframe_widget{display:none}
 .fb-share-button.fb_iframe_widget{display:inline-block}
@@ -41,3 +41,4 @@ table td{text-align:left;padding:5px}
 .rpi-q>.rpi-info{display:block}
 .rpi-info{left:20%;top:35%}
 .btn-sites a:nth-child(3) .button,.btn-sites a:nth-child(4) .button{display:none}}
+.header .fa{display:none}

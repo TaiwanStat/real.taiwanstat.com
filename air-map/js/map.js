@@ -90,23 +90,23 @@
   }
 
   function getDegree(p) {
-    if (p <= 12) {
+    if (p <= 35) {
       return { disc: '空氣品質良好', color: 'green'};
     }
-    else if (p <= 35) {
+    else if (p <= 41) {
       return { disc: '空氣品質普通', color: 'yellow'};
     }
-    else if (p <= 55) {
+    else if (p <= 53) {
       return { disc: '對敏感性族群不健康', color: 'orange'};
     }
-    else if (p <= 150){
-      return { disc: '空氣品質不良', color: 'red'}; 
+    else if (p <= 64){
+      return { disc: '空氣品質不良', color: 'red'};
     }
-    else if (p <= 250){
-      return { disc: '空氣品質非常不良', color: 'purple'}; 
+    else if (p <= 70){
+      return { disc: '空氣品質非常不良', color: 'red'};
     }
     else {
-      return { disc: '空氣品質屬有害', color: 'brown'}; 
+      return { disc: '空氣品質屬有害', color: 'purple'};
     }
   }
 
@@ -117,7 +117,7 @@
     /*url = 'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png';
     attrib = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';*/
 
-    url = 'https://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png';
+    url = 'https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png';
     attrib = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
    /*url = 'http://openmapsurfer.uni-hd.de/tiles/roads/x={x}&y={y}&z={z}';
     attrib = 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';*/

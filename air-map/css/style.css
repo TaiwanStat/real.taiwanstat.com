@@ -223,3 +223,7 @@ i.fa.fa-link.fa-2x {
     display: none;
 }
 }
+
+.header .fa {
+  display: none;
+}
