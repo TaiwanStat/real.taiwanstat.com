@@ -3,8 +3,10 @@
   <head>
     {{> head}}
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-		<link rel="stylesheet" href="https://npmcdn.com/leaflet@0.7.7/dist/leaflet.css" />
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
+
+
 
   </head>
   <body>
@@ -27,7 +29,7 @@
     <div class="rpi-info"><a class="hide-rpi" href="#" onclick="hideRPIInfo()">x</a><p>「河川污染程度指數, River Pollution Index」簡稱「RPI」。RPI指數係以水中溶氧量 （DO）、生化需氧量（BOD5）、懸浮固體（SS）、與氨氮(NH3-N）等四項水質參數之濃度值，來計算所得之指數積分值，並判定河川水質污染程度。</p></div>
 
     {{> end}}
-		<script src="https://npmcdn.com/leaflet@0.7.7/dist/leaflet.js"></script>
+		<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.min.js"></script>
     <script type="text/javascript" src="./dist/index.js"></script>
     {{> footer}}
