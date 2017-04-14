@@ -32,12 +32,12 @@ gulp.task('watch', function () {
 });
 
 gulp.task('server', function () {
-  gulp.server({
-    root: dirs.dest,
+  connect.server({
+    root: './',
     livereload: true,
     port: 8000
   });
 })
 
 
-gulp.task('default', ['scripts',  'minify-css', 'watch']);
+gulp.task('default', ['scripts',  'minify-css', 'watch', 'server']);

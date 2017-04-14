@@ -4,6 +4,7 @@ var uglify = require('gulp-uglify');
 var minifyHTML = require('gulp-minify-html');
 var minifyCSS = require('gulp-minify-css');
 var rename = require("gulp-rename");
+var connect = require("gulp-connect");
 
 gulp.task('scripts', function() {
     //single entry point to browserify
@@ -38,4 +39,13 @@ gulp.task('watch', function () {
   gulp.watch('./css/*css', ['minify-css']);
 });
 
-gulp.task('default', ['minify-html', 'scripts',  'minify-css', 'watch']);
+
+gulp.task('server', function () {
+  connect.server({
+    root: './',
+    livereload: true,
+    port: 8000
+  });
+})
+
+gulp.task('default', ['minify-html', 'scripts',  'minify-css', 'watch', 'server']);
