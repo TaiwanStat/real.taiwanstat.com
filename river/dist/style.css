@@ -1,34 +1,28 @@
-body,html{height:100%;width:100%}
-div.title,header{vertical-align:middle}
+body,html{width:100%;height:100%}
+#map,body{margin:auto}
 .info,html{background:#fff}
-i.fa.fa-compass.fa-2x,i.fa.fa-refresh{border-radius:30px;right:10px;cursor:pointer}
 html{font-family:'Noto Sans',sans-serif,'Microsoft Jhenghei';padding:0;margin:0}
-body{margin:auto}
 a{color:#337ab7;text-decoration:blink}
 .red{color:#f40000}
-#map{height:83%}
-header{display:table}
-div.title{font-size:28px;text-align:center;width:250px;display:table-cell;padding-left:5px}
-footer{position:fixed;bottom:30px;left:10px}
-.links,.rpi-info,i.fa.fa-refresh{position:absolute}
+#map{position:relative;min-height:550px;height:60vh;width:95%}
+.foot-note{margin:20px}
+.info.leaflet-control{min-width:174px;width:200px}
 .btn-sites a>.ui.pink.button{margin:0 10px}
 .info{padding:6px 8px;font:14px/16px Arial,Helvetica,sans-serif;background:rgba(255,255,255,.8);box-shadow:0 0 15px rgba(0,0,0,.2);border-radius:5px}
-i.fa.fa-compass.fa-2x,i.fa.fa-refresh{color:#fff;padding:7px;background:#42badd}
 .info h4{margin:0 0 5px;color:#777}
-.info.leaflet-control{min-width:174px;width:200px}
 .legend{line-height:18px;color:#555}
-.legend i{width:18px;height:18px;float:left;margin-right:8px;opacity:.7}
-i.fa.fa-compass.fa-2x{position:absolute;bottom:28%;z-index:20}
-i.fa.fa-refresh{bottom:20%;z-index:20}
-.links{z-index:30;background:#fff;padding:20px;left:26%;top:30%;box-shadow:1px 2px 1px rgba(0,0,0,.4);display:none}
-.rpi-info{padding:10px;z-index:20px;width:205px;left:60%;top:35%;background:rgba(255,255,255,.8);box-shadow:0 0 15px rgba(0,0,0,.2);border-radius:5px;font-size:.1rem;display:none}
+i.fa.fa-compass.fa-2x,i.fa.fa-refresh{cursor:pointer;right:10px;z-index:20;background:#42badd;border-radius:30px;padding:7px;color:#fff}
+.legend i{width:18px;height:18px;display:inline-block;margin-right:8px;opacity:.7}
+.links,.rpi-info{position:absolute;display:none}
+i.fa.fa-compass.fa-2x{position:absolute;bottom:34%}
+i.fa.fa-refresh{position:absolute;bottom:25%}
+.links{z-index:30;background:#fff;padding:20px;left:26%;top:30%;box-shadow:1px 2px 1px rgba(0,0,0,.4)}
+.rpi-info{padding:10px;z-index:20px;width:205px;left:60%;top:35%;background:rgba(255,255,255,.8);box-shadow:0 0 15px rgba(0,0,0,.2);border-radius:5px;font-size:.1rem}
 .rpi-q{padding-left:3px}
 .hide-rpi{float:right;font-size:1.3rem;padding-left:2px}
-.fb-share-button.fb_iframe_widget{display:none;position:fixed;right:10px;top:20px}
 @media only screen and (max-width:700px){span#stat-title{font-size:18px}
-.btn-sites .fb-like,.fb-like-box.fb_iframe_widget{display:none}
-.fb-share-button.fb_iframe_widget{display:inline-block}
 .info.leaflet-control{width:140px}
 .rpi-q>.rpi-info{display:block}
 .rpi-info{left:20%;top:35%}
-.btn-sites a:nth-child(3) .button,.btn-sites a:nth-child(4) .button{display:none}}
+.btn-sites a:nth-child(3) .button,.btn-sites a:nth-child(4) .button{display:none}
+}

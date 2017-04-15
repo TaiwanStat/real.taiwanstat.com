@@ -2,6 +2,8 @@ var gulp = require('gulp');
 var uglify = require('gulp-uglify');
 var minifyCSS = require('gulp-minify-css');
 var rename = require("gulp-rename");
+var connect = require('gulp-connect');
+var livereload = require('gulp-livereload');
 
 var css_dir = ['./css/*.css', '!./css/*min.css']//, './**/css/*.css', '!./**/css/*min.css'];
 var js_dir = ['./js/*.js', '!./js/*min.js']//, './**/js/*.js', '!./**/js/*min.js'];
@@ -29,4 +31,13 @@ gulp.task('watch', function () {
   gulp.watch('./css/*css', ['minify-css']);
 });
 
-gulp.task('default', ['scripts',  'minify-css', 'watch']);
+gulp.task('server', function () {
+  connect.server({
+    root: './',
+    livereload: true,
+    port: 8000
+  });
+})
+
+
+gulp.task('default', ['scripts',  'minify-css', 'watch', 'server']);
