@@ -73,7 +73,7 @@ i.fa.fa-compass.fa-2x {
     position: absolute;
     right: 10px;
     bottom: 34%;
-    z-index: 20;
+    z-index: 30;
     background: rgb(66, 186, 221);
     border-radius: 30px;
     color: white;
@@ -141,7 +141,6 @@ i.fa.fa-refresh {
     }
 
     i.fa.fa-compass.fa-2x {
-
     }
 
     i.fa.fa-link.fa-2x {

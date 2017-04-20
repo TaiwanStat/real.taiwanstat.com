@@ -11,11 +11,11 @@ a{color:#337ab7;text-decoration:blink}
 .info{padding:6px 8px;font:14px/16px Arial,Helvetica,sans-serif;background:rgba(255,255,255,.8);box-shadow:0 0 15px rgba(0,0,0,.2);border-radius:5px}
 .info h4{margin:0 0 5px;color:#777}
 .legend{line-height:18px;color:#555}
-i.fa.fa-compass.fa-2x,i.fa.fa-refresh{cursor:pointer;right:10px;z-index:20;background:#42badd;border-radius:30px;padding:7px;color:#fff}
+i.fa.fa-compass.fa-2x,i.fa.fa-refresh{cursor:pointer;right:10px;background:#42badd;border-radius:30px;padding:7px;color:#fff}
 .legend i{width:18px;height:18px;display:inline-block;margin-right:8px;opacity:.7}
 .links,.rpi-info{position:absolute;display:none}
-i.fa.fa-compass.fa-2x{position:absolute;bottom:34%}
-i.fa.fa-refresh{position:absolute;bottom:25%}
+i.fa.fa-compass.fa-2x{position:absolute;bottom:34%;z-index:30}
+i.fa.fa-refresh{position:absolute;bottom:25%;z-index:20}
 .links{z-index:30;background:#fff;padding:20px;left:26%;top:30%;box-shadow:1px 2px 1px rgba(0,0,0,.4)}
 .rpi-info{padding:10px;z-index:20px;width:205px;left:60%;top:35%;background:rgba(255,255,255,.8);box-shadow:0 0 15px rgba(0,0,0,.2);border-radius:5px;font-size:.1rem}
 .rpi-q{padding-left:3px}

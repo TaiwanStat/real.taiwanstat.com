@@ -5,7 +5,7 @@ const moment = require('moment');
 const fs = require('fs');
 
 
-const dataSheet = 'id,city,basin,riverName,siteName,date,RPI,WT,PH,EC,NH3N,Ch,Temperature,SS,DO,COD,DOS,BOD,CG';
+const dataSheet = 'id,city,basin,riverName,siteName,date,RPI,WT,pH,EC,NH3N,Ch,Temperature,SS,DO,COD,DOS,BOD,CG';
 
 
 const _URL = 'http://erdb.epa.gov.tw/DataRepository/EnvMonitor/RiverWaterQualityMonitoringData.aspx';
@@ -103,7 +103,7 @@ function parseData(html) {
 
     var outputData = {};
     var $ = cheerio.load(html);
-    var attr = ['siteName', 'date', 'RPI', 'WT', 'PH', 'EC', 'Temperature',
+    var attr = ['siteName', 'date', 'RPI', 'WT', 'pH', 'EC', 'Temperature',
         'SS', 'DO', 'BOD5', 'COD', 'NH3N', 'Cl', 'DOS', 'Coliform', 'Cd', 'Pb', 'Cu',
         'Zn', 'Cr', 'Mn', 'Ag', 'As', 'Se'
     ];

@@ -1,4 +1,4 @@
-id,city,basin,riverName,siteName,date,RPI,WT,PH,EC,NH3N,Ch,Temperature,SS,DO,COD,DOS,BOD,CG
+id,city,basin,riverName,siteName,date,RPI,WT,pH,EC,NH3N,Ch,Temperature,SS,DO,COD,DOS,BOD,CG
 ﻿序號,縣市,流域,河川,測點,採樣日期,RPI指標,一般項目,,,,,,,,,,,
 ,,,,,,"RPI River Pollution Index","水溫 Water Temperature (℃)","酸鹼值 pH","導電度 Conductivity (μmho/cm25℃)","氨氮 NH3-N (mg/L)","氯鹽 Chloride (mg/L)","氣溫 Temperature (℃)","懸浮固體 Suspended Solid (mg/L)","溶氧(電極法) Dissolved Oxygen (mg/L)","化學需氧量 Chemical Oxygen Demand (mg/L)","溶氧飽和度 Dissolved Oxygen Saturation (%)","生化需氧量 Biochemical Oxygen Demand (mg/L)","大腸桿菌群 Coliform Group (CFU/100mL)"
 1,臺北市,淡水河流域,基隆河,中山橋,2017/02/09,5.0,18.2,7.0,273,1.37,24.7,11.7,8.1,0.7,22.1,7.5,4.5,"440,000"
