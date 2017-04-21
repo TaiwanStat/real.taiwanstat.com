@@ -73,7 +73,7 @@ i.fa.fa-compass.fa-2x {
     position: absolute;
     right: 10px;
     bottom: 34%;
-    z-index: 30;
+    z-index: 9999;
     background: rgb(66, 186, 221);
     border-radius: 30px;
     color: white;
@@ -85,7 +85,7 @@ i.fa.fa-refresh {
     position: absolute;
     right: 10px;
     bottom: 25%;
-    z-index: 20;
+    z-index: 9999;
     background: rgb(66, 186, 221);
     border-radius: 30px;
     padding: 7px;
@@ -93,7 +93,7 @@ i.fa.fa-refresh {
 }
 
 .links {
-    z-index: 30;
+    z-index: 9999;
     position: absolute;
     background: white;
     padding: 20px;
@@ -105,7 +105,7 @@ i.fa.fa-refresh {
 .rpi-info {
     padding: 10px;
     position: absolute;
-    z-index: 20px;
+    z-index: 9999;
     width: 205px;
     left: 60%;
     top: 35%;
@@ -141,6 +141,7 @@ i.fa.fa-refresh {
     }
 
     i.fa.fa-compass.fa-2x {
+
     }
 
     i.fa.fa-link.fa-2x {

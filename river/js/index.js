@@ -75,7 +75,7 @@
                       + '</strong><br/><span class="red">污染程度：' + polluDegree.disc
                       + "</span><br/>所屬流域：" + siteInfo[i].Basin
                       + '<br/>RPI指標：' + riverData[siteInfo[i].SiteName].RPI
-                      + '<br/>酸鹼值：' + riverData[siteInfo[i].SiteName].pH
+                      + '<br/>酸鹼值：' + riverData[siteInfo[i].SiteName].PH
                       + '<br/>懸浮固體：'
                       + riverData[siteInfo[i].SiteName].SS + '（mg/L）'
                       + '<br/>溶氧量：'
@@ -128,11 +128,10 @@
   function initMap() {
     map = new L.Map('map');
 
-    var url = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+    var url = 'https://{s}.tile.thunderforest.com/landscape/{z}/{x}/{y}.png';
     var attrib = '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>';
     var osm = new L.TileLayer(url, {minZoom: 1,  maxZoom: 16, attribution: attrib});
 
-    osm.setZIndex(0);
     map.setView(new L.LatLng(23.7, 121), 8);
     osm.addTo(map);
     info.addTo(map);

@@ -33,6 +33,7 @@ gulp.task('minify-css', function() {
     .pipe(gulp.dest('./dist/'))
 });
 
+
 gulp.task('watch', function () {
   gulp.watch('./js/*js', ['scripts']);
   gulp.watch('./index_edit.html', ['minify-html']);
@@ -48,4 +49,4 @@ gulp.task('server', function () {
   });
 })
 
-gulp.task('default', ['minify-html', 'scripts',  'minify-css', 'watch', 'server']);
+gulp.task('default', ['minify-html', 'scripts', 'watch', 'server']);
