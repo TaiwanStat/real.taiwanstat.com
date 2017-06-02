@@ -10,15 +10,21 @@
 	window.getLocation = getLocation;
 	window.resetView = resetView;
 
-    google.load("feeds", "1");
-    google.setOnLoadCallback(make);
-
+  make();
 	function make() {
- 		var feed = new google.feeds.Feed("https://alerts.ncdr.nat.gov.tw/RssAtomFeed.ashx?AlertType=8");
-		feed.setNumEntries(1000);
-		feed.includeHistoricalEntries();
-		feed.load(function(data) {
-			if( !data.error ) {
+	  var FEED_URL = './data.xml';
+	  var data = { feed: { entries: [] } };
+	  $.get(FEED_URL, function (rssdata) {
+	      $(rssdata).find("entry").each(function () {
+          var el = $(this);
+          data.feed.entries.push({
+            id: el.find("id").text(),
+            title: el.find("title").text(),
+            publishedDate: el.find("updated").text(),
+            content: el.find("summary").text()
+          })
+        });
+
 				d3.json("data/town.json", function(border) {
 					$("#resetView").click(function() { resetView(); });
 					$("#getLocation").click(function() { getLocation(); });
@@ -47,8 +53,7 @@
 					$("#up").click(function() { up(); });
 					$("#down").click(function() { down(); });
 				});
-			}
-		});
+     });
 	};
 
 	function down() {
