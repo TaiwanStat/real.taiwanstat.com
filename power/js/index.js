@@ -210,9 +210,10 @@
     $('#'+id).siblings('.usage')
                .children('h5')
                .text('全台灣即時用電量：' + totalUsage.toFixed(1) + '萬瓩');
-    if (totalUsage > totalSupply) {
+    
+    /*if (totalUsage > totalSupply) {
       totalSupply = totalUsage;
-    }
+    }*/
     
     $('#'+id).siblings('.supply')
                .children('h5')
