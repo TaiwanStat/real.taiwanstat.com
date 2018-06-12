@@ -3,7 +3,7 @@ import datetime
 import requests
 from firebase import Firebase
 f = Firebase('https://oildata2.firebaseio.com/datas')
-res = requests.get("http://new.cpc.com.tw/division/mb/oil-more1-1.aspx")
+res = requests.get("https://new.cpc.com.tw/division/mb/oil-more1-1.aspx")
 source =  res.text
 tmp1 = source.split('<td width="9%">')
 nineeight = tmp1[2].split('</td>')
