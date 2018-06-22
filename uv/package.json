@@ -23,8 +23,7 @@
     "gulp-minify-css": "^1.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "",
-    "gulp-minify-html": "",
-    "jquery": "^2.1.1"
+    "gulp-minify-html": ""
   },
   "browserify": {
     "transform": []

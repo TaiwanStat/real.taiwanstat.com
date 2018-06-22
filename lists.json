@@ -2,84 +2,12 @@
   "data": {
     "title": "用數據看台灣 - 即時資料",
     "page": [
-        {
-         "title": "台南提供公費流感疫苗施打院所地圖",
-         "url": "influenza-vaccine-hospital-map",
-         "img": "./images/influenza-vaccine-hospital-map.png",
-         "description": "利用地圖顯示使用者當地位置、台南提供公費流感疫苗施打之院所",
-         "author": "Fu-Siou Li"
-        },
-        {
-         "title": "登革熱及快篩診所地圖",
-         "url": "dengue-vis-with-hospital",
-         "img": "./images/dengue-vis-with-hospital.jpg",
-         "description": "利用地圖顯示使用者當地位置、五日內登革熱確診病例、快篩診所",
-         "author": "Fu-Siou Li"
-       },
        {
-         "title": "即時與長期菜價變化資訊",
-         "url": "vegetable-price",
-         "img": "./images/fruit.png",
-         "description": "連年菜價高漲，到底變化是如何呢？",
-         "author": "胡家偉, 陳昱文, 林建宏",
-         "collaborator": "Chi-Hsuan, Huang"
-       },
-       {
-        "title": "Instants 即時生活資訊",
-        "url": "http://life.instants.io/",
-        "img": "./images/instants.jpg",
-        "description": "提供您即時的生活品質資訊",
-        "author": "Chi-Hsaun, Huang",
-        "collaborator": "",
-        "class": ""
-       },
-       {
-        "title": "油價知多少-即時油價資訊",
-        "url": "oil",
-        "img": "./images/oil.jpg",
-        "description": "想知道這週和下週的油價嗎？即時油價及長期油價走勢圖",
-        "author": "詹博山、李岳庭、謝忠穎",
-        "collaborator": "Chi-Hsuan, Huang",
-        "class": ""
-      },
-      {
-        "title": "台南2015年登革熱恢復狀況",
-        "url": "tainan-2015-denguefever-recovery",
-        "img": "images/tainan-2015-denguefever-recovery.jpg",
-        "description": "台南登革熱已經開始趨緩，進入了恢復期，一起來看看最近各里的恢復狀況吧！",
-        "author": "Chi-Hsuan Huang",
-        "class": ""
-      },
-      {
-        "title": "高雄2015年即時登革熱資訊",
-        "url": "kaohsiung-2015-dengue",
-        "img": "images/kaohsiung-2015-dengue.jpg",
-        "description": "今年高雄登革熱持續升溫，你知道哪些地需要特別注意嗎？",
-        "author": "Chi-Hsuan Huang",
-        "class": ""
-      },
-      {
         "title": "台灣即時雨量資訊",
         "url": "rain",
         "img": "images/rain.jpg",
         "description": "下雨了，你知道台灣各地的即時降雨情況嗎？",
         "author": "Chi-Hsuan Huang",
-        "class": ""
-      },
-      {
-        "title": "台南2015年即時登革熱資訊",
-        "url": "dengue-spatial-temporal",
-        "img": "images/dengue-spatial-temporal.jpg",
-        "description": "想知道台南哪些地方需要特別預防，想知道現在家裡附近會很嚴重嗎？一起來看看吧！",
-        "author": "Chi-Hsuan Huang",
-        "class": ""
-      },
-      {
-        "title": "台南 2015 年一月到現在登革熱散播狀況",
-        "url": "dengue-fever",
-        "img": "images/dengue-fever.jpg",
-        "description": "今年的台南登革熱疫情持續的不斷蔓延，而登革熱疫情如何散播的呢？讓我們用動態圖表帶你來看看！",
-        "author": "Weber Chi",
         "class": ""
       },
       {
@@ -104,14 +32,6 @@
         "img": "images/power.png",
         "description": "北中南的用電到底目前是如何？各電廠所發電出來的用電資訊為何？讓我們告訴你！",
         "author": "Chi-Hsuan Huang",
-        "class": ""
-      },
-      {
-        "title": "台灣即時空氣品質指標 PSI 版本",
-        "url": "air",
-        "img": "images/air.jpg",
-        "description": "我們每天呼吸的台灣空氣品質到底如何呢？台灣即時空氣品質指標 PSI 版本提供給你台灣各地即時的 PSI 指數",
-        "author": "Li-Jung Chi",
         "class": ""
       },
       {
@@ -198,6 +118,78 @@
         "img": "images/crime.jpg",
         "description": "在你所在的縣市最常發生犯罪的類別到底是什麼呢？跟其他縣市的比較又是如何呢？",
         "author": "Fu-Siou Li",
+        "class": ""
+      },
+			{
+         "title": "台南提供公費流感疫苗施打院所地圖",
+         "url": "influenza-vaccine-hospital-map",
+         "img": "./images/influenza-vaccine-hospital-map.png",
+         "description": "利用地圖顯示使用者當地位置、台南提供公費流感疫苗施打之院所",
+         "author": "Fu-Siou Li"
+        },
+        {
+         "title": "登革熱及快篩診所地圖",
+         "url": "dengue-vis-with-hospital",
+         "img": "./images/dengue-vis-with-hospital.jpg",
+         "description": "利用地圖顯示使用者當地位置、五日內登革熱確診病例、快篩診所",
+         "author": "Fu-Siou Li"
+       },
+       {
+         "title": "即時與長期菜價變化資訊",
+         "url": "vegetable-price",
+         "img": "./images/fruit.png",
+         "description": "連年菜價高漲，到底變化是如何呢？",
+         "author": "胡家偉, 陳昱文, 林建宏",
+         "collaborator": "Chi-Hsuan, Huang"
+       },
+       {
+        "title": "Instants 即時生活資訊",
+        "url": "http://life.instants.io/",
+        "img": "./images/instants.jpg",
+        "description": "提供您即時的生活品質資訊",
+        "author": "Chi-Hsaun, Huang",
+        "collaborator": "",
+        "class": ""
+       },
+       {
+        "title": "油價知多少-即時油價資訊",
+        "url": "oil",
+        "img": "./images/oil.jpg",
+        "description": "想知道這週和下週的油價嗎？即時油價及長期油價走勢圖",
+        "author": "詹博山、李岳庭、謝忠穎",
+        "collaborator": "Chi-Hsuan, Huang",
+        "class": ""
+      },
+      {
+        "title": "台南2015年登革熱恢復狀況",
+        "url": "tainan-2015-denguefever-recovery",
+        "img": "images/tainan-2015-denguefever-recovery.jpg",
+        "description": "台南登革熱已經開始趨緩，進入了恢復期，一起來看看最近各里的恢復狀況吧！",
+        "author": "Chi-Hsuan Huang",
+        "class": ""
+      },
+      {
+        "title": "高雄2015年即時登革熱資訊",
+        "url": "kaohsiung-2015-dengue",
+        "img": "images/kaohsiung-2015-dengue.jpg",
+        "description": "今年高雄登革熱持續升溫，你知道哪些地需要特別注意嗎？",
+        "author": "Chi-Hsuan Huang",
+        "class": ""
+      },
+		{
+        "title": "台南2015年即時登革熱資訊",
+        "url": "dengue-spatial-temporal",
+        "img": "images/dengue-spatial-temporal.jpg",
+        "description": "想知道台南哪些地方需要特別預防，想知道現在家裡附近會很嚴重嗎？一起來看看吧！",
+        "author": "Chi-Hsuan Huang",
+        "class": ""
+      },
+      {
+        "title": "台南 2015 年一月到現在登革熱散播狀況",
+        "url": "dengue-fever",
+        "img": "images/dengue-fever.jpg",
+        "description": "今年的台南登革熱疫情持續的不斷蔓延，而登革熱疫情如何散播的呢？讓我們用動態圖表帶你來看看！",
+        "author": "Weber Chi",
         "class": ""
       }
     ]

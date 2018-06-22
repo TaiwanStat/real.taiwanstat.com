@@ -29,7 +29,6 @@
     "gulp-minify-css": "^1.0.0",
     "gulp-minify-html": "^1.0.6",
     "gulp-rename": "^1.2.2",
-    "jquery": "^2.1.1",
     "moment": "^2.9.0",
     "node-schedule": "^0.2.6",
     "request": "^2.53.0"
