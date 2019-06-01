@@ -17,7 +17,7 @@ a {
 
 .info-footer {
     position: relative;
-    bottom: 60px;
+    bottom: 40px;
     left: 10px;
     z-index: 999;
 }
@@ -130,7 +130,7 @@ i.fa.fa-refresh {
 }
 
 .info.leaflet-control {
-    margin-top: 80px;
+    margin-top: 10px;
 }
 
 .main-info {

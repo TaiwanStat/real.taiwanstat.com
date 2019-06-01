@@ -25,7 +25,7 @@ i.fa.fa-compass.fa-2x{position:absolute;top:25rem;border-radius:30px;text-align:
 i.fa.fa-info.fa-2x{position:absolute;top:18rem;border-radius:30px;text-align:center}
 i.fa.fa-refresh{cursor:pointer;position:absolute;top:21.5rem;background:#fff;border-radius:30px;padding:7px;text-align:center}
 .info.legend.leaflet-control{width:80px;margin-bottom:60px}
-.info.leaflet-control,.leaflet-top.leaflet-left{margin-top:80px}
+.info.leaflet-control,.leaflet-top.leaflet-left{margin-top:0px}
 .main-info{display:none}
 table td{text-align:left;padding:5px}
 .points path{stroke-opacity:.2}
