@@ -65,6 +65,9 @@
       }
      
       var siteInfo = getSiteInfo(data[i].SiteName, sites);
+      if (!siteInfo) {
+				continue;
+      }
       var marker = L.marker([siteInfo.TWD97Lat, siteInfo.TWD97Lon],
         {icon: icon, opacity: 0.9})
         .addTo(map);   

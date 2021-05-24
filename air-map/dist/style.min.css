@@ -1,4 +1,4 @@
-i.fa.fa-compass.fa-2x,i.fa.fa-info.fa-2x,i.fa.fa-refresh{position:absolute;border-radius:30px}
+i.fa.fa-compass.fa-2x,i.fa.fa-info.fa-2x,i.fa.fa-refresh{border-radius:30px;text-align:center}
 body,html{height:100%;width:100%}
 i.fa.fa-compass.fa-2x,i.fa.fa-info.fa-2x{padding:10px;cursor:pointer;background:#fff}
 .point-cell,.points path{stroke:#000;fill:none;pointer-events:all;stroke-opacity:.2}
@@ -21,11 +21,11 @@ i.fa.fa-compass.fa-2x,i.fa.fa-info.fa-2x,i.fa.fa-refresh{height:38px;color:#4747
 .brown{color:#5F2828}
 #map{height:83%}
 .layer{fill:#ccc}
-i.fa.fa-compass.fa-2x{top:25rem;text-align:center}
-i.fa.fa-info.fa-2x{top:18rem;text-align:center}
-i.fa.fa-refresh{cursor:pointer;top:21.5rem;background:#fff;padding:7px;text-align:center}
+i.fa.fa-compass.fa-2x{position:absolute;top:25rem}
+i.fa.fa-info.fa-2x{position:absolute;top:18rem}
+i.fa.fa-refresh{cursor:pointer;position:absolute;top:21.5rem;background:#fff;padding:7px}
 .info.legend.leaflet-control{width:80px;margin-bottom:60px}
-.info.leaflet-control,.leaflet-top.leaflet-left{margin-top:80px}
+.info.leaflet-control,.leaflet-top.leaflet-left{margin-top:0}
 .main-info{display:none}
 table td{text-align:left;padding:5px}
 .point circle{fill:#4682b4;stroke:#fff;pointer-events:none}
@@ -39,4 +39,5 @@ table td{text-align:left;padding:5px}
 .info.leaflet-control{width:140px}
 .rpi-q>.rpi-info{display:block}
 .rpi-info{left:20%;top:35%}
-.btn-sites a:nth-child(3) .button,.btn-sites a:nth-child(4) .button{display:none}}
+.btn-sites a:nth-child(3) .button,.btn-sites a:nth-child(4) .button{display:none}
+}
